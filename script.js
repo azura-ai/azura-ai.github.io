@@ -25,24 +25,45 @@ document.addEventListener('DOMContentLoaded', () => {
         messages.scrollTop = messages.scrollHeight;
     };
 
-    const handleSend = () => {
+    const handleSend = async () => {
         const text = input.value.trim();
         if (text) {
             addMessage(text);
             input.value = '';
             
-            // Simulate bot response
-            setTimeout(() => {
-                const responses = [
-                    "I'd be happy to help you with your AI project!",
-                    "Our expertise in OCR can definitely scale your operations.",
-                    "We specialize in LangGraph for complex agentic workflows.",
-                    "Nexus delivers premium solutions in Python and Go.",
-                    "Let's book a discovery call to discuss your RAG implementation."
-                ];
-                const rand = Math.floor(Math.random() * responses.length);
-                addMessage(responses[rand], true);
-            }, 1000);
+            // Show loading bubble
+            const loadingMsg = document.createElement('div');
+            loadingMsg.className = 'message bot-message loading';
+            loadingMsg.textContent = 'Typing...';
+            messages.appendChild(loadingMsg);
+            messages.scrollTop = messages.scrollHeight;
+
+            try {
+                // Call local backend (if running)
+                const response = await fetch('http://localhost:8000/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+                
+                const data = await response.json();
+                messages.removeChild(loadingMsg);
+                addMessage(data.response, true);
+            } catch (err) {
+                messages.removeChild(loadingMsg);
+                // Fallback to simulation if backend is not reachable
+                setTimeout(() => {
+                    const responses = [
+                        "I'd be happy to help you with your AI project! I noticed you might be interested in our AI Audit.",
+                        "Our expertise in OCR can definitely scale your operations globally.",
+                        "We specialize in LangGraph for complex agentic workflows in the US and Europe.",
+                        "Nexus delivers premium solutions in Python and Go for international clients.",
+                        "Let's book a discovery call to discuss your regional RAG implementation."
+                    ];
+                    const rand = Math.floor(Math.random() * responses.length);
+                    addMessage(responses[rand], true);
+                }, 1000);
+            }
         }
     };
 
@@ -64,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .tech-group, .blog-card, .contact-container').forEach(el => {
+    document.querySelectorAll('.service-card, .tech-group, .blog-card, .case-card, .reach-item, .contact-container').forEach(el => {
         observer.observe(el);
     });
 
