@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .tech-group, .blog-card, .case-card, .reach-item, .contact-container').forEach(el => {
+    document.querySelectorAll('.service-card, .tech-group, .blog-card, .contact-container').forEach(el => {
         observer.observe(el);
     });
 
@@ -93,33 +93,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
     const newsletterForm = document.getElementById('newsletter-form');
 
-    const handleFormSubmit = (e, msg) => {
+    const handleFormSubmit = async (e, endpoint, successMsg) => {
         e.preventDefault();
         const btn = e.target.querySelector('button');
         const originalText = btn.textContent;
         
+        // Extract data
+        const formData = {};
+        const inputs = e.target.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            const label = input.previousElementSibling ? input.previousElementSibling.textContent.toLowerCase() : 'email';
+            formData[label] = input.value;
+        });
+
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
-        setTimeout(() => {
+        try {
+            const response = await fetch(`http://localhost:8000/${endpoint}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) throw new Error('Backend unavailable');
+
             btn.textContent = 'Success!';
             btn.style.background = '#10b981';
-            alert(msg);
+            alert(successMsg);
             e.target.reset();
-
+        } catch (err) {
+            console.warn('Form submission fallback:', err);
+            // Simulate success for demo purposes if backend is down
+            setTimeout(() => {
+                btn.textContent = 'Success (Demo)!';
+                btn.style.background = '#3b82f6';
+                alert(successMsg + ' (Simulation Mode)');
+                e.target.reset();
+            }, 1000);
+        } finally {
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.style.background = '';
                 btn.disabled = false;
             }, 3000);
-        }, 1500);
+        }
     };
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => handleFormSubmit(e, 'Message sent successfully! We will get back to you soon.'));
+        contactForm.addEventListener('submit', (e) => handleFormSubmit(e, 'contact', 'Message sent successfully! We will get back to you soon.'));
     }
 
     if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => handleFormSubmit(e, 'Thanks for subscribing to our newsletter!'));
+        newsletterForm.addEventListener('submit', (e) => handleFormSubmit(e, 'newsletter', 'Thanks for subscribing to our newsletter!'));
     }
 });

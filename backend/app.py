@@ -27,6 +27,14 @@ agent = Agent(
 class ChatRequest(BaseModel):
     message: str
 
+class ContactRequest(BaseModel):
+    name: str
+    email: str
+    message: str
+
+class NewsletterRequest(BaseModel):
+    email: str
+
 class ChatResponse(BaseModel):
     response: str
 
@@ -45,6 +53,16 @@ async def chat(request: ChatRequest):
         return ChatResponse(response=str(result.data))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/newsletter")
+async def subscribe_newsletter(request: NewsletterRequest):
+    logger.info(f"New newsletter subscription: {request.email}")
+    return {"status": "success", "message": "Subscribed successfully"}
+
+@app.post("/contact")
+async def contact_form(request: ContactRequest):
+    logger.info(f"New contact form submission from {request.name} ({request.email}): {request.message}")
+    return {"status": "success", "message": "Message received"}
 
 if __name__ == "__main__":
     import uvicorn
