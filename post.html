@@ -8,19 +8,40 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="loader.js" defer></script>
 </head>
-<body class="sub-page">
-    <header></header>
-    <main class="content-container">
-        <div id="md-content" class="post-content">Loading content...</div>
+    <nav>
+        <div class="logo">NEXUS<span>INTELLIGENCE</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <main class="sub-page-main">
+        <section class="post-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> Back to Insights</a>
+                <h1 id="post-title">Loading...</h1>
+                <div class="post-meta">
+                    <span id="post-date">March 19, 2026</span>
+                    <span class="meta-separator">•</span>
+                    <span class="post-tag">Impact Analysis</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="post-container">
+            <div id="md-content" class="post-content glass-card">
+                <div class="loader-pulse"></div>
+            </div>
+        </section>
     </main>
-    <footer></footer>
 
     <script>
         async function renderMarkdown() {
             const params = new URLSearchParams(window.location.search);
             const blogId = params.get('blog');
             if (!blogId) {
-                window.location.href = '/';
+                window.location.href = 'index.html';
                 return;
             }
 
@@ -29,13 +50,18 @@
                 if (!response.ok) throw new Error('Post not found');
                 const mdText = await response.text();
                 
-                // Set page title from filename or first H1
-                const title = blogId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                // Extract Title from H1 if exists
+                const h1Match = mdText.match(/^# (.+)$/m);
+                const title = h1Match ? h1Match[1] : blogId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                
+                document.getElementById('post-title').innerText = title;
                 document.title = `${title} | Nexus Intelligence`;
 
-                document.getElementById('md-content').innerHTML = marked.parse(mdText);
+                // Render Markdown (excluding first H1 if we used it as title)
+                const finalMd = h1Match ? mdText.replace(/^# .+\n/, '') : mdText;
+                document.getElementById('md-content').innerHTML = marked.parse(finalMd);
             } catch (err) {
-                document.getElementById('md-content').innerHTML = `<h1>404</h1><p>Post not found: ${blogId}</p><a href="/">Back to Home</a>`;
+                document.getElementById('md-content').innerHTML = `<h1>404</h1><p>Post not found: ${blogId}</p><a href="index.html">Back to Home</a>`;
             }
         }
         document.addEventListener('DOMContentLoaded', renderMarkdown);
