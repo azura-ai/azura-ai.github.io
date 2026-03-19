@@ -23,9 +23,16 @@ def get_shared_components(root_path=""):
         with open('header.html', 'r') as f: header = f.read()
         with open('footer.html', 'r') as f: footer = f.read()
         if root_path:
-            header = header.replace('href="', f'href="{root_path}')
+            def safe_prefix(match):
+                path = match.group(1)
+                if path.startswith(('http', 'https', '/', '#', 'mailto:')): return match.group(0)
+                # Cleanup existing relative prefixes to prevent doubling
+                clean_path = path.lstrip('./') 
+                return f'href="{root_path}{clean_path}"'
+            
+            header = re.sub(r'href="([^"]+)"', safe_prefix, header)
+            footer = re.sub(r'href="([^"]+)"', safe_prefix, footer)
             header = header.replace('src="', f'src="{root_path}')
-            footer = footer.replace('href="', f'href="{root_path}')
             footer = footer.replace('src="', f'src="{root_path}')
         return header, footer
     except: return "", ""
@@ -92,16 +99,20 @@ def generate_static_page(item, template_path, output_dir, content_type="blog"):
     if not os.path.exists(template_path): return
     with open(template_path, 'r') as f: html = f.read()
     
+    # 1. Path Harmonization
+    root_val = "../../"
+    html = html.replace('[[ROOT]]', root_val)
+    
     clean_base = BASE_URL.rstrip('/')
     clean_path = f"{output_dir}/{item['id']}"
     canonical_url = f"{clean_base}/{clean_path}/"
     
-    # 1. Metadata Injection
+    # 2. Metadata Injection
     html = html.replace('<title>Blog | Nexus Intelligence</title>', f'<title>{item["title"]} | Nexus Intelligence</title>')
     html = html.replace('<title>Case Study | Nexus Intelligence</title>', f'<title>{item["title"]} | Case Study | Nexus Intelligence</title>')
     html = html.replace('<meta name="description" content="[^"]*">', f'<meta name="description" content="{item["description"]}">')
     
-    # 2. Content Baking (ZERO-FETCH)
+    # 3. Content Baking (ZERO-FETCH)
     raw_md = item['raw_content']
     h1_match = re.search(r'^# .+\n', raw_md)
     baked_md = raw_md.replace(h1_match.group(0), '') if h1_match else raw_md
@@ -110,25 +121,25 @@ def generate_static_page(item, template_path, output_dir, content_type="blog"):
     html = html.replace('<h1 id="post-title">Loading...</h1>', f'<h1 id="post-title">{item["title"]}</h1>')
     html = html.replace('<div class="loader-pulse"></div>', content_html)
     
-    # 3. Read Time
+    # 4. Read Time
     word_count = len(raw_md.split())
     read_time = max(1, word_count // 200)
     html = html.replace('<span id="read-time">5 min read</span>', f'<span id="read-time">{read_time} min read</span>')
     html = html.replace('<span id="read-time">3 min read</span>', f'<span id="read-time">{read_time} min read</span>')
 
-    # 4. Social Links
+    # 5. Social Links
     encoded_url = urllib.parse.quote(canonical_url)
     encoded_title = urllib.parse.quote(item['title'])
     html = html.replace('id="share-twitter" href="#"', f'id="share-twitter" href="https://twitter.com/intent/tweet?text={encoded_title}&url={encoded_url}"')
     html = html.replace('id="share-linkedin" href="#"', f'id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={encoded_url}"')
 
-    # 5. Shared Components
+    # 6. Shared Components
     target_dir = os.path.join(output_dir, item['id'])
     os.makedirs(target_dir, exist_ok=True)
-    header, footer = get_shared_components(root_path="../../")
+    header, footer = get_shared_components(root_path=root_val)
     html = inject_content(html, header, footer)
     
-    # 6. Schema Baking (Safe String Replacement)
+    # 7. Schema Baking
     schema_id = "article-schema" if content_type == "blog" else "study-schema"
     schema_data = {
         "@context": "https://schema.org",
@@ -139,11 +150,9 @@ def generate_static_page(item, template_path, output_dir, content_type="blog"):
         "publisher": { "@type": "Organization", "name": "Nexus Intelligence" },
         "datePublished": datetime.now().strftime('%Y-%m-%d')
     }
-    # Use split/join to replace precisely without regex
     schema_pattern = f'<script type="application/ld+json" id="{schema_id}">'
     if schema_pattern in html:
         parts = html.split(schema_pattern)
-        # Assuming only one match, replace the script content until </script>
         after_pattern = parts[1].split('</script>', 1)
         new_script = f'{schema_pattern}{json.dumps(schema_data)}</script>'
         html = parts[0] + new_script + after_pattern[1]
@@ -173,6 +182,7 @@ if __name__ == "__main__":
     for filename in ['index.html', 'blog.html']:
         if os.path.exists(filename):
             with open(filename, 'r') as f: content = f.read()
+            content = content.replace('[[ROOT]]', '') # Root pages have no root_path
             new_html = inject_content(content, header, footer, data, filename)
             with open(filename, 'w') as f: f.write(new_html)
     
@@ -182,4 +192,4 @@ if __name__ == "__main__":
     meta_data = {k: [{i: v for i, v in item.items() if i != 'raw_content'} for item in data[k]] for k in data}
     with open(CONTENT_JSON, 'w') as f: json.dump(meta_data, f, indent=4)
     generate_sitemap(data)
-    print("✨ SSG Build Complete. Professional Zero-Fetch architecture deployed.")
+    print("✨ SSG Path Reconciliation Complete. Asset links verified.")
