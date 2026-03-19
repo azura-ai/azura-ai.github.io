@@ -1,27 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Dynamic Card Rendering
+    // Dynamic Card Rendering
     async function renderDynamicContent() {
         const ROOT_PATH = window.ROOT_PATH || '';
-        try {
-            const response = await fetch(`${ROOT_PATH}content.json`);
-            const data = await response.json();
-
-            // Render Blogs with Pagination
-            const blogGrid = document.querySelector('.blog-grid');
-            if (blogGrid) {
+        
+        const blogGrid = document.querySelector('.blog-grid');
+        const caseGrid = document.querySelector('.cases-grid');
+        
+        // Only fetch if grids are empty (Server environment)
+        if (blogGrid && blogGrid.children.length <= 1) {
+            try {
+                const response = await fetch(`${ROOT_PATH}content.json`);
+                const data = await response.json();
+                
+                // Render Blogs
                 const POSTS_PER_PAGE = 3;
                 let currentPage = 1;
-
                 const renderBlogs = (page) => {
                     const start = 0;
                     const end = page * POSTS_PER_PAGE;
                     const visibleBlogs = data.blogs.slice(start, end);
-
                     blogGrid.innerHTML = visibleBlogs.map((blog, i) => {
                         const imgUrl = blog.image ? (blog.image.startsWith('http') ? blog.image : ROOT_PATH + blog.image) : '';
                         return `
                         <div class="blog-card animate-in" style="animation-delay: ${i * 0.1}s">
-                            <div class="blog-img" style="background: ${imgUrl ? `url('${imgUrl}') center/cover` : `linear-gradient(135deg, hsl(${260 + i * 20}, 70%, 50%), hsl(${220 + i * 20}, 70%, 40%))`};">
+                            <div class="blog-img" style="background: ${imgUrl ? `url('${imgUrl}') center/cover` : `linear-gradient(135deg, hsl(${260 + i * 20}, 70%, 50%), hsl({220 + i * 20}, 70%, 40%))`};">
                                 ${!imgUrl ? `<div class="img-overlay"></div>` : ''}
                             </div>
                             <div class="blog-content">
@@ -30,10 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <p>${blog.subtitle ? blog.subtitle.substring(0, 100) + '...' : ''}</p>
                                 <a href="${ROOT_PATH}blog/${blog.id}/" class="read-more">Read Insight <i class="fas fa-arrow-right"></i></a>
                             </div>
-                        </div>
-                    `}).join('');
-
-                    // Add Load More button if needed
+                        </div>`;
+                    }).join('');
                     if (end < data.blogs.length) {
                         let loadMoreCont = document.querySelector('.pagination-container');
                         if (!loadMoreCont) {
@@ -42,38 +43,25 @@ document.addEventListener('DOMContentLoaded', () => {
                             blogGrid.after(loadMoreCont);
                         }
                         loadMoreCont.innerHTML = `<button class="load-more-btn" id="load-more-blog">Load More Insights</button>`;
-                        document.getElementById('load-more-blog').onclick = () => {
-                            currentPage++;
-                            renderBlogs(currentPage);
-                        };
-                    } else {
-                        const loadMoreCont = document.querySelector('.pagination-container');
-                        if (loadMoreCont) loadMoreCont.remove();
+                        document.getElementById('load-more-blog').onclick = () => { currentPage++; renderBlogs(currentPage); };
                     }
                 };
-
                 renderBlogs(currentPage);
-            }
 
-            // Render Case Studies
-            const caseGrid = document.querySelector('.cases-grid');
-            if (caseGrid) {
-                caseGrid.innerHTML = data.cases.map(study => `
-                    <div class="case-card">
-                        <div class="case-header">
-                            <span class="case-badge">Impact Analysis</span>
-                            <h3>${study.title}</h3>
-                        </div>
-                        <p>${study.subtitle}</p>
-                        <a href="${ROOT_PATH}case/${study.id}/" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                `).join('');
-            }
-
-            // Re-apply observer to new elements
-            document.querySelectorAll('.blog-card, .case-card').forEach(el => observer.observe(el));
-        } catch (err) {
-            console.warn('Failed to load dynamic content:', err);
+                // Render Cases if empty
+                if (caseGrid && caseGrid.children.length === 0) {
+                    caseGrid.innerHTML = data.cases.map(study => `
+                        <div class="case-card">
+                            <div class="case-header">
+                                <span class="case-badge">Impact Analysis</span>
+                                <h3>${study.title}</h3>
+                            </div>
+                            <p>${study.subtitle}</p>
+                            <a href="${ROOT_PATH}case/${study.id}/" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
+                        </div>`).join('');
+                }
+                document.querySelectorAll('.blog-card, .case-card').forEach(el => observer.observe(el));
+            } catch (err) { console.warn('Dynamic load skipped:', err); }
         }
     }
     // Chatbot Toggle

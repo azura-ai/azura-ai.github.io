@@ -1,4 +1,5 @@
 # Healthcare Hub: Automated Claims & Super Bills Processing
+> Streamlining insurance lifecycles with intelligent extraction of member IDS, CPT codes, and ICD-10 medical billing data.
 
 ## The Challenge
 A European clinical laboratory network was struggling with a 15% rejection rate on insurance claims due to manual data entry errors from "Super Bills" and Insurance Cards. The billing cycle was averaging 45 days.

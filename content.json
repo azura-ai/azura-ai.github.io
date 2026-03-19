@@ -149,7 +149,7 @@
         {
             "id": "booking-agents",
             "title": "Service Agents: Autonomous Booking & Ordering",
-            "subtitle": "Click to read more...",
+            "subtitle": "Deploying agentic AI systems that handle complex appointment booking and food ordering, reducing labor costs by 70%.",
             "description": "Hospitality and Healthcare providers in Germany were facing a skilled labor shortage, leading to missed calls and lost revenue in appointment booking and room s",
             "date": "2026-03-19",
             "image": null
@@ -157,7 +157,7 @@
         {
             "id": "dubai-mall-loyalty",
             "title": "Retail Revolution: Dubai Mall Loyalty Automation",
-            "subtitle": "\"Nexus Intelligence transformed our loyalty program from a bottleneck into our competitive advantage.\" \u2014 *Dubai Retail Group Exec*",
+            "subtitle": "Driving 99%+ accuracy in retail analytics through automated high-volume receipt processing and loyalty point attribution.",
             "description": "One of the world's largest retail destinations required a way to verify physical receipts from thousands of different merchants to instantly credit loyalty poin",
             "date": "2026-03-19",
             "image": null
@@ -173,7 +173,7 @@
         {
             "id": "healthcare-claims",
             "title": "Healthcare Hub: Automated Claims & Super Bills Processing",
-            "subtitle": "Click to read more...",
+            "subtitle": "Streamlining insurance lifecycles with intelligent extraction of member IDS, CPT codes, and ICD-10 medical billing data.",
             "description": "A European clinical laboratory network was struggling with a 15% rejection rate on insurance claims due to manual data entry errors from \"Super Bills\" and Insur",
             "date": "2026-03-19",
             "image": null
@@ -181,7 +181,7 @@
         {
             "id": "identity-verification",
             "title": "Identity Suite: Secure Passport & ID Verification",
-            "subtitle": "Click to read more...",
+            "subtitle": "Automating Global Identity Verification (KYC) with intelligent OCR for Passports, Visas, and National IDs across 180+ countries.",
             "description": "An EU-based fintech startup needed a frictionless way to onboard users while complying with strict KYC (Know Your Customer) and AML (Anti-Money Laundering) regu",
             "date": "2026-03-19",
             "image": null

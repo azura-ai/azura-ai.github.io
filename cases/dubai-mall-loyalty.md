@@ -1,4 +1,5 @@
 # Retail Revolution: Dubai Mall Loyalty Automation
+> Driving 99%+ accuracy in retail analytics through automated high-volume receipt processing and loyalty point attribution.
 
 ## The Challenge
 One of the world's largest retail destinations required a way to verify physical receipts from thousands of different merchants to instantly credit loyalty points via their mobile app. Manual verification was slow, error-prone, and prevented real-time engagement.

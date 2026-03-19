@@ -1,4 +1,5 @@
 # Identity Suite: Secure Passport & ID Verification
+> Automating Global Identity Verification (KYC) with intelligent OCR for Passports, Visas, and National IDs across 180+ countries.
 
 ## The Challenge
 An EU-based fintech startup needed a frictionless way to onboard users while complying with strict KYC (Know Your Customer) and AML (Anti-Money Laundering) regulations.

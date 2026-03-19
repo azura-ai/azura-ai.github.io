@@ -1,4 +1,5 @@
 # Service Agents: Autonomous Booking & Ordering
+> Deploying agentic AI systems that handle complex appointment booking and food ordering, reducing labor costs by 70%.
 
 ## The Challenge
 Hospitality and Healthcare providers in Germany were facing a skilled labor shortage, leading to missed calls and lost revenue in appointment booking and room service ordering.

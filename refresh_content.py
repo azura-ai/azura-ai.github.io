@@ -42,28 +42,77 @@ def get_shared_components(root_path=""):
         print(f"⚠️ Warning: Could not load shared components: {e}")
         return "", ""
 
-def inject_components(html, header, footer):
-    """Statically injects header and footer into the HTML, replacing any existing content inside those tags."""
-    # Robust replacement using regex to find <header>...</header> or <header></header>
+def inject_components(html, header, footer, blogs=None, cases=None):
+    """Statically injects header, footer, and optionally content cards into the HTML."""
+    # 1. Header/Footer
     html = re.sub(r'<header>.*?</header>', f'<header>{header}</header>', html, flags=re.DOTALL)
     html = re.sub(r'<footer>.*?</footer>', f'<footer>{footer}</footer>', html, flags=re.DOTALL)
     
-    # If <header> or <footer> don't exist at all, we might want to add them after <body>
+    # 2. Blog Cards (Top 3 for index, all for blog.html)
+    if blogs:
+        blog_html = ""
+        for i, b in enumerate(blogs):
+            img_url = b.get('image') or ""
+            # Handle pathing if inside a sub-dir or root
+            # For index.html, it's just 'blog/slug/'
+            card = f"""
+            <div class="blog-card animate-in" style="animation-delay: {i * 0.1}s">
+                <div class="blog-img" style="background: {f"url('{img_url}') center/cover" if img_url else f"linear-gradient(135deg, hsl({260 + i * 20}, 70%, 50%), hsl({220 + i * 20}, 70%, 40%))"};">
+                    {"" if img_url else '<div class="img-overlay"></div>'}
+                </div>
+                <div class="blog-content">
+                    <span class="blog-tag">Insight</span>
+                    <h3>{b['title']}</h3>
+                    <p>{b['subtitle'][:100]}...</p>
+                    <a href="blog/{b['id']}/" class="read-more">Read Insight <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>"""
+            blog_html += card
+        # Match both index.html (blog-grid) and blog.html (blog-list)
+        if '<div class="blog-grid">' in html:
+            html = re.sub(r'<div class="blog-grid">.*?</div>', f'<div class="blog-grid">{blog_html}</div>', html, flags=re.DOTALL)
+        elif 'id="blog-list"' in html:
+            # blog.html uses a slightly different card style (detailed)
+            # We can either use the same style or just inject the raw HTML if we want to be fancy.
+            # For now, let's just use the same card injection or leave it to the script if we must.
+            # Actually, let's inject it into blog-list too.
+            html = re.sub(r'id="blog-list">.*?</div>', f'id="blog-list">{blog_html}</div>', html, flags=re.DOTALL)
+
+    # 3. Case Cards
+    if cases:
+        case_html = ""
+        for study in cases:
+            case_html += f"""
+            <div class="case-card">
+                <div class="case-header">
+                    <span class="case-badge">Impact Analysis</span>
+                    <h3>{study['title']}</h3>
+                </div>
+                <p>{study['subtitle']}</p>
+                <a href="case/{study['id']}/" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
+            </div>"""
+        html = re.sub(r'<div class="cases-grid">.*?</div>', f'<div class="cases-grid">{case_html}</div>', html, flags=re.DOTALL)
+
     if '<header>' not in html:
         html = html.replace('<body class="main-page">', '<body class="main-page">\n    <header>' + header + '</header>')
         html = html.replace('<body class="sub-page">', '<body class="sub-page">\n    <header>' + header + '</header>')
     
     return html
 
-def update_root_files():
-    """Updates index.html, blog.html, about.html with latest header/footer."""
+def update_root_files(data=None):
+    """Updates index.html, blog.html, etc. with latest components and optionally content."""
     header, footer = get_shared_components()
+    
     for filename in ['index.html', 'blog.html', 'about.html', 'privacy.html', 'post.html', 'study.html']:
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 content = f.read()
             
-            new_content = inject_components(content, header, footer)
+            # Pass data only for index/blog
+            blogs = data['blogs'][:3] if data and filename == 'index.html' else (data['blogs'] if data and filename == 'blog.html' else None)
+            cases = data['cases'] if data and filename == 'index.html' else None
+            
+            new_content = inject_components(content, header, footer, blogs, cases)
             
             if new_content != content:
                 with open(filename, 'w') as f:
@@ -174,25 +223,29 @@ def generate_static_page(item, template_path, output_dir, is_blog=True):
         f.write(html)
 
 def refresh():
-    # 0. Initial update of master templates and root files
-    update_root_files()
-    
+    # 1. Gather Content First
     data = {"blogs": [], "cases": []}
     
-    # 1. Gather Content
     if os.path.exists(BLOGS_MD_DIR):
         for f in sorted(os.listdir(BLOGS_MD_DIR)):
             if f.endswith('.md'):
                 meta = extract_metadata(os.path.join(BLOGS_MD_DIR, f))
                 data["blogs"].append(meta)
-                generate_static_page(meta, POST_TEMPLATE, BLOGS_HTML_DIR, True)
-                
+    
     if os.path.exists(CASES_MD_DIR):
         for f in sorted(os.listdir(CASES_MD_DIR)):
             if f.endswith('.md'):
                 meta = extract_metadata(os.path.join(CASES_MD_DIR, f))
                 data["cases"].append(meta)
-                generate_static_page(meta, STUDY_TEMPLATE, CASES_HTML_DIR, False)
+
+    # 2. Update master templates and root files WITH data
+    update_root_files(data)
+    
+    # 3. Generate individual static pages
+    for meta in data["blogs"]:
+        generate_static_page(meta, POST_TEMPLATE, BLOGS_HTML_DIR, True)
+    for meta in data["cases"]:
+        generate_static_page(meta, STUDY_TEMPLATE, CASES_HTML_DIR, False)
                 
     # 2. Save content.json (stripping raw_md to keep it small)
     json_data = {

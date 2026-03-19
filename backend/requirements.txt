@@ -4,3 +4,4 @@ pydantic
 pydantic-ai
 loguru
 python-dotenv
+resend==2.25.0
