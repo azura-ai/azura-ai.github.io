@@ -789,7 +789,8 @@ footer {
 
 /* Post Content Area */
 .post-container {
-    max-width: 1400px;
+    max-width: 1600px !important;
+    width: 95% !important;
     margin: -100px auto 100px;
     padding: 0 2%;
     position: relative;
@@ -800,7 +801,7 @@ footer {
     background: rgba(20, 20, 23, 0.6);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
-    padding: 4rem 6%;
+    padding: 4rem 4% !important;
     border-radius: 40px;
     animation: fadeUp 1.2s ease-out;
 }
