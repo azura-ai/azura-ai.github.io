@@ -15,6 +15,61 @@ CONTENT_JSON = 'content.json'
 SITEMAP_XML = 'sitemap.xml'
 BASE_URL = "https://nexus-intel.github.io"
 
+# Load Shared Components for Static Injection
+def get_shared_components(root_path=""):
+    try:
+        with open('header.html', 'r') as f:
+            header = f.read()
+        with open('footer.html', 'r') as f:
+            footer = f.read()
+        
+        # Adjust paths in components
+        if root_path:
+            header = header.replace('href="/', f'href="{root_path}')
+            header = header.replace('src="/', f'src="{root_path}')
+            header = header.replace('href="index.html"', f'href="{root_path}index.html"')
+            header = header.replace('href="blog.html"', f'href="{root_path}blog.html"')
+            header = header.replace('href="about.html"', f'href="{root_path}about.html"')
+            
+            footer = footer.replace('href="/', f'href="{root_path}')
+            footer = footer.replace('src="/', f'src="{root_path}')
+            footer = footer.replace('href="index.html"', f'href="{root_path}index.html"')
+            footer = footer.replace('href="blog.html"', f'href="{root_path}blog.html"')
+            footer = footer.replace('href="about.html"', f'href="{root_path}about.html"')
+            
+        return header, footer
+    except Exception as e:
+        print(f"⚠️ Warning: Could not load shared components: {e}")
+        return "", ""
+
+def inject_components(html, header, footer):
+    """Statically injects header and footer into the HTML, replacing any existing content inside those tags."""
+    # Robust replacement using regex to find <header>...</header> or <header></header>
+    html = re.sub(r'<header>.*?</header>', f'<header>{header}</header>', html, flags=re.DOTALL)
+    html = re.sub(r'<footer>.*?</footer>', f'<footer>{footer}</footer>', html, flags=re.DOTALL)
+    
+    # If <header> or <footer> don't exist at all, we might want to add them after <body>
+    if '<header>' not in html:
+        html = html.replace('<body class="main-page">', '<body class="main-page">\n    <header>' + header + '</header>')
+        html = html.replace('<body class="sub-page">', '<body class="sub-page">\n    <header>' + header + '</header>')
+    
+    return html
+
+def update_root_files():
+    """Updates index.html, blog.html, about.html with latest header/footer."""
+    header, footer = get_shared_components()
+    for filename in ['index.html', 'blog.html', 'about.html', 'privacy.html', 'post.html', 'study.html']:
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                content = f.read()
+            
+            new_content = inject_components(content, header, footer)
+            
+            if new_content != content:
+                with open(filename, 'w') as f:
+                    f.write(new_content)
+                print(f"✨ Statically updated {filename}")
+
 def extract_metadata(filepath):
     with open(filepath, 'r') as f:
         content = f.read()
@@ -111,10 +166,17 @@ def generate_static_page(item, template_path, output_dir, is_blog=True):
     target_path = os.path.join(output_dir, item['id'])
     os.makedirs(target_path, exist_ok=True)
     
+    # Static Injection of Components
+    header, footer = get_shared_components(root_path="../../")
+    html = inject_components(html, header, footer)
+    
     with open(os.path.join(target_path, 'index.html'), 'w') as f:
         f.write(html)
 
 def refresh():
+    # 0. Initial update of master templates and root files
+    update_root_files()
+    
     data = {"blogs": [], "cases": []}
     
     # 1. Gather Content

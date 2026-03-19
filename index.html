@@ -24,7 +24,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="main-page">
-    <header></header>
+    <header><nav class="glass">
+    <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">NEXUS<span>INTELLIGENCE</span></a></div>
+    <ul class="nav-links">
+        <li><a href="/#hero">Home</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/#cases">Case Studies</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button" onclick="window.location.href='/#contact'">Get in Touch</button>
+</nav>
+</header>
 
     <main>
         <section id="hero" class="hero-section">
@@ -185,7 +197,38 @@
         </section>
     </main>
 
-    <footer></footer>
+    <footer>    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="logo">NEXUS<span>INTELLIGENCE</span></div>
+            <p>Architecting the future of enterprise intelligence.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Solutions</h4>
+            <ul>
+                <li><a href="/#services">AI Automation</a></li>
+                <li><a href="/#services">OCR & Vision</a></li>
+                <li><a href="/#services">LangGraph RAG</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                <a href="https://github.com/nexus-intel" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Nexus Intelligence. All rights reserved.</p>
+    </div>
+</footer>
 
     <!-- Chatbot Widget -->
     <div id="chatbot-widget" class="chatbot-closed">
