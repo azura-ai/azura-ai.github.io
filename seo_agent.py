@@ -29,7 +29,7 @@ def get_next_topic():
 
 def generate_blog_post(title, focus):
     genai.configure(api_key=GENAI_API_KEY)
-    model = genai.GenerativeModel('gemini-2.0-flash-exp') # High speed, high vibes
+    model = genai.GenerativeModel('gemini-flash-latest') # High speed, high vibes
     
     prompt = f"""
     You are a world-class technical SEO writer specializing in the "Vibe Coding" movement.

@@ -24,7 +24,7 @@ class DiscoveredTopic(BaseModel):
 
 # Specialist Agent for Strategy
 seo_agent = Agent(
-    'google-gla:gemini-1.5-flash',
+    'google-gla:gemini-flash-latest',
     result_type=SEORecommendations,
     system_prompt=(
         "You are a Senior SEO Specialist for a high-end AI Automation Agency. "
@@ -35,7 +35,7 @@ seo_agent = Agent(
 
 # Discovery Agent for Finding Topics
 discovery_agent = Agent(
-    'google-gla:gemini-1.5-flash',
+    'google-gla:gemini-flash-latest',
     result_type=DiscoveredTopic,
     system_prompt=(
         "You are an AI Content Strategist. Your job is to analyze LinkedIn trend data and "
