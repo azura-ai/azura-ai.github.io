@@ -292,10 +292,13 @@ nav {
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 600;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     transition: 0.3s;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
 }
 
 .read-more:hover {
@@ -1433,6 +1436,8 @@ input[type="range"] {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
 }
 
 .case-card h3 {
@@ -1446,7 +1451,7 @@ input[type="range"] {
 /* Tech Section */
 .tech-section { padding: 100px 0; background: var(--bg-dark); position: relative; }
 .tech-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.tech-group { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+.tech-group { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); opacity: 1 !important; transform: translateY(0) !important; }
 .tech-group h4 { color: var(--accent-primary); margin-bottom: 20px; font-family: 'Space Grotesk'; font-size: 1.2rem; }
 .tech-icons { display: flex; flex-wrap: wrap; gap: 10px; }
 .tech-tag { padding: 8px 16px; background: rgba(255,255,255,0.05); border-radius: 30px; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.15); color: #fff; }

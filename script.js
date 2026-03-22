@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <h3>${study.title}</h3>
                             </div>
                             <p>${study.subtitle}</p>
-                            <a href="${ROOT_PATH}case/${study.id}/" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
+                            <a href="${ROOT_PATH}case/${study.id}/index.html" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
                         </div>`).join('');
                 }
                 document.querySelectorAll('.blog-card, .case-card').forEach(el => observer.observe(el));
