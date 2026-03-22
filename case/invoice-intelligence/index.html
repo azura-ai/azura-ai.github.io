@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retail Revolution: Dubai Mall Loyalty Automation | Case Study | Nexus Intelligence</title>
+    <title>Invoice Intelligence: Beyond OCR to Autonomous ERP Reconciliation | Case Study | Nexus Intelligence</title>
     <meta name="description" content="Explore how Nexus Intelligence delivers measurable business impact through AI automation, agentic workflows, and intelligent document processing.">
     <link rel="stylesheet" href="../../style.css?v=2.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <!-- loader.js removed for SSG performance -->
 
     <!-- JSON-LD Schema (dynamically populated) -->
-    <script type="application/ld+json" id="study-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Retail Revolution: Dubai Mall Loyalty Automation", "description": "One of the world's largest retail destinations required a way to verify physical receipts from thousands of different merchants to instantly credit loyalty poin", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-22"}</script>
+    <script type="application/ld+json" id="study-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Invoice Intelligence: Beyond OCR to Autonomous ERP Reconciliation", "description": "Standard OCR \"reads\" text. It doesn't \"understand\" the business context. Companies lose thousands every month to duplicate invoices, incorrect tax calculations,", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-22"}</script>
 </head>
 <body class="sub-page">
     <header id="header-container"><nav class="glass">
@@ -36,7 +36,7 @@
             <div class="hero-bg"></div>
             <div class="hero-content">
                 <a href="index.html#cases" class="back-link"><i class="fas fa-chevron-left"></i> All Case Studies</a>
-                <h1 id="post-title">Retail Revolution: Dubai Mall Loyalty Automation</h1>
+                <h1 id="post-title">Invoice Intelligence: Beyond OCR to Autonomous ERP Reconciliation</h1>
                 <div class="post-meta">
                     <span id="post-date">March 19, 2026</span>
                     <span class="meta-separator">•</span>
@@ -50,34 +50,72 @@
         <section class="post-container">
             <div id="md-content" class="post-content glass-card">
                 <blockquote>
-<p>Driving 99%+ accuracy in retail analytics through automated high-volume receipt processing and loyalty point attribution.</p>
+<p>Transforming invoices from dead PDF pixels into structured, actionable business intelligence with 0 human intervention.</p>
 </blockquote>
 <h2>The Challenge</h2>
-<p>One of the world's largest retail destinations required a way to verify physical receipts from thousands of different merchants to instantly credit loyalty points via their mobile app. Manual verification was slow, error-prone, and prevented real-time engagement.</p>
-<h2>The Solution: Advanced Document Intelligence</h2>
-<p>We deployed a custom <strong>Document Workflow Automation</strong> engine that utilizes state-of-the-art vision models to:</p>
-<ol>
-<li><strong>Extract Merchant Data</strong>: Identify the specific store, tax ID, and location from chaotic receipt layouts.</li>
-<li><strong>Verify Transaction</strong>: Cross-reference the date, time, and total amount against mall-wide sales data.</li>
-<li><strong>Fraud Detection</strong>: Detect duplicate submissions and digital alterations using advanced image forensics.</li>
-</ol>
-<h2>The Result</h2>
+<p>Standard OCR &quot;reads&quot; text. It doesn't &quot;understand&quot; the business context. Companies lose thousands every month to duplicate invoices, incorrect tax calculations, and line-items that don't match Purchase Orders (PO).</p>
+<h2>The Solution: Nexus IDP Engine</h2>
+<p>An Intelligent Document Processing (IDP) agent that performs &quot;Triple Matching&quot; (Invoice vs. PO vs. Receiving Report).</p>
+<div class="data-flow-viz">
+    <div class="flow-node">
+        <i class="fas fa-file-invoice"></i>
+        <span>Raw Invoices</span>
+    </div>
+    <div class="process-core">
+        <i class="fas fa-microchip"></i>
+    </div>
+    <div class="destination-grid">
+        <div class="flow-node mini">
+            <i class="fas fa-file-excel"></i>
+            <span>Excel</span>
+        </div>
+        <div class="flow-node mini">
+            <i class="fas fa-database"></i>
+            <span>SQL / ERP</span>
+        </div>
+    </div>
+</div>
+<h3>Advanced Features</h3>
 <ul>
-<li><strong>Automation Rate</strong>: 96% of receipts processed without human intervention.</li>
-<li><strong>Latency</strong>: Point credit reduced from 24 hours to &lt; 5 seconds.</li>
-<li><strong>ROI</strong>: Increased customer app engagement by 340% within the first quarter.</li>
+<li><strong>Line-Item Synthesis</strong>: Correctly categorizes obscure vendor SKUs into your internal GL codes.</li>
+<li><strong>Fraud Detection</strong>: Flags subtle anomalies (e.g., changed bank details, price spikes).</li>
+<li><strong>Auto-Reconciliation</strong>: Directly updates Oracle, SAP, or NetSuite via secure API handlers.</li>
 </ul>
-<blockquote>
-<p>&quot;Nexus Intelligence transformed our loyalty program from a bottleneck into our competitive advantage.&quot; — <em>Dubai Retail Group Exec</em></p>
-</blockquote>
-<hr />
-<h2>Technical Stack</h2>
-<ul>
-<li><strong>Engine</strong>: Google Gemini API (Vision)</li>
-<li><strong>Workflow</strong>: Python-based LangGraph orchestration</li>
-<li><strong>Integration</strong>: REST API for Mobile App (Flutter)</li>
-<li><strong>Database</strong>: High-concurrency PostgreSQL</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Capability</th>
+<th style="text-align:left">Legacy IDP</th>
+<th style="text-align:left">Nexus Agentic IDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Matching</td>
+<td style="text-align:left">Simple Header/Footer</td>
+<td style="text-align:left">Complex Line-Item Matching</td>
+</tr>
+<tr>
+<td style="text-align:left">Contextual Logic</td>
+<td style="text-align:left">None (Template Based)</td>
+<td style="text-align:left">Deep (LLM-Logic)</td>
+</tr>
+<tr>
+<td style="text-align:left">System Integration</td>
+<td style="text-align:left">CSV Export</td>
+<td style="text-align:left">Live API Handshake</td>
+</tr>
+<tr>
+<td style="text-align:left">Handling Exceptions</td>
+<td style="text-align:left">40% Human Review</td>
+<td style="text-align:left">&lt; 5% Human Review</td>
+</tr>
+</tbody>
+</table>
+<h2>Architectural Overview</h2>
+<p>The system utilizes a &quot;Human-in-the-Loop&quot; fallback. If the agent's confidence score drops below 95%, the invoice is routed to a human dashboard for a 3-second &quot;Click-to-Verify&quot; action.</p>
+<h2>Business Impact</h2>
+<p>A global logistics provider <strong>automated 92% of their AP (Accounts Payable) workflow</strong>, reducing their invoice cycle time from 14 days to <strong>less than 1 hour</strong>.</p>
 
             </div>
 
@@ -85,8 +123,8 @@
             <div class="post-footer">
                 <div class="share-row">
                     <span>Share this case study:</span>
-                    <a id="share-twitter" href="https://twitter.com/intent/tweet?text=Retail%20Revolution%3A%20Dubai%20Mall%20Loyalty%20Automation&url=https%3A//nexus-intel.github.io/case/dubai-mall-loyalty/" target="_blank" class="share-btn">𝕏 Twitter</a>
-                    <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//nexus-intel.github.io/case/dubai-mall-loyalty/" target="_blank" class="share-btn">in LinkedIn</a>
+                    <a id="share-twitter" href="https://twitter.com/intent/tweet?text=Invoice%20Intelligence%3A%20Beyond%20OCR%20to%20Autonomous%20ERP%20Reconciliation&url=https%3A//nexus-intel.github.io/case/invoice-intelligence/" target="_blank" class="share-btn">𝕏 Twitter</a>
+                    <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//nexus-intel.github.io/case/invoice-intelligence/" target="_blank" class="share-btn">in LinkedIn</a>
                     <button id="share-copy" class="share-btn">📋 Copy Link</button>
                 </div>
                 <div class="post-cta">

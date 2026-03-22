@@ -241,6 +241,33 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateROI(); // Initial calc
     }
 
+    // Data Flow Particle System
+    const initDataFlow = () => {
+        const containers = document.querySelectorAll('.data-flow-viz');
+        containers.forEach(container => {
+            setInterval(() => {
+                // Particle from source to core
+                const p1 = document.createElement('div');
+                p1.className = 'flow-particle';
+                p1.style.top = (Math.random() * 60 + 20) + '%';
+                p1.style.animation = `flow-left-to-center ${Math.random() * 1 + 1.5}s infinite linear`;
+                container.appendChild(p1);
+                setTimeout(() => p1.remove(), 2500);
+
+                // Particle from core to destination
+                setTimeout(() => {
+                    const p2 = document.createElement('div');
+                    p2.className = 'flow-particle';
+                    p2.style.top = (Math.random() * 60 + 20) + '%';
+                    p2.style.animation = `flow-center-to-right ${Math.random() * 1 + 1.5}s infinite linear`;
+                    container.appendChild(p2);
+                    setTimeout(() => p2.remove(), 2500);
+                }, 1000);
+            }, 800);
+        });
+    };
+
+    initDataFlow();
     renderDynamicContent();
 });
 

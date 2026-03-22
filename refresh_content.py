@@ -16,7 +16,7 @@ CONTENT_JSON = 'content.json'
 SITEMAP_XML = 'sitemap.xml'
 BASE_URL = "https://nexus-intel.github.io"
 
-md = MarkdownIt().enable('table')
+md = MarkdownIt(options_update={"html": True}).enable('table')
 
 def get_shared_components(root_path=""):
     try:

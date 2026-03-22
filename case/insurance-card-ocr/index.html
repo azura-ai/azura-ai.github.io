@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retail Revolution: Dubai Mall Loyalty Automation | Case Study | Nexus Intelligence</title>
+    <title>Insurance Card OCR & Eligibility: Real-Time Verification in < 2 Seconds | Case Study | Nexus Intelligence</title>
     <meta name="description" content="Explore how Nexus Intelligence delivers measurable business impact through AI automation, agentic workflows, and intelligent document processing.">
     <link rel="stylesheet" href="../../style.css?v=2.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <!-- loader.js removed for SSG performance -->
 
     <!-- JSON-LD Schema (dynamically populated) -->
-    <script type="application/ld+json" id="study-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Retail Revolution: Dubai Mall Loyalty Automation", "description": "One of the world's largest retail destinations required a way to verify physical receipts from thousands of different merchants to instantly credit loyalty poin", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-22"}</script>
+    <script type="application/ld+json" id="study-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Insurance Card OCR & Eligibility: Real-Time Verification in < 2 Seconds", "description": "Waiting rooms are clogged by manual data entry. Staff spend 5-10 minutes typing in policy numbers, group IDs, and patient details from physical cards\u2014often with", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-22"}</script>
 </head>
 <body class="sub-page">
     <header id="header-container"><nav class="glass">
@@ -36,7 +36,7 @@
             <div class="hero-bg"></div>
             <div class="hero-content">
                 <a href="index.html#cases" class="back-link"><i class="fas fa-chevron-left"></i> All Case Studies</a>
-                <h1 id="post-title">Retail Revolution: Dubai Mall Loyalty Automation</h1>
+                <h1 id="post-title">Insurance Card OCR & Eligibility: Real-Time Verification in < 2 Seconds</h1>
                 <div class="post-meta">
                     <span id="post-date">March 19, 2026</span>
                     <span class="meta-separator">•</span>
@@ -50,34 +50,72 @@
         <section class="post-container">
             <div id="md-content" class="post-content glass-card">
                 <blockquote>
-<p>Driving 99%+ accuracy in retail analytics through automated high-volume receipt processing and loyalty point attribution.</p>
+<p>Eliminating front-desk friction with localized, high-speed document intelligence for healthcare providers.</p>
 </blockquote>
 <h2>The Challenge</h2>
-<p>One of the world's largest retail destinations required a way to verify physical receipts from thousands of different merchants to instantly credit loyalty points via their mobile app. Manual verification was slow, error-prone, and prevented real-time engagement.</p>
-<h2>The Solution: Advanced Document Intelligence</h2>
-<p>We deployed a custom <strong>Document Workflow Automation</strong> engine that utilizes state-of-the-art vision models to:</p>
-<ol>
-<li><strong>Extract Merchant Data</strong>: Identify the specific store, tax ID, and location from chaotic receipt layouts.</li>
-<li><strong>Verify Transaction</strong>: Cross-reference the date, time, and total amount against mall-wide sales data.</li>
-<li><strong>Fraud Detection</strong>: Detect duplicate submissions and digital alterations using advanced image forensics.</li>
-</ol>
-<h2>The Result</h2>
+<p>Waiting rooms are clogged by manual data entry. Staff spend 5-10 minutes typing in policy numbers, group IDs, and patient details from physical cards—often with errors that lead to late-cycle denials.</p>
+<h2>The Solution: Nexus Card-Agent</h2>
+<p>A specialized Vision-LLM pipeline that works on mobile devices. Patients snap a photo; the agent extracts all 22+ fields and performs a real-time eligibility check via payer APIs.</p>
+<div class="data-flow-viz">
+    <div class="flow-node">
+        <i class="fas fa-id-card"></i>
+        <span>Card Scanner</span>
+    </div>
+    <div class="process-core">
+        <i class="fas fa-eye"></i>
+    </div>
+    <div class="destination-grid">
+        <div class="flow-node mini">
+            <i class="fas fa-check-circle"></i>
+            <span>Eligibility</span>
+        </div>
+        <div class="flow-node mini">
+            <i class="fas fa-user-md"></i>
+            <span>Patient EMR</span>
+        </div>
+    </div>
+</div>
+<h3>The Stack</h3>
 <ul>
-<li><strong>Automation Rate</strong>: 96% of receipts processed without human intervention.</li>
-<li><strong>Latency</strong>: Point credit reduced from 24 hours to &lt; 5 seconds.</li>
-<li><strong>ROI</strong>: Increased customer app engagement by 340% within the first quarter.</li>
+<li><strong>Edge Vision</strong>: Mobile-first image enhancement and de-skewing.</li>
+<li><strong>LLM-Extraction</strong>: Zero-shot field identification (even for obscure regional payers).</li>
+<li><strong>Validation Logic</strong>: Cross-references against internal patient registries.</li>
 </ul>
-<blockquote>
-<p>&quot;Nexus Intelligence transformed our loyalty program from a bottleneck into our competitive advantage.&quot; — <em>Dubai Retail Group Exec</em></p>
-</blockquote>
-<hr />
-<h2>Technical Stack</h2>
-<ul>
-<li><strong>Engine</strong>: Google Gemini API (Vision)</li>
-<li><strong>Workflow</strong>: Python-based LangGraph orchestration</li>
-<li><strong>Integration</strong>: REST API for Mobile App (Flutter)</li>
-<li><strong>Database</strong>: High-concurrency PostgreSQL</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Accuracy (Nexus OCR)</th>
+<th style="text-align:left">Traditional OCR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Policy Number</td>
+<td style="text-align:left">99.9%</td>
+<td style="text-align:left">85%</td>
+</tr>
+<tr>
+<td style="text-align:left">Payor ID</td>
+<td style="text-align:left">100%</td>
+<td style="text-align:left">82%</td>
+</tr>
+<tr>
+<td style="text-align:left">Complex Logos</td>
+<td style="text-align:left">Professional</td>
+<td style="text-align:left">Often Fails</td>
+</tr>
+<tr>
+<td style="text-align:left">Edge Cases</td>
+<td style="text-align:left">Handled via Agentic Logic</td>
+<td style="text-align:left">Manual Redirection</td>
+</tr>
+</tbody>
+</table>
+<h2>Implementation Workflow</h2>
+<p>Patients receive a link via SMS. They capture the card. Within 2 seconds, the data is in the EHR system, and the patient is checked in.</p>
+<h2>ROI Impact</h2>
+<p>One regional hospital group <strong>reduced patient wait times by 65%</strong> and eliminated 100% of data-entry-related claim denials, saving an estimated $450k per year in administrative overhead.</p>
 
             </div>
 
@@ -85,8 +123,8 @@
             <div class="post-footer">
                 <div class="share-row">
                     <span>Share this case study:</span>
-                    <a id="share-twitter" href="https://twitter.com/intent/tweet?text=Retail%20Revolution%3A%20Dubai%20Mall%20Loyalty%20Automation&url=https%3A//nexus-intel.github.io/case/dubai-mall-loyalty/" target="_blank" class="share-btn">𝕏 Twitter</a>
-                    <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//nexus-intel.github.io/case/dubai-mall-loyalty/" target="_blank" class="share-btn">in LinkedIn</a>
+                    <a id="share-twitter" href="https://twitter.com/intent/tweet?text=Insurance%20Card%20OCR%20%26%20Eligibility%3A%20Real-Time%20Verification%20in%20%3C%202%20Seconds&url=https%3A//nexus-intel.github.io/case/insurance-card-ocr/" target="_blank" class="share-btn">𝕏 Twitter</a>
+                    <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//nexus-intel.github.io/case/insurance-card-ocr/" target="_blank" class="share-btn">in LinkedIn</a>
                     <button id="share-copy" class="share-btn">📋 Copy Link</button>
                 </div>
                 <div class="post-cta">

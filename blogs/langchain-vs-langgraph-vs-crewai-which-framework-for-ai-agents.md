@@ -112,4 +112,4 @@ Frameworks are just tools. The real value is in the **System Design**. **[Book a
 ### Related Insights
 - [The Future of AI Agents: From Chatbots to Autonomous Coworkers](../../blog/the-future-of-ai-agents/) — The high-level strategy behind these frameworks.
 - [Autonomous Supply Chain Engine — Case Study](../../case/autonomous-logistics/) — See a LangGraph system in action.
-- [GPT-5 vs Gemini 2.5 Pro vs Claude 4](../../blog/gpt-5-vs-gemini-2-5-pro-vs-claude-4/) — Choosing the right models to power your agents.
+- [GPT-5 vs Google Gemini API vs Claude 4](../../blog/gpt-5-vs-gemini-2-5-pro-vs-claude-4/) — Choosing the right models to power your agents.

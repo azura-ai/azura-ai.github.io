@@ -17,7 +17,7 @@ While the original LangChain was great for prototyping, **LangGraph** has become
 - **Pricing**: Open source; Enterprise support available.
 
 ## 2. Nexus Intelligent Document Processor (IDP)
-*Yes, it’s our own tool.* We built the **Nexus IDP** because general-purpose OCR like AWS Textract was failing on 15% of handwritten and complex tables. Our system uses a multi-modal ensemble (Gemini 2.5 + custom fine-tuned Vision models) to achieve 99.8% extraction accuracy on unstructured financial docs.
+*Yes, it’s our own tool.* We built the **Nexus IDP** because general-purpose OCR like AWS Textract was failing on 15% of handwritten and complex tables. Our system uses a multi-modal ensemble (Google Gemini API + custom fine-tuned Vision models) to achieve 99.8% extraction accuracy on unstructured financial docs.
 - **Best for**: Invoice automation and medical records.
 - **Pricing**: Custom / Usage-based.
 
@@ -102,5 +102,5 @@ Don't waste months on tools that don't scale. **[Contact Nexus Intelligence](htt
 
 ### Related Insights
 - [How to Calculate ROI for AI Automation Projects](../../blog/how-to-calculate-roi-for-ai-automation-projects/) — Don't buy tools without a plan.
-- [GPT-5 vs Gemini 2.5 Pro vs Claude 4](../../blog/gpt-5-vs-gemini-2-5-pro-vs-claude-4/) — Choosing the right direct LLM interface.
+- [GPT-5 vs Google Gemini API vs Claude 4](../../blog/gpt-5-vs-gemini-2-5-pro-vs-claude-4/) — Choosing the right direct LLM interface.
 - [Autonomous Supply Chain Engine — Case Study](../../case/autonomous-logistics/) — See how we used these tools in production.

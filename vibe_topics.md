@@ -11,7 +11,7 @@ These topics are curated for **Vibe Coders**—the new generation of developers 
 | 1 | **The Vibe Coder's Guide to Pydantic AI: Intent-First Agent Design** | Logic | Why declarative logic is the ultimate "vibe" for building complex agents. |
 | 2 | **Pydantic AI vs LangGraph: When to Script and When to Orchestrate** | Frameworks | A technical breakdown of the two most powerful frameworks in the "Vibe Stack." |
 | 3 | **State Machines for Humans: Building Cyclic Agents with LangGraph** | Complexity | How to handle complex loops without losing your tech "vibe." |
-| 4 | **The Flash Stack: Building Instant AI Apps with Gemini 2.5 Flash** | Speed | Leveraging high-speed, low-cost models for the fastest iteration cycles. |
+| 4 | **The Flash Stack: Building Instant AI Apps with Google Gemini API** | Speed | Leveraging high-speed, low-cost models for the fastest iteration cycles. |
 
 ---
 

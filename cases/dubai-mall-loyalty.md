@@ -20,7 +20,7 @@ We deployed a custom **Document Workflow Automation** engine that utilizes state
 ---
 
 ## Technical Stack
-- **Engine**: Gemini 1.5 Pro (Vision)
+- **Engine**: Google Gemini API (Vision)
 - **Workflow**: Python-based LangGraph orchestration
 - **Integration**: REST API for Mobile App (Flutter)
 - **Database**: High-concurrency PostgreSQL

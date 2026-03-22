@@ -14,7 +14,7 @@ For the modern enterprise, the "Buy vs. Build" decision has evolved into "API vs
 ---
 
 ## 1. Proprietary Models (The API Route)
-*Examples: GPT-5, Gemini 2.5 Pro, Claude 4*
+*Examples: GPT-5, Google Gemini API, Claude 4*
 
 Proprietary models are still the "easiest" to get started with. You pay per token, and the provider handles the massive GPU infrastructure required.
 
@@ -90,5 +90,5 @@ Are you overpaying for API tokens? **[Contact Nexus Intelligence](https://nexus-
 
 ### Related Insights
 - [DeepSeek-V3 vs. Llama 4: The 2026 Benchmark](../../blog/deepseek-v3-vs-llama-4-the-2026-benchmark/) — Which open-source giant should you choose?
-- [GPT-5 vs Gemini 2.5 Pro vs Claude 4](../../blog/gpt-5-vs-gemini-2-5-pro-vs-claude-4/) — When the API is still worth the price.
+- [GPT-5 vs Google Gemini API vs Claude 4](../../blog/gpt-5-vs-gemini-2-5-pro-vs-claude-4/) — When the API is still worth the price.
 - [Real-Time Fraud Detection — Case Study](../../case/fintech-fraud-detection/) — Example of a system that combines high-performance ML with LLM reasoning.

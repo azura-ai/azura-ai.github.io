@@ -23,7 +23,7 @@ Don't just use basic OCR. Use a "Layout-Aware" model.
 - **Goal**: Convert pixels into raw text while preserving the layout (headers, footers, and table grids).
 
 ### Phase 2: LLM Contextual Reasoning
-This is where the magic happens. Instead of using complex Regular Expressions (Regex) to find an "Invoice Number," we feed the raw text to a model like **Gemini 2.5 Pro** or **GPT-5**.
+This is where the magic happens. Instead of using complex Regular Expressions (Regex) to find an "Invoice Number," we feed the raw text to a model like **Google Gemini API** or **GPT-5**.
 
 **Example Prompt:**
 > "Analyze this OCR output and extract the following into JSON: Invoice ID, Total Amount, Tax, and a list of Line Items (Description, Quantity, Unit Price). Only return valid JSON."

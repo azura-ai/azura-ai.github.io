@@ -42,7 +42,7 @@ Textract’s competitive edge in 2026 is its "Queries" feature. You can ask it n
 The **Nexus IDP** uses a "Multi-Modal Ensemble" approach:
 1. **Low-Level Vision**: A custom model detects the structural layout.
 2. **Specialized OCR**: High-precision glyph detection.
-3. **LLM Reasoning**: A fine-tuned Gemini 2.5 or Llama 4 instance "reads" the data to ensure logical consistency (e.g., checking if the individual line items actually sum up to the total).
+3. **LLM Reasoning**: A fine-tuned Google Gemini API or Llama 4 instance "reads" the data to ensure logical consistency (e.g., checking if the individual line items actually sum up to the total).
 
 ---
 

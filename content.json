@@ -37,7 +37,7 @@
         },
         {
             "id": "gpt-5-vs-gemini-2-5-pro-vs-claude-4",
-            "title": "GPT-5 vs Gemini 2.5 Pro vs Claude 4: Which LLM Should Your Business Use in 2026?",
+            "title": "GPT-5 vs Google Gemini API vs Claude 4: Which LLM Should Your Business Use in 2026?",
             "subtitle": "The definitive guide to selecting the right backbone for your enterprise AI strategy in a multi-model world.",
             "description": "The \"Model Wars\" of 2024 and 2025 have settled into a specialized equilibrium. We are no longer asking *if* LLMs can handle business tasks, but *which* specific",
             "image": null
@@ -122,6 +122,13 @@
     ],
     "cases": [
         {
+            "id": "ai-marketing-outreach",
+            "title": "AI Marketing Outreach: Scaling Hyper-Personalized Sales at 100x Speed",
+            "subtitle": "Moving beyond spam-bots to autonomous agents that research, score, and engage leads with human-level nuance.",
+            "description": "Traditional \"mass outreach\" is dead. In 2026, buyers reject anything that feels automated. However, manually researching 1,000 prospects per month is impossible",
+            "image": null
+        },
+        {
             "id": "autonomous-logistics",
             "title": "Autonomous Supply Chain Engine",
             "subtitle": "How we deployed a LangGraph-powered agentic system that reduced transportation costs by 28%.",
@@ -150,6 +157,13 @@
             "image": null
         },
         {
+            "id": "healthcare-agent-system",
+            "title": "Healthcare Assistant: Patient Pre-Visit Synthesis & Scheduling",
+            "subtitle": "Freeing clinicians from administrative burden with 24/7 autonomous phone and chat agents.",
+            "description": "Doctor burnout is at an all-time high. A significant portion of their day is spent on \"Document Prep\"\u2014reading through pages of previous visits and lab results t",
+            "image": null
+        },
+        {
             "id": "healthcare-claims",
             "title": "Healthcare Hub: Automated Claims & Super Bills Processing",
             "subtitle": "Streamlining insurance lifecycles with intelligent extraction of member IDS, CPT codes, and ICD-10 medical billing data.",
@@ -161,6 +175,27 @@
             "title": "Identity Suite: Secure Passport & ID Verification",
             "subtitle": "Automating Global Identity Verification (KYC) with intelligent OCR for Passports, Visas, and National IDs across 180+ countries.",
             "description": "An EU-based fintech startup needed a frictionless way to onboard users while complying with strict KYC (Know Your Customer) and AML (Anti-Money Laundering) regu",
+            "image": null
+        },
+        {
+            "id": "insurance-card-ocr",
+            "title": "Insurance Card OCR & Eligibility: Real-Time Verification in < 2 Seconds",
+            "subtitle": "Eliminating front-desk friction with localized, high-speed document intelligence for healthcare providers.",
+            "description": "Waiting rooms are clogged by manual data entry. Staff spend 5-10 minutes typing in policy numbers, group IDs, and patient details from physical cards\u2014often with",
+            "image": null
+        },
+        {
+            "id": "invoice-intelligence",
+            "title": "Invoice Intelligence: Beyond OCR to Autonomous ERP Reconciliation",
+            "subtitle": "Transforming invoices from dead PDF pixels into structured, actionable business intelligence with 0 human intervention.",
+            "description": "Standard OCR \"reads\" text. It doesn't \"understand\" the business context. Companies lose thousands every month to duplicate invoices, incorrect tax calculations,",
+            "image": null
+        },
+        {
+            "id": "medical-billing-automation",
+            "title": "Precision Medical Billing: 99.9% Coding Accuracy with AI Agents",
+            "subtitle": "Closing the revenue cycle gap through autonomous ICD-10/CPT assignment and claim scrubbing.",
+            "description": "For mid-sized clinics and billing centers, manual coding is a high-latency bottleneck. Human fatigue leads to an average 18% claim denial rate, costing provider",
             "image": null
         }
     ]

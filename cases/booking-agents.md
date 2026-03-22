@@ -16,6 +16,6 @@ We built specialized agents for:
 - **Customer Satisfaction**: 4.8/5 average rating for bot interactions.
 
 ## Technical Stack
-- **LLM**: Gemini 1.5 Flash (via Pydantic AI)
+- **LLM**: Google Gemini API (via Pydantic AI)
 - **Logic**: State-machine based conversational design
 - **Integration**: Stripe for payments, Google Calendar for booking
