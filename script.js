@@ -317,5 +317,31 @@ if (leadForm) {
             btn.style.background = '#10b981';
             leadForm.reset();
         }, 1500);
+}
     });
+}
+
+// Pagination Logic: Load More
+function loadMore(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    const hiddenCards = container.querySelectorAll('.hidden-card');
+    const toShow = 6;
+    
+    for (let i = 0; i < Math.min(toShow, hiddenCards.length); i++) {
+        hiddenCards[i].classList.remove('hidden-card');
+        hiddenCards[i].style.opacity = '0';
+        setTimeout(() => {
+            hiddenCards[i].style.opacity = '1';
+        }, 10);
+    }
+    
+    // Hide button if no more hidden cards
+    if (container.querySelectorAll('.hidden-card').length === 0) {
+        const btn = document.querySelector(`button[onclick*="${containerId}"]`);
+        if (btn && btn.parentElement.classList.contains('pagination-container')) {
+            btn.parentElement.style.display = 'none';
+        }
+    }
 }

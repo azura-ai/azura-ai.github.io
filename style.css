@@ -1427,7 +1427,7 @@ input[type="range"] {
 }
 
 .case-content {
-    padding: 2.5rem;
+    padding: 3.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -1480,6 +1480,7 @@ input[type="range"] {
 @media (max-width: 768px) {
     .roi-calculator { grid-template-columns: 1fr; padding: 30px; }
     .result-value { font-size: 2rem; }
+}
 
 /* Data Flow Animation System */
 .data-flow-viz {
@@ -1584,4 +1585,53 @@ input[type="range"] {
     width: 60px;
     height: 60px;
 }
+
+/* Pagination & Cards Polish */
+.hidden-card {
+    display: none !important;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.load-more-btn {
+    padding: 1.2rem 3rem;
+    background: rgba(147, 51, 234, 0.1);
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    color: var(--accent-primary);
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.load-more-btn:hover {
+    background: var(--accent-primary);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
+}
+
+.load-more-btn i {
+    transition: transform 0.3s;
+}
+
+.load-more-btn:hover i {
+    transform: rotate(180deg);
+}
+
+.case-card, .blog-card {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+}
+
+.case-card:hover, .blog-card:hover {
+    transform: translateY(-10px) scale(1.02);
 }

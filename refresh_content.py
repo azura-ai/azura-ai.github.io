@@ -44,17 +44,19 @@ def inject_content(html, header, footer, content_dict=None, filename=""):
 
     if 'blogs' in content_dict:
         blog_html = ""
-        limit = 3 if filename == 'index.html' else 999
-        for i, b in enumerate(content_dict['blogs'][:limit]):
+        # Home page shows 6, Blog page shows 9 initially, rest hidden
+        limit = 6 if filename == 'index.html' else 999 
+        for i, b in enumerate(content_dict['blogs']):
+            is_hidden = "hidden-card" if i >= limit else ""
             img_url = b.get('image') or ""
             hue1, hue2 = 265 + i * 15, 225 + i * 15
             fallback_bg = f"linear-gradient(135deg, hsl({hue1}, 75%, 45%), hsl({hue2}, 75%, 35%))"
             card = f"""
-            <div class="blog-card animate-in" style="animation-delay: {i * 0.1}s">
+            <div class="blog-card animate-in {is_hidden}" style="animation-delay: {i * 0.1}s">
                 <div class="blog-img" style="background: {f"url('{img_url}') center/cover" if img_url else fallback_bg};">
                     {"" if img_url else '<div class="img-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);"></div>'}
                 </div>
-                <div class="blog-content">
+                <div class="blog-content" style="padding: 3rem;">
                     <span class="blog-tag">Insight</span>
                     <h3>{b['title']}</h3>
                     <p>{b['subtitle'][:100]}...</p>
@@ -66,15 +68,19 @@ def inject_content(html, header, footer, content_dict=None, filename=""):
 
     if 'cases' in content_dict and filename == 'index.html':
         case_html = ""
+        limit = 6
         for i, c in enumerate(content_dict['cases']):
+            is_hidden = "hidden-card" if i >= limit else ""
             case_html += f"""
-            <div class="case-card">
-                <div class="case-header">
-                    <span class="case-badge">Impact Analysis</span>
-                    <h3>{c['title']}</h3>
+            <div class="case-card {is_hidden}">
+                <div class="case-content">
+                    <div class="case-header">
+                        <span class="case-badge">Impact Analysis</span>
+                        <h3>{c['title']}</h3>
+                    </div>
+                    <p>{c['subtitle']}</p>
+                    <a href="case/{c['id']}/" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <p>{c['subtitle']}</p>
-                <a href="case/{c['id']}/" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
             </div>"""
         html = re.sub(r'<!-- CASES_START -->.*?<!-- CASES_END -->', f'<!-- CASES_START -->{case_html}<!-- CASES_END -->', html, flags=re.DOTALL)
     return html
