@@ -19,12 +19,13 @@
     <ul class="nav-links">
         <li><a href="index.html#hero">Home</a></li>
         <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="index.html#cases">Demos</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
     </ul>
-    <button class="cta-button" onclick="window.location.href='index.html#contact'">Get in Touch</button>
+    <button class="cta-button" onclick="window.location.href='index.html#contact'">Book a Discovery Call</button>
 </nav>
 </header>
 
@@ -35,13 +36,26 @@
                 <h1 class="animate-in">Scale Your <span>Document Architecture</span> with Agentic AI</h1>
                 <p class="hero-subtitle animate-in">We automate high-volume document workflows—from multi-page Invoice OCR and Healthcare Claims to autonomous Laboratory Booking agents and Help Desk automation.</p>
                 <div class="hero-btns animate-in">
-                    <a href="#contact" class="btn primary">Start Your Automation</a>
+                    <a href="#contact" class="btn primary">Book a Discovery Call →</a>
                     <a href="#cases" class="btn secondary">View ROI Demos</a>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="glow-sphere"></div>
-                <div class="orbital-rings"></div>
+                <div class="orbit-ring"></div>
+                <div class="orbit-chips">
+                    <div class="orbit-chip">Invoice OCR</div>
+                    <div class="orbit-chip">Healthcare Claims</div>
+                    <div class="orbit-chip">PII Redaction</div>
+                    <div class="orbit-chip">Booking Agents</div>
+                    <div class="orbit-chip">Fraud Detection</div>
+                    <div class="orbit-chip">Supply Chain</div>
+                </div>
+                <div class="orbit-center">
+                    <div class="orbit-center-icon"><i class="fas fa-brain"></i></div>
+                    <div class="orbit-center-label">Agentic AI</div>
+                    <div class="orbit-center-sub">Document Intelligence</div>
+                </div>
             </div>
         </section>
 
@@ -111,6 +125,60 @@
                         <span class="tech-tag">GitHub Actions</span>
                         <span class="tech-tag">Railway/Cloud</span>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section">
+            <h2 class="section-title">Transparent <span>Pricing.</span></h2>
+            <p class="pricing-subtitle">Fixed-scope packages designed for European enterprises. All plans include source code, deployment, documentation, and 30-day post-launch support.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card animate-in">
+                    <div class="pricing-badge">Starter</div>
+                    <h3>Starter Automation</h3>
+                    <div class="pricing-price">From €2,500<span>/mo</span></div>
+                    <p class="pricing-desc">Single-workflow automation for teams getting started with AI document processing.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Single OCR or chatbot workflow</li>
+                        <li><i class="fas fa-check"></i> Up to 5,000 documents/month</li>
+                        <li><i class="fas fa-check"></i> Dashboard & analytics</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                        <li><i class="fas fa-check"></i> 99.5% uptime SLA</li>
+                    </ul>
+                    <p class="pricing-ideal">Ideal for: Invoice processing, receipt extraction, single-form automation</p>
+                    <a href="#contact" class="btn primary pricing-cta">Book a Discovery Call →</a>
+                </div>
+                <div class="pricing-card featured animate-in">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Growth Engine</h3>
+                    <div class="pricing-price">From €6,000<span>/mo</span></div>
+                    <p class="pricing-desc">Multi-agent pipelines for enterprises scaling intelligent document workflows.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Multi-workflow orchestration</li>
+                        <li><i class="fas fa-check"></i> Up to 50,000 documents/month</li>
+                        <li><i class="fas fa-check"></i> Invoice + Claims + Booking agents</li>
+                        <li><i class="fas fa-check"></i> Priority support & Slack channel</li>
+                        <li><i class="fas fa-check"></i> Custom integrations (ERP, CRM)</li>
+                        <li><i class="fas fa-check"></i> 99.9% uptime SLA</li>
+                    </ul>
+                    <p class="pricing-ideal">Ideal for: Healthcare systems, retail chains, logistics operators</p>
+                    <a href="#contact" class="btn primary pricing-cta">Book a Discovery Call →</a>
+                </div>
+                <div class="pricing-card animate-in">
+                    <div class="pricing-badge">Enterprise</div>
+                    <h3>Enterprise Suite</h3>
+                    <div class="pricing-price">Custom<span> pricing</span></div>
+                    <p class="pricing-desc">Full-platform deployment with GDPR compliance, dedicated support, and custom SLAs.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited documents & workflows</li>
+                        <li><i class="fas fa-check"></i> On-premise or private cloud</li>
+                        <li><i class="fas fa-check"></i> GDPR & HIPAA compliance</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> Custom AI model training</li>
+                        <li><i class="fas fa-check"></i> 99.99% uptime SLA</li>
+                    </ul>
+                    <p class="pricing-ideal">Ideal for: Banks, hospital networks, government agencies, multi-national corps</p>
+                    <a href="#contact" class="btn primary pricing-cta">Contact Sales →</a>
                 </div>
             </div>
         </section>
@@ -536,7 +604,7 @@
                         <div class="form-group"><input type="text" id="name" placeholder="Name" required></div>
                         <div class="form-group"><input type="email" id="email" placeholder="Business Email" required></div>
                         <div class="form-group"><textarea id="message" placeholder="Describe your current manual workflow (e.g. Invoice processing, passport verification)..." required></textarea></div>
-                        <button type="submit" class="cta-button">Engage Agentic Analysis</button>
+                        <button type="submit" class="cta-button">Request Your Free Audit</button>
                     </form>
                 </div>
             </div>

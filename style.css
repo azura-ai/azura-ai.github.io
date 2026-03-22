@@ -158,27 +158,113 @@ nav {
 
 .hero-visual {
     position: absolute;
-    right: -10%;
+    right: -5%;
     top: 50%;
     transform: translateY(-50%);
     width: 600px;
     height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
 }
 
 .glow-sphere {
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: var(--accent);
-    filter: blur(150px);
-    opacity: 0.3;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.15;
+    z-index: -1;
+    animation: pulse 10s infinite alternate;
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
     border-radius: 50%;
-    animation: pulse 8s infinite alternate;
+    background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    animation: spin 20s linear infinite;
+}
+
+.orbit-chips {
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    animation: spin-reverse 30s linear infinite;
+}
+
+.orbit-chip {
+    position: absolute;
+    padding: 0.6rem 1.2rem;
+    background: rgba(20, 20, 23, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: spin 30s linear infinite; /* Counter-rotation to keep text upright */
+}
+
+/* Positioning chips around the circle */
+.orbit-chip:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.orbit-chip:nth-child(2) { top: 25%; right: 0; }
+.orbit-chip:nth-child(3) { bottom: 25%; right: 0; }
+.orbit-chip:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.orbit-chip:nth-child(5) { bottom: 25%; left: 0; }
+.orbit-chip:nth-child(6) { top: 25%; left: 0; }
+
+.orbit-center {
+    text-align: center;
+    z-index: 2;
+}
+
+.orbit-center-icon {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px var(--accent-glow);
+    animation: float 4s ease-in-out infinite;
+}
+
+.orbit-center-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.orbit-center-sub {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.2; }
-    100% { transform: scale(1.5); opacity: 0.4; }
+    0% { transform: scale(1); opacity: 0.15; }
+    100% { transform: scale(1.2); opacity: 0.25; }
 }
 
 /* Services Grid */
@@ -1641,4 +1727,158 @@ input[type="range"] {
 
 .case-card:hover, .blog-card:hover {
     transform: translateY(-10px) scale(1.02);
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 8rem 10%;
+    background: #0a0a0c;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: -3rem auto 4rem;
+    font-size: 1.1rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-card {
+    background: var(--bg-card);
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+    transform: scale(1.05);
+}
+
+.pricing-card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-card.featured:hover {
+    transform: translateY(-15px) scale(1.05);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.featured .pricing-badge {
+    background: var(--accent);
+    color: white;
+}
+
+.pricing-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.pricing-price span {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.pricing-desc {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 2.5rem;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pricing-features li i {
+    color: var(--accent);
+    font-size: 0.85rem;
+}
+
+.pricing-ideal {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.pricing-cta {
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+    .pricing-card.featured:hover {
+        transform: translateY(-15px) scale(1.02);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-visual {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        width: 100%;
+        height: 400px;
+        margin-top: 3rem;
+    }
+    .orbit-ring { width: 300px; height: 300px; }
+    .orbit-chips { width: 380px; height: 380px; }
 }
