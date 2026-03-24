@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // Call actual FastAPI backend on Railway
-                const response = await fetch('https://nexus-intelgithubio-production.up.railway.app/api/chat', {
+                const response = await fetch('https://nexus-intelgithubio-production.up.railway.app/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -323,7 +323,7 @@ function appendMessage(role, text) {
             const message = document.getElementById('message').value;
 
             try {
-                const response = await fetch('https://nexus-intelgithubio-production.up.railway.app/api/contact', {
+                const response = await fetch('https://nexus-intelgithubio-production.up.railway.app/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, message })

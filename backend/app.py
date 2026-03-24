@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from pydantic_ai import Agent
+from backend.hospital_bot import agent, PatientDeps
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import sqlite3
@@ -51,22 +51,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize Pydantic AI Agent
-agent = Agent(
-    'google-gla:gemini-flash-lite-latest',
-    system_prompt=(
-        "You are Nexus AI, the expert consultant for Nexus Intelligence. "
-        "We specialize in 'Document Workflow Automation' for European businesses. "
-        "Your goal is to provide professional, ROI-focused advice on: "
-        "1. Advanced Document Intelligence (Invoices, Passports, Insurance Cards, Super Bills). "
-        "2. Claims Processing automation for Healthcare and Labs. "
-        "3. Retail Analytics (e.g., automated loyalty systems like Dubai Mall). "
-        "4. Autonomous Service Agents (Appointment booking, Help Desk, Food Ordering). "
-        "Always highlight how these automations lead to measurable ROI and efficiency."
-    ),
-)
+# agent is imported from hospital_bot
 
 class ChatRequest(BaseModel):
+    patient_id: str = "GUEST"
+    patient_name: str = "Visitor"
     message: str
 
 class ContactRequest(BaseModel):
@@ -106,12 +95,13 @@ async def record_lead(name: str, email: str, project_details: str) -> str:
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
-        if not os.getenv("GEMINI_API_KEY"):
+        if not os.getenv("GOOGLE_API_KEY"):
             return ChatResponse(response=f"I'm currently in demo mode. You asked: '{request.message}'. Once the API key is set, I'll provide full intelligent insights!")
             
-        result = await agent.run(request.message)
+        deps = PatientDeps(patient_id=request.patient_id, patient_name=request.patient_name)
+        result = await agent.run(request.message, deps=deps)
         logger.info(f"Agent response: {result}")
-        return ChatResponse(response=str(result.output))
+        return ChatResponse(response=str(result.data))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
