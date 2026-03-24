@@ -101,7 +101,7 @@ async def chat(request: ChatRequest):
         deps = PatientDeps(patient_id=request.patient_id, patient_name=request.patient_name)
         result = await agent.run(request.message, deps=deps)
         logger.info(f"Agent response: {result}")
-        return ChatResponse(response=str(result.data))
+        return ChatResponse(response=str(result.output))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

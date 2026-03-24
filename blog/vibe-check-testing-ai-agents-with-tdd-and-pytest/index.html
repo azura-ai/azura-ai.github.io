@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Check: Testing AI Agents with TDD and Pytest | Nexus Intelligence</title>
+    <meta name="description" content="Expert insights on AI automation, agentic workflows, OCR, and enterprise intelligence from Nexus Intelligence.">
+    <link rel="stylesheet" href="../../style.css?v=2.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- loader.js removed for SSG performance -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+</head>
+<body class="sub-page">
+    <header id="header-container"><nav class="glass">
+    <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">NEXUS<span>INTELLIGENCE</span></a></div>
+    <ul class="nav-links">
+        <li><a href="../../index.html#hero">Home</a></li>
+        <li><a href="../../index.html#services">Services</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../index.html#cases">Demos</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button" onclick="window.location.href='index.html#contact'">Get in Touch</button>
+</nav>
+</header>
+
+    <main class="sub-page-main">
+        <section class="post-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <a href="blog.html" class="back-link"><i class="fas fa-chevron-left"></i> All Insights</a>
+                <h1 id="post-title">Vibe Check: Testing AI Agents with TDD and Pytest</h1>
+                <div class="post-meta">
+                    <span id="post-date">March 19, 2026</span>
+                    <span class="meta-separator">•</span>
+                    <span class="post-tag">AI Strategy</span>
+                    <span class="meta-separator">•</span>
+                    <span id="read-time">5 min read</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="post-container">
+            <div id="md-content" class="post-content glass-card">
+                <blockquote>
+<p>Master the art of deterministic orchestration in a non-deterministic world with TDD, Pydantic AI, and LangGraph.</p>
+</blockquote>
+<p>In the landscape of 2026, the role of the developer has undergone a seismic shift. We are no longer just &quot;writers of syntax&quot;; we are <strong>Vibe Coders</strong>. We orchestrate high-level intent, directing swarms of AI agents to manifest complex systems through rapid iteration. But as we move faster, the risk of &quot;vibe drift&quot;—where an agent’s reasoning becomes untethered from the business logic—increases exponentially.</p>
+<p>To thrive in this era, the modern architect doesn't abandon rigor; they evolve it. <strong>Test-Driven Development (TDD)</strong> is no longer a chore—it is the literal &quot;vibe check&quot; that ensures our agentic workflows remain grounded. By using <strong>Pytest</strong>, <strong>Pydantic AI</strong>, and <strong>LangGraph</strong>, we can create a deterministic safety net around non-deterministic intelligence.</p>
+<hr />
+<h2>1. The Red-Green-Vibe Loop: Redefining TDD for Agents</h2>
+<p>Traditional TDD follows a simple cadence: Write a failing test, write the code to pass, and refactor. In the world of Vibe Coding, we introduce the <strong>Red-Green-Vibe</strong> loop.</p>
+<p>Because LLMs like <strong>Gemini 1.5 Pro</strong> are probabilistic, your tests must do more than check for string equality. They must validate the <em>intent</em> and the <em>structure</em> of the agentic response.</p>
+<h3>The Setup: Defining the Expectation</h3>
+<p>Before writing a single line of agent logic, we define the &quot;Vibe&quot; in a Pytest file. We use Pydantic to enforce a strict schema, ensuring the agent can't hallucinate outside its boundaries.</p>
+<pre><code class="language-python">import pytest
+from pydantic import BaseModel
+from my_agent_app.agents import SupportAgent
+
+class SupportResponse(BaseModel):
+    resolution_status: bool
+    confidence_score: float
+    summary: str
+
+@pytest.mark.asyncio
+async def test_agent_resolves_simple_query():
+    # 1. Arrange: Define the vibe and the input
+    agent = SupportAgent()
+    user_input = &quot;I can't access my dashboard, I forgot my password.&quot;
+    
+    # 2. Act: Run the agent
+    result = await agent.run(user_input)
+    
+    # 3. Assert: The &quot;Vibe Check&quot;
+    assert isinstance(result.data, SupportResponse)
+    assert result.data.resolution_status is True
+    assert &quot;password&quot; in result.data.summary.lower()
+    assert result.data.confidence_score &gt; 0.8
+</code></pre>
+<p>By starting here, you define the &quot;shape&quot; of the success before the AI ever attempts to solve the problem.</p>
+<hr />
+<h2>2. Structured Reasoning with Pydantic AI</h2>
+<p>The biggest friction point in Vibe Coding is the &quot;Wall of Text&quot; problem—where an agent returns a beautiful but un-parsable paragraph. <strong>Pydantic AI</strong> solves this by treating the LLM as a typed function.</p>
+<p>When we write tests for these agents, we aren't just testing the output; we are testing the <strong>Tool Call Logic</strong>. If the agent needs to fetch data from a FastAPI backend, we test if the agent <em>correctly identifies</em> which tool to use.</p>
+<h3>Code Snippet: Testing Tool Orchestration</h3>
+<pre><code class="language-python">from pydantic_ai import Agent, RunContext
+from pydantic_ai.models.test import TestModel
+
+def test_agent_calls_correct_tool():
+    # Using TestModel to mock the Gemini API response
+    model = TestModel()
+    agent = Agent(model, result_type=SupportResponse)
+
+    @agent.tool
+    async def get_user_data(ctx: RunContext[None], user_id: str):
+        return {&quot;status&quot;: &quot;active&quot;, &quot;plan&quot;: &quot;pro&quot;}
+
+    # We mock the LLM to trigger the tool call
+    model.push_responses([
+        &quot;I'll check your account status first.&quot;,
+        # The mock response that triggers a tool call
+        {&quot;tool_calls&quot;: [{&quot;name&quot;: &quot;get_user_data&quot;, &quot;args&quot;: {&quot;user_id&quot;: &quot;123&quot;}}]}
+    ])
+    
+    # Verify the logic flow
+    # ... test assertions here ...
+</code></pre>
+<p>This approach allows Vibe Coders to swap models (e.g., from Gemini Flash to Ultra) while ensuring the internal logic—the &quot;vibe&quot;—remains consistent.</p>
+<hr />
+<h2>3. LangGraph: Testing the State Machine</h2>
+<p>AI agents rarely act in isolation. They operate within graphs. <strong>LangGraph</strong> allows us to build stateful, multi-actor applications. Testing a graph requires a shift from testing functions to testing <strong>State Transitions</strong>.</p>
+<p>In a Vibe Coding workflow, we use Pytest to ensure that our graph doesn't enter an infinite loop or &quot;hallucination spiral.&quot;</p>
+<h3>The State Consistency Check</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Feature</th>
+<th style="text-align:left">Traditional TDD</th>
+<th style="text-align:left">Vibe Coding TDD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Input</strong></td>
+<td style="text-align:left">Static Data</td>
+<td style="text-align:left">Dynamic Context / State</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Output</strong></td>
+<td style="text-align:left">Exact Match</td>
+<td style="text-align:left">Semantic / Schema Match</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Logic</strong></td>
+<td style="text-align:left">Boolean Flow</td>
+<td style="text-align:left">State Machine Transitions</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Failure Mode</strong></td>
+<td style="text-align:left">Logic Error</td>
+<td style="text-align:left">Hallucination / Drift</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">from langgraph.graph import StateGraph
+
+def test_graph_navigation():
+    builder = StateGraph(MyStateSchema)
+    # ... nodes definition ...
+    graph = builder.compile()
+    
+    initial_state = {&quot;messages&quot;: [&quot;Help me buy a laptop&quot;], &quot;current_node&quot;: &quot;start&quot;}
+    output = graph.invoke(initial_state)
+    
+    # Vibe Check: Did the graph move from 'start' to 'search_inventory'?
+    assert output[&quot;current_node&quot;] == &quot;search_inventory&quot;
+    assert len(output[&quot;messages&quot;]) &gt; 1
+</code></pre>
+<hr />
+<h2>4. Integration with FastAPI: The Last Mile</h2>
+<p>Once the agent's internal vibes are checked, we expose it via <strong>FastAPI</strong>. In this layer, the TDD focus shifts to performance and error handling. What happens if the Gemini API throttles? What if the Pydantic validation fails?</p>
+<p>We use the <code>TestClient</code> in FastAPI to simulate these scenarios.</p>
+<pre><code class="language-python">from fastapi.testclient import TestClient
+from my_api import app
+
+client = TestClient(app)
+
+def test_api_vibe_endpoint():
+    response = client.post(&quot;/v1/agent/chat&quot;, json={&quot;message&quot;: &quot;Reset my key&quot;})
+    assert response.status_code == 200
+    json_data = response.json()
+    assert &quot;resolution_status&quot; in json_data
+</code></pre>
+<hr />
+<h2>The Practical &quot;Vibe Check&quot; Implementation Guide</h2>
+<p>To implement this workflow today, follow these four pillars of Agentic Quality Assurance:</p>
+<ol>
+<li><strong>Schema First:</strong> Always define your agent's input and output using Pydantic classes. If you can't define it in a schema, the vibe is too vague.</li>
+<li><strong>Mock Early, Test Often:</strong> Use <code>pydantic-ai</code>'s <code>TestModel</code> or <code>pytest-mock</code> to simulate LLM responses. This saves tokens and speeds up the &quot;Red&quot; phase of your TDD.</li>
+<li><strong>Semantic Assertions:</strong> Use libraries like <code>instructor</code> or custom LLM-based evaluators to test the <em>quality</em> of the text, not just the presence of keywords.</li>
+<li><strong>Traceability:</strong> Integrate <strong>LangSmith</strong> or similar tracing tools. While not a direct part of Pytest, these provide the &quot;logs&quot; for when a vibe check fails in production.</li>
+</ol>
+<hr />
+<h2>Why This Fits the Broader Ecosystem</h2>
+<p>The industry is moving away from &quot;Black Box&quot; AI. We are entering the era of <strong>Compound AI Systems</strong>. In this world, the LLM is just a component—a &quot;reasoning kernel&quot;—inside a larger software machine.</p>
+<p>Vibe Coding without TDD is just gambling. By wrapping your LangGraph nodes and Pydantic AI agents in Pytest suites, you transform from a prompt-engineer into a <strong>Systems Architect</strong>. You gain the ability to deploy complex, self-correcting workflows with the confidence that the &quot;vibe&quot; is not just good—it's verified.</p>
+<hr />
+<h2>Conclusion: Orchestrate with Confidence</h2>
+<p>Testing AI agents doesn't have to be a bottleneck for rapid orchestration. By applying TDD principles, you create a feedback loop that actually <em>accelerates</em> development, allowing you to iterate on prompts and logic without fear of breaking the system.</p>
+<p><strong>Is your organization ready to transition from manual AI experimentation to automated, production-grade agentic workflows?</strong></p>
+<p>At <strong>Nexus Intelligence</strong>, we specialize in <strong>Document Workflow Automation</strong> and high-orchestration AI systems. We help elite teams build the &quot;vibe&quot; and the guardrails to scale it.</p>
+<p><a href="https://example.com"><strong>Contact Nexus Intelligence Today</strong></a> to automate your most complex document-heavy workflows with the power of Pydantic AI and Gemini. Let’s build the future of agentic intelligence, one test at a time.</p>
+
+            </div>
+
+            <!-- Social Share + CTA -->
+            <div class="post-footer">
+                <div class="share-row">
+                    <span>Share this insight:</span>
+                    <a id="share-twitter" href="https://twitter.com/intent/tweet?text=Vibe%20Check%3A%20Testing%20AI%20Agents%20with%20TDD%20and%20Pytest&url=https%3A//nexus-intel.github.io/blog/vibe-check-testing-ai-agents-with-tdd-and-pytest/" target="_blank" class="share-btn">𝕏 Twitter</a>
+                    <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//nexus-intel.github.io/blog/vibe-check-testing-ai-agents-with-tdd-and-pytest/" target="_blank" class="share-btn">in LinkedIn</a>
+                    <button id="share-copy" class="share-btn">📋 Copy Link</button>
+                </div>
+                <div class="post-cta">
+                    <h3>Ready to implement this in your business?</h3>
+                    <p>Our team specializes in turning these insights into production-grade AI systems.</p>
+                    <a href="index.html#contact" class="cta-button">Book a Discovery Call</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JSON-LD Schema (dynamically populated) -->
+    <script type="application/ld+json" id="article-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Vibe Check: Testing AI Agents with TDD and Pytest", "description": "In the landscape of 2026, the role of the developer has undergone a seismic shift. We are no longer just \"writers of syntax\"; we are **Vibe Coders**. We orchest", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-24"}</script>
+    <!-- Content is baked statically via refresh_content.py -->
+
+    <footer id="footer-container">    <div class="footer-content">
+        <div class="footer-brand">
+            <div class="logo">NEXUS<span>INTELLIGENCE</span></div>
+            <p>Architecting the future of enterprise intelligence.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Solutions</h4>
+            <ul>
+                <li><a href="../../index.html#services">Document Intelligence</a></li>
+                <li><a href="../../index.html#services">Retail Workflow Analytics</a></li>
+                <li><a href="../../index.html#services">Autonomous Agents</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                <a href="https://github.com/nexus-intel" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Nexus Intelligence. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="../../script.js" defer></script>
+</body>
+</html>
