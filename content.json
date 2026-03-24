@@ -1,20 +1,6 @@
 {
     "blogs": [
         {
-            "id": "1-building-a-pydantic-ai-healthcare-chatbot",
-            "title": "Building a Pydantic AI Healthcare Chatbot with Gemini Flash",
-            "subtitle": "Moving from manual patient data intake to a HIPAA-compliant, fully autonomous booking and lab-fetching agent using the latest `gemini-1.5-flash-latest` model.",
-            "description": "The healthcare industry has typically been slow to adopt generative AI globally due to extreme hallucination risks and stringent regulatory guardrails. But in 2",
-            "image": null
-        },
-        {
-            "id": "2-scaling-our-pydantic-ai-healthcare-chatbot-with-fastapi",
-            "title": "Scaling our Pydantic AI Healthcare Chatbot with FastAPI",
-            "subtitle": "Moving from local testing to a production-ready REST API for enterprise medical workflows seamlessly with FastAPI and Uvicorn.",
-            "description": "Welcome back! In our previous tutorial, we walked through building our core agent logic using Pydantic AI and Gemini Flash. But local scripts only take you so f",
-            "image": null
-        },
-        {
             "id": "3-ecommerce-agent-pydantic-vs-langgraph",
             "title": "Ecommerce Agent Showdown: Pydantic AI vs LangGraph",
             "subtitle": "Building twins. We deployed identical Ecommerce assistants using both *Pydantic AI* and *LangGraph* to see which framework dominates in 2026. The results fundamentally challenge how we think about orchestration.",
@@ -162,6 +148,13 @@
             "image": null
         },
         {
+            "id": "streaming-the-vibe-real-time-agentic-ux-with-fastapi-websockets",
+            "title": "Streaming the Vibe: Real-time Agentic UX with FastAPI WebSockets",
+            "subtitle": "Master the art of low-latency Agentic UX using Python, Pydantic AI, and LangGraph to build fluid, high-intent AI interfaces.",
+            "description": "In the era of **Vibe Coding**, the distance between thought and execution has collapsed. By 2026, the traditional \"request-response\" cycle of the web feels like",
+            "image": null
+        },
+        {
             "id": "structured-agency-building-document-intelligence-with-pydantic-ai",
             "title": "Structured Agency: Building Document Intelligence with Pydantic AI",
             "subtitle": "Revolutionizing OCR through schema-first orchestration, multimodal Gemini integration, and agentic state management.",
@@ -173,13 +166,6 @@
             "title": "The Flash Stack: Building Instant AI Apps with Gemini 2.5 Flash",
             "subtitle": "Harnessing ultra-low latency AI orchestration with Pydantic AI, LangGraph, and the Gemini 2.5 Flash model for next-generation Vibe Coding.",
             "description": "The year 2026 marks the end of the \"Reasoning Pause.\" For years, developers tolerated the three-second \"thinking\" spinner as LLMs performed complex internal mon",
-            "image": null
-        },
-        {
-            "id": "the-flash-stack-building-instant-ai-apps-with-google-gemini-api",
-            "title": "The Flash Stack: Building Instant AI Apps with Google Gemini API",
-            "subtitle": "Master the 2026 architecture for hyper-latency-sensitive AI agents using Gemini 2.0 Flash, Pydantic AI, and LangGraph.",
-            "description": "The era of \"coding\" as a manual labor of syntax is dead. In 2026, we have entered the age of **Vibe Coding**. Vibe Coding is the art of high-level orchestration",
             "image": null
         },
         {

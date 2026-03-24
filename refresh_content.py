@@ -44,15 +44,15 @@ def inject_content(html, header, footer, content_dict=None, filename=""):
 
     if 'blogs' in content_dict:
         blog_html = ""
-        # Home page shows 6, Blog page shows 9 initially, rest hidden
+        # Home page shows 6, Blog page shows 9 initially.
+        # We only BAKE these into HTML. The rest are loaded via content.json + script.js for speed.
         limit = 6 if filename == 'index.html' else 9
-        for i, b in enumerate(content_dict['blogs']):
-            is_hidden = "hidden-card" if i >= limit else ""
+        for i, b in enumerate(content_dict['blogs'][:limit]):
             img_url = b.get('image') or ""
             hue1, hue2 = 265 + i * 15, 225 + i * 15
             fallback_bg = f"linear-gradient(135deg, hsl({hue1}, 75%, 45%), hsl({hue2}, 75%, 35%))"
             card = f"""
-            <div class="blog-card animate-in {is_hidden}" style="animation-delay: {i * 0.1}s">
+            <div class="blog-card animate-in" style="animation-delay: {i * 0.1}s">
                 <div class="blog-img" style="background: {f"url('{img_url}') center/cover" if img_url else fallback_bg};">
                     {"" if img_url else '<div class="img-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);"></div>'}
                 </div>
@@ -64,6 +64,10 @@ def inject_content(html, header, footer, content_dict=None, filename=""):
                 </div>
             </div>"""
             blog_html += card
+        
+        # Add a placeholder for JS to pick up the Load More button if there are more blogs
+        if len(content_dict['blogs']) > limit:
+            blog_html += '<div class="pagination-container"><button class="load-more-btn" id="load-more-blog">Load More Insights</button></div>'
         html = re.sub(r'<!-- BLOG_START -->.*?<!-- BLOG_END -->', f'<!-- BLOG_START -->{blog_html}<!-- BLOG_END -->', html, flags=re.DOTALL)
 
     if 'cases' in content_dict and filename == 'index.html':

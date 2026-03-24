@@ -8,26 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const caseGrid = document.querySelector('.cases-grid');
         
         // Only fetch if grids are empty (Server environment)
-        if (blogGrid && blogGrid.children.length <= 1) {
-            try {
-                const response = await fetch(`${ROOT_PATH}content.json`);
-                const data = await response.json();
-                
-                // Render Blogs
-                const POSTS_PER_PAGE = 3;
-                let currentPage = 1;
-                const renderBlogs = (page) => {
-                    const start = 0;
-                    const end = page * POSTS_PER_PAGE;
-                    const visibleBlogs = data.blogs.slice(start, end);
-                    blogGrid.innerHTML = visibleBlogs.map((blog, i) => {
+        // Handle Load More for pre-baked cards or dynamic ones
+        const loadMoreBtn = document.getElementById('load-more-blog');
+        if (loadMoreBtn) {
+            loadMoreBtn.onclick = async () => {
+                try {
+                    const response = await fetch(`${ROOT_PATH}content.json`);
+                    const data = await response.json();
+                    
+                    const existingCount = blogGrid.querySelectorAll('.blog-card').length;
+                    const nextBatch = data.blogs.slice(existingCount, existingCount + 6);
+                    
+                    const newCards = nextBatch.map((blog, i) => {
                         const imgUrl = blog.image ? (blog.image.startsWith('http') ? blog.image : ROOT_PATH + blog.image) : '';
                         return `
                         <div class="blog-card animate-in" style="animation-delay: ${i * 0.1}s">
-                            <div class="blog-img" style="background: ${imgUrl ? `url('${imgUrl}') center/cover` : `linear-gradient(135deg, hsl(${260 + i * 20}, 70%, 50%), hsl(${220 + i * 20}, 70%, 40%))`};">
+                            <div class="blog-img" style="background: ${imgUrl ? `url('${imgUrl}') center/cover` : `linear-gradient(135deg, hsl(${260 + (existingCount+i) * 20}, 70%, 50%), hsl(${220 + (existingCount+i) * 20}, 70%, 40%))`};">
                                 ${!imgUrl ? `<div class="img-overlay"></div>` : ''}
                             </div>
-                            <div class="blog-content">
+                            <div class="blog-content" style="padding: 3rem;">
                                 <span class="blog-tag">Insight</span>
                                 <h3>${blog.title}</h3>
                                 <p>${blog.subtitle ? blog.subtitle.substring(0, 100) + '...' : ''}</p>
@@ -35,35 +34,42 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>`;
                     }).join('');
-                    if (end < data.blogs.length) {
-                        let loadMoreCont = document.querySelector('.pagination-container');
-                        if (!loadMoreCont) {
-                            loadMoreCont = document.createElement('div');
-                            loadMoreCont.className = 'pagination-container';
-                            blogGrid.after(loadMoreCont);
-                        }
-                        loadMoreCont.innerHTML = `<button class="load-more-btn" id="load-more-blog">Load More Insights</button>`;
-                        document.getElementById('load-more-blog').onclick = () => { currentPage++; renderBlogs(currentPage); };
+                    
+                    loadMoreBtn.parentElement.insertAdjacentHTML('beforebegin', newCards);
+                    
+                    if (existingCount + nextBatch.length >= data.blogs.length) {
+                        loadMoreBtn.parentElement.remove();
                     }
-                };
-                renderBlogs(currentPage);
-
-                // Render Cases if empty
-                if (caseGrid && caseGrid.children.length === 0) {
-                    caseGrid.innerHTML = data.cases.map(study => `
-                        <div class="case-card">
-                            <div class="case-header">
-                                <span class="case-badge">Impact Analysis</span>
-                                <h3>${study.title}</h3>
-                            </div>
-                            <p>${study.subtitle}</p>
-                            <a href="${ROOT_PATH}case/${study.id}/index.html" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
-                        </div>`).join('');
-                }
-                document.querySelectorAll('.blog-card, .case-card').forEach(el => observer.observe(el));
-            } catch (err) { console.warn('Dynamic load skipped:', err); }
+                    
+                    // Observe new elements
+                    document.querySelectorAll('.blog-card.animate-in').forEach(el => {
+                        if (typeof observer !== 'undefined') observer.observe(el);
+                    });
+                } catch (err) { console.error('Load more failed:', err); }
+            };
         }
+        
+        // Render Cases if empty
+        if (caseGrid && caseGrid.children.length === 0) {
+            try {
+                const response = await fetch(`${ROOT_PATH}content.json`);
+                const data = await response.json();
+                caseGrid.innerHTML = data.cases.map(study => `
+                    <div class="case-card">
+                        <div class="case-header">
+                            <span class="case-badge">Impact Analysis</span>
+                            <h3>${study.title}</h3>
+                        </div>
+                        <p>${study.subtitle}</p>
+                        <a href="${ROOT_PATH}case/${study.id}/index.html" class="read-more">View Full Breakdown <i class="fas fa-arrow-right"></i></a>
+                    </div>`).join('');
+            } catch (err) {}
+        }
+        document.querySelectorAll('.blog-card, .case-card').forEach(el => {
+            if (typeof observer !== 'undefined') observer.observe(el);
+        });
     }
+    renderDynamicContent();
     // Chatbot Toggle
     const trigger = document.getElementById('chatbot-trigger');
     const widget = document.getElementById('chatbot-widget');

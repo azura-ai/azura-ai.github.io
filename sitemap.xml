@@ -4,8 +4,6 @@
     <url><loc>https://nexus-intel.github.io/blog.html</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/about.html</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/privacy.html</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
-    <url><loc>https://nexus-intel.github.io/blog/1-building-a-pydantic-ai-healthcare-chatbot/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
-    <url><loc>https://nexus-intel.github.io/blog/2-scaling-our-pydantic-ai-healthcare-chatbot-with-fastapi/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/3-ecommerce-agent-pydantic-vs-langgraph/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/ai-for-document-processing-in-healthcare-hipaa-compliant-ocr-solutions/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/ai-fraud-detection-for-fintech-how-ml-catches-what-rules-miss/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
@@ -27,9 +25,9 @@
     <url><loc>https://nexus-intel.github.io/blog/rag-in-2026-the-complete-guide-to-retrieval-augmented-generation/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/schema-driven-dev-bulletproof-api-contracts-for-ai-led-teams/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/state-machines-for-humans-building-cyclic-agents-with-langgraph/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
+    <url><loc>https://nexus-intel.github.io/blog/streaming-the-vibe-real-time-agentic-ux-with-fastapi-websockets/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/structured-agency-building-document-intelligence-with-pydantic-ai/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/the-flash-stack-building-instant-ai-apps-with-gemini-2.5-flash/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
-    <url><loc>https://nexus-intel.github.io/blog/the-flash-stack-building-instant-ai-apps-with-google-gemini-api/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/the-future-of-ai-agents/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/the-vibe-coder's-guide-to-pydantic-ai-intent-first-agent-design/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
     <url><loc>https://nexus-intel.github.io/blog/top-10-ai-automation-tools-for-business-in-2026/</loc><lastmod>2026-03-24</lastmod><priority>0.8</priority></url>
