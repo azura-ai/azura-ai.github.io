@@ -1,6 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from backend.hospital_bot import agent, PatientDeps
+try:
+    from backend.hospital_bot import agent, PatientDeps
+except ImportError:
+    from hospital_bot import agent, PatientDeps
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import sqlite3
