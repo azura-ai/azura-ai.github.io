@@ -1,9 +1,9 @@
 name: Autonomous SEO Agent
 
 on:
-  schedule:
-    - cron: '0 */6 * * *'  # Runs 4 times a day (every 6 hours)
-  workflow_dispatch:      # Allows manual trigger
+  # schedule:
+  #   - cron: '0 */6 * * *'  # DISABLED: Auto-generated content triggers Google spam filters
+  workflow_dispatch:      # Manual trigger only — review content before publishing
 
 jobs:
   draft-content:

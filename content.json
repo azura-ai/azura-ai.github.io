@@ -8,13 +8,6 @@
             "image": null
         },
         {
-            "id": "ai-for-document-processing-in-healthcare-hipaa-compliant-ocr-solutions",
-            "title": "AI for Document Processing in Healthcare: HIPAA-Compliant OCR Solutions",
-            "subtitle": "Moving beyond paper charts. Learn how Agentic IDP is revolutionizing patient data and clinical trials in 2026.",
-            "description": "Despite decades of talk about \"Electronic Health Records\" (EHR), the healthcare industry is still drowning in paper. Referrals, lab results, insurance authoriza",
-            "image": null
-        },
-        {
             "id": "ai-fraud-detection-for-fintech-how-ml-catches-what-rules-miss",
             "title": "AI Fraud Detection for Fintech: How ML Catches What Rules Miss",
             "subtitle": "The shift from \"Reactive Rules\" to \"Predictive Intelligence.\" Learn how high-growth fintechs are reducing fraud losses by 90% in 2026.",
@@ -22,38 +15,10 @@
             "image": null
         },
         {
-            "id": "ai-in-logistics-2026-automating-supply-chain-with-agentic-workflows",
-            "title": "AI in Logistics 2026: Automating Supply Chain with Agentic Workflows",
-            "subtitle": "Why \"Smart Routing\" is no longer enough. Learn how autonomous agents are managing end-to-end global supply chains in 2026.",
-            "description": "The global logistics industry spent billions on \"Digital Transformation\" between 2020 and 2024, yet most companies still feel like they are \"flying blind.\" Why?",
-            "image": null
-        },
-        {
-            "id": "best-ocr-software-in-2026-google-document-ai-vs-amazon-textract-vs-custom",
-            "title": "Best OCR Software in 2026: Google Document AI vs Amazon Textract vs Custom",
-            "subtitle": "Why \"Standard OCR\" is dying, and what \"Intelligent Document Processing\" looks like today.",
-            "description": "For decades, OCR (Optical Character Recognition) was a simple task: turn an image of a letter into a string of text. But in 2026, businesses don't just want the",
-            "image": null
-        },
-        {
-            "id": "deepseek-v3-vs-llama-4-the-2026-benchmark",
-            "title": "DeepSeek-V3 vs. Llama 4: The 2026 Benchmark",
-            "subtitle": "\"In 2026, the competitive advantage is no longer found in access to raw intelligence, but in the efficiency of its execution. Choosing between DeepSeek-V3 and Llama 4 is a strategic decision that dictates your enterprise\u2019s cost-per-automated-task for the next 24 months.\"",
-            "description": "As we move through 2026, the AI landscape has shifted from \"Generative Chat\" to \"Agentic Execution.\" Enterprises are no longer satisfied with models that merely",
-            "image": null
-        },
-        {
             "id": "fastapi-+-pydantic-ai-the-ultimate-high-performance-ai-backend",
             "title": "FastAPI + Pydantic AI: The Ultimate High-Performance AI Backend",
             "subtitle": "Build scalable, type-safe, and agentic AI architectures using the power of FastAPI, Pydantic AI, and Gemini.",
             "description": "In 2026, the \"Vibe Coding\" movement has matured from a fringe experimental phase into the industry standard for high-velocity engineering. To the uninitiated, \"",
-            "image": null
-        },
-        {
-            "id": "gpt-5-vs-gemini-2-5-pro-vs-claude-4",
-            "title": "GPT-5 vs Google Gemini API vs Claude 4: Which LLM Should Your Business Use in 2026?",
-            "subtitle": "The definitive guide to selecting the right backbone for your enterprise AI strategy in a multi-model world.",
-            "description": "The \"Model Wars\" of 2024 and 2025 have settled into a specialized equilibrium. We are no longer asking *if* LLMs can handle business tasks, but *which* specific",
             "image": null
         },
         {
@@ -78,66 +43,10 @@
             "image": null
         },
         {
-            "id": "how-to-replace-rpa-with-agentic-ai-the-2026-migration-playbook",
-            "title": "How to Replace RPA with Agentic AI: The 2026 Migration Playbook",
-            "subtitle": "Why your \"Bots\" are breaking, and how \"Agents\" will fix them. The 5-step guide to migrating from UiPath to LangGraph.",
-            "description": "For the last decade, Robotic Process Automation (RPA) was the champion of efficiency. We built \"Bots\" in UiPath or Blue Prism to clicks buttons, copy-paste data",
-            "image": null
-        },
-        {
-            "id": "langchain-vs-langgraph-vs-crewai-which-framework-for-ai-agents",
-            "title": "LangChain vs LangGraph vs CrewAI: Which Framework for AI Agents?",
-            "subtitle": "Navigating the complex world of multi-agent orchestration in 2026.",
-            "description": "In 2024, if you wanted to build an AI application, you used **LangChain**. It was the revolutionary \"chain of thought\" framework that let developers link prompt",
-            "image": null
-        },
-        {
             "id": "multi-agent-ai-systems-architecture-patterns-and-implementation",
             "title": "Multi-Agent AI Systems: Architecture Patterns & Implementation",
             "subtitle": "Moving from \"Lone Wolf\" bots to \"Collaborative Teams.\" Learn the 3 proven patterns for agent orchestration in 2026.",
             "description": "In 2026, we have moved beyond the \"Single Prompt\" era. We have realized that asking one LLM to handle research, reasoning, coding, and quality control all at on",
-            "image": null
-        },
-        {
-            "id": "multimodal-vibes-intent-driven-video-analysis-with-gemini-api",
-            "title": "Multimodal Vibes: Intent-Driven Video Analysis with Gemini API",
-            "subtitle": "Orchestrating high-context video intelligence through declarative intent, agentic reasoning, and the Gemini 1.5 Pro ecosystem.",
-            "description": "In the era of **Vibe Coding**, the distance between a developer\u2019s intent and a production-ready application has collapsed. We are no longer meticulously hand-cr",
-            "image": null
-        },
-        {
-            "id": "no-code-ai-automation-building-intelligent-workflows-without-developers",
-            "title": "No-Code AI Automation: Building Intelligent Workflows Without Developers",
-            "subtitle": "The empowerment of the \"Business Architect.\" Learn how tools like Make.com and Zapier Central are democratizing AI in 2026.",
-            "description": "In 2024, if you wanted to build an AI-powered workflow, you needed a Python developer, a data scientist, and a DevOps engineer. This meant that small businesses",
-            "image": null
-        },
-        {
-            "id": "open-source-vs-proprietary-llms-cost-security-and-performance",
-            "title": "Open-Source vs Proprietary LLMs: Cost, Security, and Performance",
-            "subtitle": "Is it time to ditch the API and host your own intelligence?",
-            "description": "In the early days of AI, there was no contest: proprietary models like GPT-3 and GPT-4 were years ahead of the open-source community. But 2026 has brought a rad",
-            "image": null
-        },
-        {
-            "id": "pydantic-ai-vs-langgraph-when-to-script-and-when-to-orchestrate",
-            "title": "Pydantic AI vs LangGraph: When to Script and When to Orchestrate",
-            "subtitle": "Master the balance between type-safe agentic scripting and stateful graph orchestration for high-performance AI workflows.",
-            "description": "The year is 2026, and the \"Vibe Coding\" movement has matured from a fringe philosophy into the industry standard for elite engineering teams. We no longer spend",
-            "image": null
-        },
-        {
-            "id": "rag-in-2026-the-complete-guide-to-retrieval-augmented-generation",
-            "title": "RAG in 2026: The Complete Guide to Retrieval-Augmented Generation",
-            "subtitle": "Why legacy RAG is failing, and how \"Agentic RAG\" with Knowledge Graphs is taking over.",
-            "description": "In 2023, **Retrieval-Augmented Generation (RAG)** was simple: you turned a document into vectors, stored them in a database, and searched for the top 3 results ",
-            "image": null
-        },
-        {
-            "id": "schema-driven-dev-bulletproof-api-contracts-for-ai-led-teams",
-            "title": "Schema-Driven Dev: Bulletproof API Contracts for AI-Led Teams",
-            "subtitle": "Redefining the boundary between high-level intent and deterministic execution through Pydantic-first orchestration.",
-            "description": "In the era of **Vibe Coding**, where developers act more like conductors than stenographers, the distance between \"I have an idea\" and \"It\u2019s in production\" has ",
             "image": null
         },
         {
@@ -162,10 +71,10 @@
             "image": null
         },
         {
-            "id": "the-flash-stack-building-instant-ai-apps-with-gemini-2.5-flash",
-            "title": "The Flash Stack: Building Instant AI Apps with Gemini 2.5 Flash",
-            "subtitle": "Harnessing ultra-low latency AI orchestration with Pydantic AI, LangGraph, and the Gemini 2.5 Flash model for next-generation Vibe Coding.",
-            "description": "The year 2026 marks the end of the \"Reasoning Pause.\" For years, developers tolerated the three-second \"thinking\" spinner as LLMs performed complex internal mon",
+            "id": "the-flash-stack-building-instant-ai-apps-with-google-gemini-api",
+            "title": "The Flash Stack: Building Instant AI Apps with Google Gemini API",
+            "subtitle": "Master the high-velocity orchestration of Pydantic AI, Gemini Flash, and LangGraph for sub-second agentic intelligence.",
+            "description": "In the landscape of 2026, the \"Vibe Coder\" has transcended simple syntax. We no longer spend weeks debating boilerplate; we orchestrate intent. As the barrier b",
             "image": null
         },
         {
@@ -180,34 +89,6 @@
             "title": "The Vibe Coder's Guide to Pydantic AI: Intent-First Agent Design",
             "subtitle": "Master the logic-driven orchestration of Pydantic AI and Gemini to build type-safe, vibe-aligned agentic workflows.",
             "description": "In the landscape of 2026, the definition of a \"senior developer\" has shifted. We no longer spend our days wrestling with syntax or manual memory management; we ",
-            "image": null
-        },
-        {
-            "id": "top-10-ai-automation-tools-for-business-in-2026",
-            "title": "Top 10 AI Automation Tools for Business in 2026",
-            "subtitle": "A curated list of the most impactful tools that are moving the needle for enterprises today.",
-            "description": "In 2026, \"AI Automation\" is no longer a buzzword\u2014it is a survival requirement. The market is saturated with GPT-wrappers, but only a handful of tools provide th",
-            "image": null
-        },
-        {
-            "id": "unlimited-context-mastering-gemini's-1m+-token-window-for-large-apps",
-            "title": "Unlimited Context: Mastering Gemini's 1M+ Token Window for Large Apps",
-            "subtitle": "Orchestrating massive codebases through the lens of intent-first development and the infinite context era.",
-            "description": "In the rapidly evolving landscape of 2026, the term \"developer\" has undergone a radical transformation. We are no longer syntax janitors; we are **Vibe Coders**",
-            "image": null
-        },
-        {
-            "id": "vibe-check-testing-ai-agents-with-tdd-and-pytest",
-            "title": "Vibe Check: Testing AI Agents with TDD and Pytest",
-            "subtitle": "Master the art of deterministic orchestration in a non-deterministic world with TDD, Pydantic AI, and LangGraph.",
-            "description": "In the landscape of 2026, the role of the developer has undergone a seismic shift. We are no longer just \"writers of syntax\"; we are **Vibe Coders**. We orchest",
-            "image": null
-        },
-        {
-            "id": "zero-to-hero-prompt-engineering-for-vibe-coders-with-gemini-pro",
-            "title": "Zero-to-Hero: Prompt Engineering for Vibe Coders with Gemini Pro",
-            "subtitle": "Master the art of intent-driven orchestration using Gemini Pro, Pydantic AI, and LangGraph to transform high-level \"vibes\" into production-grade systems.",
-            "description": "In 2026, the distinction between a \"programmer\" and an \"architect\" has all but vanished. We have entered the era of the **Vibe Coder**. To a vibe coder, syntax ",
             "image": null
         }
     ],
