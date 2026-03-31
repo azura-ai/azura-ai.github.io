@@ -70,18 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     renderDynamicContent();
-    // Chatbot Toggle
-    const trigger = document.getElementById('chatbot-trigger');
-    const widget = document.getElementById('chatbot-widget');
-    const closeBtn = document.getElementById('close-chat');
-
-    trigger.addEventListener('click', () => {
-        widget.classList.toggle('chatbot-closed');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        widget.classList.add('chatbot-closed');
-    });
+    renderDynamicContent();
 
     // Chat Logic
     const sendBtn = document.getElementById('send-msg');
@@ -286,16 +275,40 @@ const chatbotWidget = document.getElementById('chatbot-widget');
 const chatbotTrigger = document.getElementById('chatbot-trigger');
 const closeChat = document.getElementById('close-chat');
 
+function openChatbot() {
+    if (chatbotWidget) {
+        chatbotWidget.classList.remove('chatbot-closed');
+        chatbotWidget.classList.add('chatbot-open');
+    }
+}
+
+function closeChatbot() {
+    if (chatbotWidget) {
+        chatbotWidget.classList.remove('chatbot-open');
+        chatbotWidget.classList.add('chatbot-closed');
+    }
+}
+
 if (chatbotTrigger && chatbotWidget) {
     chatbotTrigger.addEventListener('click', () => {
-        chatbotWidget.classList.toggle('chatbot-open');
+        if (chatbotWidget.classList.contains('chatbot-open')) {
+            closeChatbot();
+        } else {
+            openChatbot();
+        }
     });
 }
+
 if (closeChat && chatbotWidget) {
-    closeChat.addEventListener('click', () => {
-        chatbotWidget.classList.remove('chatbot-open');
-    });
+    closeChat.addEventListener('click', closeChatbot);
 }
+
+// Auto-popup after 5 seconds
+setTimeout(() => {
+    if (chatbotWidget && !chatbotWidget.classList.contains('chatbot-open')) {
+        openChatbot();
+    }
+}, 5000);
 
 // Chatbot Message Helper
 function appendMessage(role, text) {

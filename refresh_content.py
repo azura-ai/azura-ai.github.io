@@ -214,7 +214,7 @@ if __name__ == "__main__":
                 if f.endswith('.md'): data[k].append(extract_metadata(os.path.join(d, f)))
     
     header, footer = get_shared_components()
-    for filename in ['index.html', 'blog.html']:
+    for filename in ['index.html', 'blog.html', 'about.html', 'privacy.html', 'study.html', 'post.html', 'facebook.html', 'instagram.html', 'linkedin.html', 'threads.html']:
         if os.path.exists(filename):
             with open(filename, 'r') as f: content = f.read()
             content = content.replace('[[ROOT]]', '') # Root pages have no root_path

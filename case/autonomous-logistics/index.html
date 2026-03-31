@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autonomous Supply Chain Engine | Case Study | Nexus Intelligence</title>
     <meta name="description" content="How we deployed a LangGraph-powered agentic system that reduced transportation costs by 28%.">
-    <link rel="stylesheet" href="../../style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=2.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     <!-- loader.js removed for SSG performance -->
 
     <!-- JSON-LD Schema (dynamically populated) -->
-    <script type="application/ld+json" id="study-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Autonomous Supply Chain Engine", "description": "A global logistics firm with operations across 14 countries was struggling with a critical bottleneck: **manual dispatch decisions**. Their legacy system relied", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-28"}</script>
+    <script type="application/ld+json" id="study-schema">{"@context": "https://schema.org", "@type": "Article", "headline": "Autonomous Supply Chain Engine", "description": "A global logistics firm with operations across 14 countries was struggling with a critical bottleneck: **manual dispatch decisions**. Their legacy system relied", "author": {"@type": "Organization", "name": "Nexus Intelligence"}, "publisher": {"@type": "Organization", "name": "Nexus Intelligence"}, "datePublished": "2026-03-31"}</script>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body class="sub-page">
@@ -226,13 +226,36 @@ workflow.add_conditional_edges(
             <h4>Connect</h4>
             <div class="social-icons">
                 <a href="https://github.com/nexus-intel" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="../../facebook.html" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="../../instagram.html" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="../../linkedin.html" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="../../threads.html" title="Threads"><i class="fab fa-threads"></i></a>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <p>&copy; 2026 Nexus Intelligence. All rights reserved.</p>
     </div>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-closed">
+        <div class="chatbot-header">
+            <div class="bot-info">
+                <div class="bot-status-dot"></div>
+                <span>Nexus Intelligence AI</span>
+            </div>
+            <button id="close-chat"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot-message">Welcome. How can I assist with your document workflow automation today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type a message...">
+            <button id="send-msg"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button id="chatbot-trigger"><i class="fas fa-comment-dots"></i></button>
 </footer>
-    <script src="../../script.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
