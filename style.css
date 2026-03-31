@@ -1890,3 +1890,166 @@ input[type="range"] {
     .orbit-ring { width: 300px; height: 300px; }
     .orbit-chips { width: 380px; height: 380px; }
 }
+
+/* ============ Trust Bar ============ */
+.trust-bar {
+    padding: 4rem 10%;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+}
+
+.trust-label {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+}
+
+.logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    opacity: 0.6;
+}
+
+.logo-item {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    filter: grayscale(1);
+}
+
+.logo-item:hover {
+    opacity: 1;
+    filter: grayscale(0);
+    color: var(--text-primary);
+}
+
+.logo-item i {
+    font-size: 1.75rem;
+    color: var(--accent);
+}
+
+/* ============ Process Section ============ */
+.process-section {
+    padding: 10rem 10%;
+    background: var(--bg-dark);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.process-card {
+    background: var(--bg-card);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: 0.3s;
+}
+
+.process-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.process-num {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: 'Space Grotesk';
+    color: rgba(139, 92, 246, 0.1);
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+
+.process-card h3 {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.process-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ============ FAQ Section ============ */
+.faq-section {
+    padding: 8rem 10%;
+    background: #0d0d0f;
+}
+
+.faq-grid {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.faq-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ============ Sticky CTA ============ */
+.sticky-cta {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
+}
+
+.audit-btn {
+    padding: 1rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .logo-grid { gap: 2rem; }
+    .sticky-cta { left: 50%; transform: translateX(-50%); width: 90%; text-align: center; justify-content: center; bottom: 20px; }
+    .audit-btn { width: 100%; justify-content: center; }
+}
