@@ -1531,6 +1531,7 @@ input[type="range"] {
     margin-bottom: 1.2rem;
     background: linear-gradient(90deg, #fff, #cbd5e1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1809,8 +1810,15 @@ input[type="range"] {
     font-size: 2.5rem;
     font-weight: 700;
     font-family: 'Space Grotesk', sans-serif;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.25rem;
     color: var(--text-primary);
+}
+
+.pricing-recurring {
+    font-size: 1.25rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
 }
 
 .pricing-price span {
