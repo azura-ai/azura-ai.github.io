@@ -8,6 +8,16 @@ from datetime import datetime
 CALENDAR_FILE = 'content_calendar.md'
 GENAI_API_KEY = os.getenv('GEMINI_API_KEY')
 
+# 2026 Market Intelligence Seeds
+TRENDING_MARKET_CONTEXT = """
+Current High-Demand Trends (2026):
+1. Agentic AI Workflows: AI that doesn't just extract data, but reconciles ERP discrepancies and executes business actions.
+2. Healthcare Document Orchestration: Prior authorization automation, clinical note scribing, and supply chain exception management.
+3. Fintech Auditability: Streamlining mortgage/loan processing and real-time regulatory compliance (GDPR/HIPAA).
+4. LogisticsChain of Custody: Automating customs forms and physical-to-digital reconciliation.
+5. Data Readiness: Preparing legacy enterprise data for AI ingestion and layout-aware processing.
+"""
+
 def get_existing_topics():
     if not os.path.exists(CALENDAR_FILE):
         return []
@@ -32,7 +42,10 @@ def discover_new_topics(existing_titles):
     prompt = f"""You are a Senior Enterprise SEO Strategist specializing in AI Automation and Document Intelligence.
 Your task is to generate 5 NEW, high-authority technical blog post topics for Azura AI.
 
-CONTEXT:
+TRENDING MARKET CONTEXT (2026):
+{TRENDING_MARKET_CONTEXT}
+
+CORE NICHE:
 Azura AI serves European enterprises in Healthcare, Fintech, and Logistics.
 Current Topics (DO NOT REPEAT THESE):
 {json.dumps(existing_titles)}
