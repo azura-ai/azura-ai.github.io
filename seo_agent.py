@@ -5,7 +5,7 @@ import google.generativeai as genai
 from datetime import datetime
 
 # Configuration
-TOPICS_FILE = 'vibe_topics.md'
+TOPICS_FILE = 'content_calendar.md'
 BLOGS_DIR = 'blogs'
 GENAI_API_KEY = os.getenv('GEMINI_API_KEY')
 
