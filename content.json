@@ -177,5 +177,123 @@
             "description": "For mid-sized clinics and billing centers, manual coding is a high-latency bottleneck. Human fatigue leads to an average 18% claim denial rate, costing provider",
             "image": null
         }
-    ]
+    ],
+    "stats": {
+        "total_words": 11086,
+        "avg_words": 852,
+        "velocity": "1 post/week"
+    },
+    "calendar": [
+        {
+            "id": "1",
+            "title": "How to Automate Invoice Processing with AI in 2026",
+            "keyword": "ai invoice processing automation",
+            "intent": "Buyer researching solutions",
+            "status": "Upcoming"
+        },
+        {
+            "id": "2",
+            "title": "AI-Powered Document Automation for European Healthcare",
+            "keyword": "healthcare document automation europe",
+            "intent": "EU healthcare compliance buyer",
+            "status": "Upcoming"
+        },
+        {
+            "id": "3",
+            "title": "How to Build an AI Chatbot for Appointment Booking",
+            "keyword": "ai appointment booking chatbot",
+            "intent": "Service business owner",
+            "status": "Upcoming"
+        },
+        {
+            "id": "4",
+            "title": "Automating Insurance Card Verification with OCR and AI",
+            "keyword": "insurance card ocr verification",
+            "intent": "Healthcare admin / IT lead",
+            "status": "Upcoming"
+        },
+        {
+            "id": "5",
+            "title": "AI Fraud Detection for Payment Processing: A Technical Guide",
+            "keyword": "ai fraud detection payment processing",
+            "intent": "Fintech CTO / risk team",
+            "status": "Upcoming"
+        },
+        {
+            "id": "6",
+            "title": "How to Automate KYC Identity Verification with AI",
+            "keyword": "automate kyc identity verification ai",
+            "intent": "Compliance officer / fintech",
+            "status": "Upcoming"
+        },
+        {
+            "id": "7",
+            "title": "What is Intelligent Document Processing? A Complete Guide",
+            "keyword": "what is intelligent document processing",
+            "intent": "Researcher learning about IDP",
+            "status": "Upcoming"
+        },
+        {
+            "id": "8",
+            "title": "OCR vs AI Document Processing: What's the Difference?",
+            "keyword": "ocr vs ai document processing",
+            "intent": "Comparing old vs new approaches",
+            "status": "Upcoming"
+        },
+        {
+            "id": "9",
+            "title": "How to Calculate ROI for AI Automation Projects",
+            "keyword": "ai automation roi calculator",
+            "intent": "Executive justifying AI spend",
+            "status": "Published"
+        },
+        {
+            "id": "10",
+            "title": "GDPR-Compliant AI: How to Process Documents in Europe",
+            "keyword": "gdpr compliant ai document processing",
+            "intent": "EU data officer",
+            "status": "Upcoming"
+        },
+        {
+            "id": "11",
+            "title": "Building AI Agents with Python: LangGraph vs Pydantic AI",
+            "keyword": "langgraph vs pydantic ai python",
+            "intent": "Developer choosing frameworks",
+            "status": "Upcoming"
+        },
+        {
+            "id": "12",
+            "title": "How AI is Transforming Medical Billing and Coding",
+            "keyword": "ai medical billing coding automation",
+            "intent": "Healthcare revenue cycle",
+            "status": "Upcoming"
+        },
+        {
+            "id": "13",
+            "title": "The True Cost of Manual Document Processing in 2026",
+            "keyword": "cost of manual document processing",
+            "intent": "Pain-aware executive",
+            "status": "Upcoming"
+        },
+        {
+            "id": "14",
+            "title": "5 Signs Your Business Needs AI Workflow Automation",
+            "keyword": "signs business needs ai automation",
+            "intent": "Problem-aware business owner",
+            "status": "Upcoming"
+        },
+        {
+            "id": "15",
+            "title": "AI Document Processing Case Study: 92% Cost Reduction",
+            "keyword": "ai document processing case study",
+            "intent": "Proof-seeking buyer",
+            "status": "Upcoming"
+        }
+    ],
+    "health": {
+        "sitemap": true,
+        "favicon": true,
+        "og_image": true,
+        "schema": true
+    }
 }

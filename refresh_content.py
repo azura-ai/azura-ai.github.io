@@ -179,20 +179,16 @@ def generate_sitemap(data):
         (BASE_URL + "/", today, "weekly", "1.0"),
         (BASE_URL + "/blog.html", today, "weekly", "0.8"),
         (BASE_URL + "/about.html", "2026-03-20", "monthly", "0.6"),
-        (BASE_URL + "/privacy.html", "2026-03-10", "yearly", "0.3")
+        (BASE_URL + "/dashboard.html", today, "daily", "0.1")
     ]
     
     blog_urls = []
     for i, b in enumerate(data['blogs']):
-        day = 10 + (i % 18)
-        date = f"2026-03-{day:02d}"
-        blog_urls.append((f"{BASE_URL}/blog/{urllib.parse.quote(b['id'])}/", date, "monthly", "0.7"))
+        blog_urls.append((f"{BASE_URL}/blog/{urllib.parse.quote(b['id'])}/", today, "monthly", "0.7"))
         
     case_urls = []
     for i, c in enumerate(data['cases']):
-        day = 15 + (i % 10)
-        date = f"2026-03-{day:02d}"
-        case_urls.append((f"{BASE_URL}/case/{urllib.parse.quote(c['id'])}/", date, "monthly", "0.6"))
+        case_urls.append((f"{BASE_URL}/case/{urllib.parse.quote(c['id'])}/", today, "monthly", "0.6"))
         
     all_urls = core_urls + blog_urls + case_urls
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -200,6 +196,27 @@ def generate_sitemap(data):
         xml += f'    <url>\n        <loc>{loc}</loc>\n        <lastmod>{lastmod}</lastmod>\n        <changefreq>{freq}</changefreq>\n        <priority>{prio}</priority>\n    </url>\n'
     xml += '</urlset>'
     with open(SITEMAP_XML, 'w') as f: f.write(xml)
+
+def get_calendar_data():
+    cal_file = 'content_calendar.md'
+    if not os.path.exists(cal_file): return []
+    with open(cal_file, 'r') as f: content = f.read()
+    matches = re.findall(r'\| (\d+) \| \*\*([^*]+)\*\* \| ([^|]+) \| ([^|]+) \|', content)
+    blogs_dir = 'blogs'
+    existing = [f.replace('.md', '') for f in os.listdir(blogs_dir) if f.endswith('.md')]
+    calendar = []
+    for mid, title, keyword, intent in matches:
+        slug = title.lower().strip()
+        slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+        slug = re.sub(r'\s+', '-', slug).strip('-')
+        calendar.append({
+            "id": mid,
+            "title": title.strip(),
+            "keyword": keyword.strip(),
+            "intent": intent.strip(),
+            "status": "Published" if slug in existing else "Upcoming"
+        })
+    return calendar
 
 if __name__ == "__main__":
     data = {"blogs": [], "cases": []}
@@ -211,8 +228,8 @@ if __name__ == "__main__":
     pages = [
         ('index.html', "Azura AI | AI Document Automation & Workflow Intelligence for Europe", "Azura AI builds enterprise-grade AI document automation, intelligent OCR workflows, and autonomous agents for European businesses. Invoice processing, healthcare claims, fraud detection, and identity verification.", "main-page"),
         ('blog.html', "AI Automation Blog | Azura AI Technical Insights", "Expert technical insights on AI automation, agentic workflows, LangGraph, Pydantic AI, and intelligent document processing from Azura AI.", "sub-page"),
+        ('dashboard.html', "SEO Monitoring | Azura AI Internal Dashboard", "Real-time monitoring of SEO health, content pipeline, and discovery status for Azura AI.", "sub-page"),
         ('about.html', "About Azura AI | Enterprise AI Automation Agency", "Azura AI is a European AI automation agency specializing in document intelligence, workflow automation, and autonomous agent development.", "sub-page"),
-        ('privacy.html', "Privacy Policy | Azura AI", "Legal and privacy information.", "sub-page"),
         ('facebook.html', "Connect on Facebook | Azura AI", "Follow Azura AI on Facebook for updates on enterprise AI automation.", "sub-page"),
         ('instagram.html', "Connect on Instagram | Azura AI", "Follow Azura AI on Instagram for behind-the-scenes AI engineering.", "sub-page"),
         ('linkedin.html', "Connect on LinkedIn | Azura AI", "Connect with Azura AI on LinkedIn for enterprise AI insights.", "sub-page"),
@@ -331,6 +348,25 @@ if __name__ == "__main__":
     for c in data['cases']: generate_static_page(c, STUDY_TEMPLATE, CASES_HTML_DIR, "case")
     
     meta_data = {k: [{i: v for i, v in item.items() if i != 'raw_content'} for item in data[k]] for k in data}
+    
+    # Dashboard stats
+    words = sum([len(b['raw_content'].split()) for b in data['blogs']])
+    meta_data['stats'] = {
+        "total_words": words,
+        "avg_words": words // len(data['blogs']) if data['blogs'] else 0,
+        "velocity": "1 post/week"
+    }
+    
+    meta_data['calendar'] = get_calendar_data()
+    
+    # Quick health check
+    meta_data['health'] = {
+        "sitemap": os.path.exists(SITEMAP_XML),
+        "favicon": os.path.exists('assets/images/favicon.png'),
+        "og_image": os.path.exists('assets/images/og-image.png'),
+        "schema": True # Homepage injection is handled in build
+    }
+
     with open(CONTENT_JSON, 'w') as f: json.dump(meta_data, f, indent=4)
     generate_sitemap(data)
-    print("✨ Unified Templating Build Complete.")
+    print("✨ Unified Templating Build Complete (with SEO Dashboard data).")

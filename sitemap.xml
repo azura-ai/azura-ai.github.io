@@ -19,158 +19,158 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://azura-ai.github.io/privacy.html</loc>
-        <lastmod>2026-03-10</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
+        <loc>https://azura-ai.github.io/dashboard.html</loc>
+        <lastmod>2026-04-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.1</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/3-ecommerce-agent-pydantic-vs-langgraph/</loc>
-        <lastmod>2026-03-10</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/ai-fraud-detection-for-fintech-how-ml-catches-what-rules-miss/</loc>
-        <lastmod>2026-03-11</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/fastapi-%2B-pydantic-ai-the-ultimate-high-performance-ai-backend/</loc>
-        <lastmod>2026-03-12</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/how-to-automate-invoice-processing-with-ai-ocr-plus-llms/</loc>
-        <lastmod>2026-03-13</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/how-to-build-an-ai-agent-with-langgraph-step-by-step-python-tutorial/</loc>
-        <lastmod>2026-03-14</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/how-to-calculate-roi-for-ai-automation-projects/</loc>
-        <lastmod>2026-03-15</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/multi-agent-ai-systems-architecture-patterns-and-implementation/</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/state-machines-for-humans-building-cyclic-agents-with-langgraph/</loc>
-        <lastmod>2026-03-17</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/streaming-the-vibe-real-time-agentic-ux-with-fastapi-websockets/</loc>
-        <lastmod>2026-03-18</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/structured-agency-building-document-intelligence-with-pydantic-ai/</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/the-flash-stack-building-instant-ai-apps-with-google-gemini-api/</loc>
-        <lastmod>2026-03-20</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/the-future-of-ai-agents/</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/blog/the-vibe-coder%27s-guide-to-pydantic-ai-intent-first-agent-design/</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/ai-marketing-outreach/</loc>
-        <lastmod>2026-03-15</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/ai-redaction-engine/</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/autonomous-logistics/</loc>
-        <lastmod>2026-03-17</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/booking-agents/</loc>
-        <lastmod>2026-03-18</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/dubai-mall-loyalty/</loc>
-        <lastmod>2026-03-19</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/fintech-fraud-detection/</loc>
-        <lastmod>2026-03-20</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/healthcare-agent-system/</loc>
-        <lastmod>2026-03-21</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/healthcare-claims/</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/identity-verification/</loc>
-        <lastmod>2026-03-23</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/insurance-card-ocr/</loc>
-        <lastmod>2026-03-24</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/invoice-intelligence/</loc>
-        <lastmod>2026-03-15</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://azura-ai.github.io/case/medical-billing-automation/</loc>
-        <lastmod>2026-03-16</lastmod>
+        <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
