@@ -1,9 +1,9 @@
-name: Autonomous SEO Agent
+name: SEO Content Agent
 
 on:
-  # schedule:
-  #   - cron: '0 */6 * * *'  # DISABLED: Auto-generated content triggers Google spam filters
-  workflow_dispatch:      # Manual trigger only — review content before publishing
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC (1 post per week)
+  workflow_dispatch:      # Manual trigger for on-demand drafting
 
 jobs:
   draft-content:
@@ -26,7 +26,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install google-generativeai
+          pip install google-generativeai markdown-it-py
 
       - name: Run SEO Agent
         env:
@@ -35,8 +35,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.name "Nexus SEO Bot"
-          git config --global user.email "seo-bot@nexus-intel.com"
+          git config --global user.name "Azura SEO Agent"
+          git config --global user.email "seo@azura-ai.github.io"
           git add .
-          git commit -m "🤖 [Bot] Autonomous SEO Update: New Vibe Coding post drafted" || echo "No changes to commit"
+          git diff --cached --quiet || git commit -m "📝 New blog post published by SEO agent"
           git push
