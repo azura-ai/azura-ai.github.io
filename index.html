@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azura AI | Premium Document & Workflow Automation for Europe</title>
+    <title>Azura AI | AI Document Automation & Workflow Intelligence for Europe</title>
     <!-- SEO & Social Sharing -->
-    <meta name="description" content="State-of-the-art AI automation for European enterprises.">
-    <meta property="og:title" content="Azura AI | Premium Document & Workflow Automation for Europe">
-    <meta property="og:description" content="State-of-the-art AI automation for European enterprises.">
+    <meta name="description" content="Azura AI builds enterprise-grade AI document automation, intelligent OCR workflows, and autonomous agents for European businesses. Invoice processing, healthcare claims, fraud detection, and identity verification.">
+    <meta property="og:title" content="Azura AI | AI Document Automation & Workflow Intelligence for Europe">
+    <meta property="og:description" content="Azura AI builds enterprise-grade AI document automation, intelligent OCR workflows, and autonomous agents for European businesses. Invoice processing, healthcare claims, fraud detection, and identity verification.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://azura-ai.github.io">
-    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:image" content="https://azura-ai.github.io/assets/images/og-image.png">
     
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Azura AI | Premium Document & Workflow Automation for Europe">
-    <meta name="twitter:description" content="State-of-the-art AI automation for European enterprises.">
-    <meta name="twitter:image" content="assets/images/og-image.png">
+    <meta name="twitter:title" content="Azura AI | AI Document Automation & Workflow Intelligence for Europe">
+    <meta name="twitter:description" content="Azura AI builds enterprise-grade AI document automation, intelligent OCR workflows, and autonomous agents for European businesses. Invoice processing, healthcare claims, fraud detection, and identity verification.">
+    <meta name="twitter:image" content="https://azura-ai.github.io/assets/images/og-image.png">
 
     <link rel="canonical" href="https://azura-ai.github.io">
     <link rel="stylesheet" href="style.css?v=2.2">
@@ -27,14 +27,19 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     
     <!-- JSON-LD Structured Data Slot -->
-    
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "Azura AI", "url": "https://azura-ai.github.io", "logo": "https://azura-ai.github.io/assets/images/favicon.png", "description": "Enterprise-grade AI document automation, workflow intelligence, and autonomous agent development for European businesses.", "foundingDate": "2025", "areaServed": ["Europe", "Middle East"], "knowsAbout": ["Artificial Intelligence", "Document Automation", "OCR", "Machine Learning", "Workflow Automation", "AI Agents"], "sameAs": ["https://github.com/azura-ai"], "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "availableLanguage": ["English"]}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "AI Automation Services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Digital Foundation", "description": "Premium Web Development, AI Chatbot Integration, and Managed Hosting."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Automation Suite", "description": "Advanced Document Workflows, Multi-Agent systems, and CRM/ERP Integration."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fractional AI Department", "description": "Long-term strategic partnership as your internal AI R&D department."}}]}}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Azura AI", "url": "https://azura-ai.github.io", "potentialAction": {"@type": "SearchAction", "target": "https://azura-ai.github.io/blog.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is our sensitive data safe with your AI?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. We specialize in HIPAA and GDPR compliant workflows, using layout-aware PII redaction and local/private cloud hosting to ensure your data stays within your sovereign jurisdiction."}}, {"@type": "Question", "name": "How long does a typical AI automation implementation take?", "acceptedAnswer": {"@type": "Answer", "text": "A Foundation setup usually takes 2-4 weeks. Enterprise Automation Suites involving deep ERP integration typically take 8-12 weeks from architecture to live production."}}, {"@type": "Question", "name": "Do we need a technical team to manage this?", "acceptedAnswer": {"@type": "Answer", "text": "No. Our Elite and Scaling tiers include complete managed services and hosting. We act as your internal AI department, handling all monitoring and updates."}}]}]</script>
 </head>
 <body class="main-page">
     <header id="header-container">
         <!-- Header will be injected here during build -->
         <nav class="glass">
     <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">AZURA<span>AI</span></a></div>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
         <li><a href="index.html#hero">Home</a></li>
         <li><a href="index.html#services">Services</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -42,7 +47,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
     </ul>
-    <button class="cta-button" onclick="window.location.href='index.html#contact'">Get in Touch</button>
+    <button class="cta-button nav-cta" onclick="window.location.href='index.html#contact'">Get in Touch</button>
 </nav>
 
     </header>

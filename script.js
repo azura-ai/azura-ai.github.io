@@ -1,5 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Dynamic Card Rendering
+    // ============ Mobile Hamburger Menu ============
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+    
+    if (hamburgerBtn && navLinks) {
+        // Create overlay element
+        const overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        document.body.appendChild(overlay);
+
+        const toggleMenu = () => {
+            hamburgerBtn.classList.toggle('active');
+            navLinks.classList.toggle('nav-open');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('nav-open') ? 'hidden' : '';
+            hamburgerBtn.setAttribute('aria-expanded', navLinks.classList.contains('nav-open'));
+        };
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('nav-open')) {
+                    toggleMenu();
+                }
+            });
+        });
+    }
+
     // Dynamic Card Rendering
     async function renderDynamicContent() {
         const ROOT_PATH = window.ROOT_PATH || '';

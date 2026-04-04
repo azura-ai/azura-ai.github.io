@@ -209,29 +209,122 @@ if __name__ == "__main__":
                 if f.endswith('.md'): data[k].append(extract_metadata(os.path.join(d, f)))
     
     pages = [
-        ('index.html', "Azura AI | Premium Document & Workflow Automation for Europe", "State-of-the-art AI automation for European enterprises.", "main-page"),
-        ('blog.html', "Insights | Azura AI", "Expert insights on AI automation and agentic workflows.", "sub-page"),
-        ('about.html', "About Us | Azura AI", "Architecting the future of enterprise intelligence.", "sub-page"),
+        ('index.html', "Azura AI | AI Document Automation & Workflow Intelligence for Europe", "Azura AI builds enterprise-grade AI document automation, intelligent OCR workflows, and autonomous agents for European businesses. Invoice processing, healthcare claims, fraud detection, and identity verification.", "main-page"),
+        ('blog.html', "AI Automation Blog | Azura AI Technical Insights", "Expert technical insights on AI automation, agentic workflows, LangGraph, Pydantic AI, and intelligent document processing from Azura AI.", "sub-page"),
+        ('about.html', "About Azura AI | Enterprise AI Automation Agency", "Azura AI is a European AI automation agency specializing in document intelligence, workflow automation, and autonomous agent development.", "sub-page"),
         ('privacy.html', "Privacy Policy | Azura AI", "Legal and privacy information.", "sub-page"),
-        ('facebook.html', "Connect on Facebook | Azura AI", "Follow us on Facebook.", "sub-page"),
-        ('instagram.html', "Connect on Instagram | Azura AI", "Follow us on Instagram.", "sub-page"),
-        ('linkedin.html', "Connect on LinkedIn | Azura AI", "Follow us on LinkedIn.", "sub-page"),
-        ('threads.html', "Connect on Threads | Azura AI", "Follow us on Threads.", "sub-page"),
+        ('facebook.html', "Connect on Facebook | Azura AI", "Follow Azura AI on Facebook for updates on enterprise AI automation.", "sub-page"),
+        ('instagram.html', "Connect on Instagram | Azura AI", "Follow Azura AI on Instagram for behind-the-scenes AI engineering.", "sub-page"),
+        ('linkedin.html', "Connect on LinkedIn | Azura AI", "Connect with Azura AI on LinkedIn for enterprise AI insights.", "sub-page"),
+        ('threads.html', "Connect on Threads | Azura AI", "Follow Azura AI on Threads for AI automation updates.", "sub-page"),
     ]
+
+    # Homepage JSON-LD structured data
+    homepage_schema = json.dumps([
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Azura AI",
+            "url": "https://azura-ai.github.io",
+            "logo": "https://azura-ai.github.io/assets/images/favicon.png",
+            "description": "Enterprise-grade AI document automation, workflow intelligence, and autonomous agent development for European businesses.",
+            "foundingDate": "2025",
+            "areaServed": ["Europe", "Middle East"],
+            "knowsAbout": ["Artificial Intelligence", "Document Automation", "OCR", "Machine Learning", "Workflow Automation", "AI Agents"],
+            "sameAs": [
+                "https://github.com/azura-ai"
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "sales",
+                "availableLanguage": ["English"]
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI Automation Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Digital Foundation",
+                            "description": "Premium Web Development, AI Chatbot Integration, and Managed Hosting."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Automation Suite",
+                            "description": "Advanced Document Workflows, Multi-Agent systems, and CRM/ERP Integration."
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Fractional AI Department",
+                            "description": "Long-term strategic partnership as your internal AI R&D department."
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Azura AI",
+            "url": "https://azura-ai.github.io",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://azura-ai.github.io/blog.html?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Is our sensitive data safe with your AI?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Absolutely. We specialize in HIPAA and GDPR compliant workflows, using layout-aware PII redaction and local/private cloud hosting to ensure your data stays within your sovereign jurisdiction."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How long does a typical AI automation implementation take?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "A Foundation setup usually takes 2-4 weeks. Enterprise Automation Suites involving deep ERP integration typically take 8-12 weeks from architecture to live production."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Do we need a technical team to manage this?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Our Elite and Scaling tiers include complete managed services and hosting. We act as your internal AI department, handling all monitoring and updates."
+                    }
+                }
+            ]
+        }
+    ])
+    homepage_schema_html = f'<script type="application/ld+json">{homepage_schema}</script>'
 
     for filename, title, desc, bclass in pages:
         src_path = os.path.join('src/pages', filename)
         if os.path.exists(src_path):
             with open(src_path, 'r') as f: fragment = f.read()
-            # Extract only the <main> part or whatever is intended for [[CONTENT]]
-            # For simplicity, we assume the fragment IS the content
-            # But we must remove the boilerplate from the source fragments first
             
-            # Temporary logic to keep dynamic lists working
+            # Inject dynamic lists
             fragment = inject_dynamic_lists(fragment, data, filename)
             
             canonical_url = f"{BASE_URL.rstrip('/')}/{filename}" if filename != 'index.html' else BASE_URL
-            html = build_page(fragment, title, desc, body_class=bclass, canonical_url=canonical_url)
+            schema = homepage_schema_html if filename == 'index.html' else ''
+            html = build_page(fragment, title, desc, body_class=bclass, canonical_url=canonical_url, schema=schema)
             with open(filename, 'w') as f: f.write(html)
     
     for b in data['blogs']: generate_static_page(b, POST_TEMPLATE, BLOGS_HTML_DIR, "blog")
