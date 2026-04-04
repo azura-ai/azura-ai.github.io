@@ -216,7 +216,13 @@ def get_calendar_data():
             "intent": intent.strip(),
             "status": "Published" if slug in existing else "Upcoming"
         })
-    return calendar
+def get_leads_data():
+    files = [f for f in os.listdir('.') if f.startswith('leads_discovery_') and f.endswith('.md')]
+    if not files: return []
+    latest = sorted(files)[-1]
+    with open(latest, 'r') as f: content = f.read()
+    matches = re.findall(r'\| ([^|]+) \| ([^|]+) \| ([^|]+) \| \*\*([^|]+)\*\* \|', content)
+    return [{"company": m[0].strip(), "role": m[1].strip(), "location": m[2].strip(), "roi": m[3].strip()} for m in matches]
 
 if __name__ == "__main__":
     data = {"blogs": [], "cases": []}
@@ -358,6 +364,7 @@ if __name__ == "__main__":
     }
     
     meta_data['calendar'] = get_calendar_data()
+    meta_data['leads'] = get_leads_data()
     
     # Quick health check
     meta_data['health'] = {
@@ -369,4 +376,4 @@ if __name__ == "__main__":
 
     with open(CONTENT_JSON, 'w') as f: json.dump(meta_data, f, indent=4)
     generate_sitemap(data)
-    print("✨ Unified Templating Build Complete (with SEO Dashboard data).")
+    print("✨ Unified Templating Build Complete (with SEO & Hunting data).")
