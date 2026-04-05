@@ -209,6 +209,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             healthContainer.appendChild(item);
         }
+
+        // Backend Ping
+        const pingItem = document.createElement('div');
+        pingItem.className = 'health-item';
+        pingItem.id = 'backend-ping-item';
+        pingItem.innerHTML = `
+            <i class="fas fa-spinner fa-spin health-status-icon"></i>
+            <span class="health-label">API Backend Connectivity</span>
+            <span class="status-pill">Pinging...</span>
+        `;
+        healthContainer.appendChild(pingItem);
+
+        try {
+            const pingRes = await fetch(`${CONFIG.BACKEND_URL}/api/chat`, { method: 'OPTIONS' });
+            const isUp = pingRes.ok || pingRes.status === 405; // 405 is fine for OPTIONS if no handler
+            pingItem.innerHTML = `
+                <i class="fas ${isUp ? 'fa-check-circle success' : 'fa-times-circle fail'} health-status-icon"></i>
+                <span class="health-label">API Backend Connectivity</span>
+                <span class="status-pill ${isUp ? 'published' : ''}">${isUp ? 'Online' : 'Offline'}</span>
+            `;
+        } catch (e) {
+            pingItem.innerHTML = `
+                <i class="fas fa-times-circle fail health-status-icon"></i>
+                <span class="health-label">API Backend Connectivity</span>
+                <span class="status-pill">Offline</span>
+            `;
+        }
         
         const score = Math.round((passCount / totalChecks) * 100);
         document.getElementById('health-score-fill').style.width = score + '%';

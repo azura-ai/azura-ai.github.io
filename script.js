@@ -1,3 +1,8 @@
+const CONFIG = {
+    BACKEND_URL: 'https://azura-aigithubio-production.up.railway.app',
+    DEBUG: false
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // ============ Mobile Hamburger Menu ============
     const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -130,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // Call actual FastAPI backend on Railway
-                const response = await fetch('https://azura-aigithubio-production.up.railway.app/chat', {
+                const response = await fetch(`${CONFIG.BACKEND_URL}/api/chat`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -204,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.disabled = true;
 
         try {
-            const response = await fetch(`https://azura-aigithubio-production.up.railway.app/${endpoint}`, {
+            const response = await fetch(`${CONFIG.BACKEND_URL}/api/${endpoint}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -358,43 +363,11 @@ function appendMessage(role, text) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// Form Submission (Lead Gen)
-    const leadForm = document.getElementById('leadForm');
-    if (leadForm) {
-        leadForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = leadForm.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = 'Analyzing Workflow...';
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            try {
-                const response = await fetch('https://azura-aigithubio-production.up.railway.app/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, message })
-                });
-
-                if (!response.ok) throw new Error('API Error');
-                
-                btn.innerText = 'Analysis Sent. Check Email.';
-                btn.style.background = '#10b981';
-                leadForm.reset();
-            } catch (err) {
-                console.warn('Form Error:', err);
-                btn.innerText = 'Error. Please try again.';
-                btn.style.background = '#ef4444';
-            } finally {
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = '';
-                }, 3000);
-            }
-        });
-    }
+// Lead Generation Form Sync (Ensuring it uses the unified API pattern)
+const leadForm = document.getElementById('leadForm');
+if (leadForm) {
+    leadForm.addEventListener('submit', (e) => handleFormSubmit(e, 'contact', 'Lead analysis sent! We will follow up soon.'));
+}
 
 // Pagination Logic: Load More
 function loadMore(containerId) {
