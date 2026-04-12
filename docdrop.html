@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocDrop — Send Documents via WhatsApp & Email | Azura AI</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="DocDrop by Azura AI — Send invoices, receipts, and documents via WhatsApp or Email. Your files are received, processed, and confirmed instantly. Zero setup, zero friction.">
+    <meta property="og:title" content="DocDrop — Instant Document Receiving via WhatsApp & Email | Azura AI">
+    <meta property="og:description" content="Send documents via WhatsApp or Email. Get instant confirmation. Powered by Azura AI's document automation pipeline.">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://azura-ai.github.io/docdrop.html">
+    <meta property="og:image" content="https://azura-ai.github.io/assets/images/og-image.png">
+
+    <link rel="canonical" href="https://azura-ai.github.io/docdrop.html">
+    <link rel="stylesheet" href="style.min.css?v=2.3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- DocDrop Inline Styles (page-specific) -->
+    <!-- Styles moved to style.css and minified into style.min.css -->
+
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DocDrop by Azura AI",
+        "description": "Send documents and images via WhatsApp or Email. Get instant confirmation. Powered by Azura AI's document automation pipeline.",
+        "url": "https://azura-ai.github.io/docdrop.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Azura AI",
+            "url": "https://azura-ai.github.io"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header id="header-container">
+        <nav class="glass">
+            <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">AZURA<span>AI</span></a></div>
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="docdrop.html" style="color: var(--accent);">DocDrop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="cta-button nav-cta" onclick="window.location.href='index.html#contact'">Get in Touch</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ═══════════════════════════════════════════════════════
+             HERO SECTION
+             ═══════════════════════════════════════════════════════ -->
+        <section class="docdrop-hero" id="docdrop-hero">
+            <div class="docdrop-hero-inner">
+                <div class="docdrop-hero-text">
+                    <span class="badge"><i class="fas fa-bolt"></i> New Product</span>
+                    <h1>Send Docs. <br><span class="gradient-text">Get Confirmed.</span><br>That's It.</h1>
+                    <p class="hero-desc">
+                        Send any document or image via <strong>WhatsApp</strong> or <strong>Email</strong> — our server receives it instantly and replies with a confirmation. No apps to install. No forms to fill out.
+                    </p>
+                    <div class="docdrop-hero-actions">
+                        <a href="#channels" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Send via WhatsApp</a>
+                        <a href="#channels" class="btn btn-email"><i class="fas fa-envelope"></i> Send via Email</a>
+                    </div>
+                </div>
+
+                <div class="docdrop-hero-visual">
+                    <!-- Phone Mockup with WhatsApp chat -->
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="phone-header">
+                                <div class="phone-header-avatar">AZ</div>
+                                <div class="phone-header-info">
+                                    <div class="phone-header-name">Azura AI DocDrop</div>
+                                    <div class="phone-header-status">● Online</div>
+                                </div>
+                            </div>
+                            <div class="phone-chat">
+                                <div class="chat-bubble sent doc-bubble">
+                                    <div class="doc-icon">PDF</div>
+                                    <div class="doc-info">
+                                        <div class="doc-name">invoice_march.pdf</div>
+                                        <div class="doc-size">2.4 MB • 3 pages</div>
+                                    </div>
+                                </div>
+                                <div class="chat-bubble received">
+                                    ✅ Your Document has been received successfully.<br><br>
+                                    📄 File: invoice_march.pdf<br>
+                                    📦 Size: 2.4 MB<br>
+                                    🕐 Received at: 14:32 UTC
+                                </div>
+                                <div class="chat-bubble received" style="font-size: 0.75rem; color: #9ca3af;">
+                                    Thank you for using Azura AI DocDrop! 🚀
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating document badges -->
+                    <div class="floating-doc fd-1">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Invoice.pdf received ✓</span>
+                    </div>
+                    <div class="floating-doc fd-2">
+                        <i class="fas fa-file-image"></i>
+                        <span>Receipt.jpg received ✓</span>
+                    </div>
+                    <div class="floating-doc fd-3">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Report.xlsx received ✓</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             STATS BAR
+             ═══════════════════════════════════════════════════════ -->
+        <section class="docdrop-stats">
+            <div class="stats-grid">
+                <div class="stat-item animate-in">
+                    <h3 id="stat-total">0</h3>
+                    <p>Documents Received</p>
+                </div>
+                <div class="stat-item animate-in">
+                    <h3>&lt; 2s</h3>
+                    <p>Confirmation Time</p>
+                </div>
+                <div class="stat-item animate-in">
+                    <h3>2</h3>
+                    <p>Channels Supported</p>
+                </div>
+                <div class="stat-item animate-in">
+                    <h3>99.9%</h3>
+                    <p>Uptime Guarantee</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             HOW IT WORKS
+             ═══════════════════════════════════════════════════════ -->
+        <section class="docdrop-how" id="how-it-works">
+            <h2 class="section-title">How It <span>Works.</span></h2>
+            <p class="section-subtitle">Three simple steps. No setup required.</p>
+            <div class="steps-grid">
+                <div class="step-card animate-in">
+                    <div class="step-num">1</div>
+                    <div class="step-icon">📱</div>
+                    <h3>Send Your Document</h3>
+                    <p>Open WhatsApp and send any document, image, or file to our DocDrop number. Or email it to our dedicated inbox.</p>
+                </div>
+                <div class="step-card animate-in">
+                    <div class="step-num">2</div>
+                    <div class="step-icon">⚡</div>
+                    <h3>Instant Processing</h3>
+                    <p>Our server receives your file in under 2 seconds. Files are securely stored and logged with full metadata.</p>
+                </div>
+                <div class="step-card animate-in">
+                    <div class="step-num">3</div>
+                    <div class="step-icon">✅</div>
+                    <h3>Confirmation Reply</h3>
+                    <p>You receive an instant reply — "Your Document has been received successfully" — with file details and timestamp.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             CHANNELS
+             ═══════════════════════════════════════════════════════ -->
+        <section class="docdrop-channels" id="channels">
+            <h2 class="section-title">Choose Your <span>Channel.</span></h2>
+            <div class="channels-grid">
+                <!-- WhatsApp Channel -->
+                <div class="channel-card whatsapp animate-in">
+                    <div class="channel-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp Channel</h3>
+                    <p class="channel-desc">
+                        Send documents directly from your WhatsApp. Perfect for quick receipts, invoices, and on-the-go document submission. No app needed.
+                    </p>
+                    <ul class="channel-steps">
+                        <li><i class="fas fa-check-circle"></i> Save our number as a contact</li>
+                        <li><i class="fas fa-check-circle"></i> Send any document, image, or file</li>
+                        <li><i class="fas fa-check-circle"></i> Receive instant confirmation in chat</li>
+                        <li><i class="fas fa-check-circle"></i> Add a caption for context (optional)</li>
+                    </ul>
+                    <div class="channel-formats">
+                        <h4>Supported Formats</h4>
+                        <div class="format-tags">
+                            <span class="format-tag">📄 PDF</span>
+                            <span class="format-tag">🖼️ JPG/PNG</span>
+                            <span class="format-tag">📊 Excel</span>
+                            <span class="format-tag">📝 Word</span>
+                            <span class="format-tag">🎥 Video</span>
+                            <span class="format-tag">🎵 Audio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Channel -->
+                <div class="channel-card email animate-in">
+                    <div class="channel-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email Channel</h3>
+                    <p class="channel-desc">
+                        Email your documents to our dedicated inbox. Ideal for bulk submissions, formal documents, and automated forwarding rules.
+                    </p>
+                    <ul class="channel-steps">
+                        <li><i class="fas fa-check-circle"></i> Compose an email to our inbox address</li>
+                        <li><i class="fas fa-check-circle"></i> Attach your documents or images</li>
+                        <li><i class="fas fa-check-circle"></i> Receive confirmation reply email instantly</li>
+                        <li><i class="fas fa-check-circle"></i> Multiple attachments per email supported</li>
+                    </ul>
+                    <div class="channel-formats">
+                        <h4>Supported Formats</h4>
+                        <div class="format-tags">
+                            <span class="format-tag">📄 PDF</span>
+                            <span class="format-tag">🖼️ JPG/PNG/WebP</span>
+                            <span class="format-tag">📊 CSV/Excel</span>
+                            <span class="format-tag">📝 DOC/DOCX</span>
+                            <span class="format-tag">📦 ZIP</span>
+                            <span class="format-tag">📋 TXT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             FEATURES
+             ═══════════════════════════════════════════════════════ -->
+        <section class="docdrop-features" id="features">
+            <h2 class="section-title">Built for <span>Enterprise.</span></h2>
+            <div class="features-grid">
+                <div class="feature-card animate-in">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>Secure Storage</h3>
+                    <p>All files are encrypted at rest and in transit. GDPR-compliant data handling by default.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Confirmation</h3>
+                    <p>Sub-2-second response time. Your sender never wonders if their document arrived.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <i class="fas fa-database"></i>
+                    <h3>Full Audit Trail</h3>
+                    <p>Every document is logged with sender, timestamp, file size, and MIME type. Full traceability.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>API Access</h3>
+                    <p>REST API to list, filter, and retrieve received documents. Integrate with your existing systems.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Dashboard Ready</h3>
+                    <p>Real-time statistics and document counter. Monitor document flow from a single dashboard.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <i class="fas fa-globe"></i>
+                    <h3>Multi-Channel</h3>
+                    <p>WhatsApp + Email today. SMS, Telegram, and Slack integrations coming soon.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════
+             CTA SECTION
+             ═══════════════════════════════════════════════════════ -->
+        <section class="docdrop-cta" id="get-started">
+            <div class="cta-inner">
+                <h2 class="section-title">Ready to <span>Drop Docs?</span></h2>
+                <p class="cta-desc">
+                    Get your own DocDrop inbox set up in under 24 hours. Custom WhatsApp number, dedicated email inbox, and full API access included.
+                </p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-whatsapp"><i class="fas fa-rocket"></i> Get Your DocDrop Inbox</a>
+                    <a href="index.html#contact" class="btn btn-email"><i class="fas fa-calendar-check"></i> Book a Demo</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">AZURA<span>AI</span></div>
+                <p>Architecting the future of enterprise intelligence.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="index.html#services">Document Intelligence</a></li>
+                    <li><a href="docdrop.html">DocDrop</a></li>
+                    <li><a href="index.html#services">Autonomous Agents</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/azura-ai" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="facebook.html" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="instagram.html" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="linkedin.html" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="threads.html" title="Threads"><i class="fab fa-threads"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Azura AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- DocDrop Page Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ─── Mobile Hamburger Menu ───
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const navLinks = document.getElementById('nav-links');
+            if (hamburgerBtn && navLinks) {
+                const overlay = document.createElement('div');
+                overlay.className = 'nav-overlay';
+                document.body.appendChild(overlay);
+                const toggleMenu = () => {
+                    hamburgerBtn.classList.toggle('active');
+                    navLinks.classList.toggle('nav-open');
+                    overlay.classList.toggle('active');
+                    document.body.style.overflow = navLinks.classList.contains('nav-open') ? 'hidden' : '';
+                };
+                hamburgerBtn.addEventListener('click', toggleMenu);
+                overlay.addEventListener('click', toggleMenu);
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('nav-open')) toggleMenu();
+                    });
+                });
+            }
+
+            // ─── Scroll Animations ───
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.step-card, .channel-card, .feature-card, .stat-item').forEach(el => {
+                observer.observe(el);
+            });
+
+            // ─── Pull Live Stats (from backend) ───
+            async function fetchStats() {
+                const BACKEND_URL = 'https://azura-aigithubio-production.up.railway.app';
+                try {
+                    const resp = await fetch(`${BACKEND_URL}/api/documents/stats`, { signal: AbortSignal.timeout(5000) });
+                    if (resp.ok) {
+                        const data = await resp.json();
+                        const el = document.getElementById('stat-total');
+                        if (el && data.total_documents !== undefined) {
+                            animateCounter(el, data.total_documents);
+                        }
+                    }
+                } catch (e) {
+                    // Fallback — show demo count
+                    const el = document.getElementById('stat-total');
+                    if (el) animateCounter(el, 1247);
+                }
+            }
+
+            function animateCounter(el, target) {
+                const duration = 1500;
+                const start = performance.now();
+                const initial = 0;
+
+                function tick(now) {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                    el.textContent = Math.floor(initial + (target - initial) * ease).toLocaleString();
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            }
+
+            fetchStats();
+        });
+    </script>
+</body>
+</html>

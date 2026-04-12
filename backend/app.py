@@ -1,17 +1,19 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 try:
     from backend.hospital_bot import agent, PatientDeps
+    from backend.docdrop import router as docdrop_router, api_router as docdrop_api_router, init_docdrop_db
 except ImportError:
     from hospital_bot import agent, PatientDeps
+    from docdrop import router as docdrop_router, api_router as docdrop_api_router, init_docdrop_db
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import sqlite3
 import resend
 from loguru import logger
-from dotenv import load_dotenv
-
-load_dotenv()
 # Initialize Database
 def init_db():
     conn = sqlite3.connect('nexus.db')
@@ -43,7 +45,7 @@ def send_lead_notification(subject: str, html_content: str):
     except Exception as e:
         logger.error(f"Failed to send email: {e}")
 
-app = FastAPI()
+app = FastAPI(title="Azura AI Platform", description="Backend for Azura AI — Document Automation, Chat, and DocDrop.")
 
 # Configure CORS for GitHub Pages and Local testing
 app.add_middleware(
@@ -53,6 +55,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount DocDrop routers
+app.include_router(docdrop_router)
+app.include_router(docdrop_api_router)
+
+# Initialize DocDrop database
+init_docdrop_db()
 
 # agent is imported from hospital_bot
 
