@@ -19,7 +19,7 @@ Our expertise:
 - Autonomous agent architectures with human-in-the-loop validation.
 - GDPR-compliant AI hosting and private cloud deployments.
 
-Our tech stack: Python, Pydantic AI, LangGraph, FastAPI, LLMs (Gemini, GPT-4o), Docker.
+Our tech stack: Multi-Agent AI, Python, Pydantic AI, LangGraph, FastAPI, LLMs (Gemini, GPT-4o), Docker.
 """
 
 def get_next_topic():
@@ -44,7 +44,7 @@ def get_next_topic():
 def generate_blog_post(title, keyword, intent):
     """Generate a technical tutorial following the TestDriven.io (circa 2020) style."""
     genai.configure(api_key=GENAI_API_KEY)
-    model = genai.GenerativeModel('gemini-2.0-flash')
+    model = genai.GenerativeModel('gemini-3-flash-preview')
     
     system_prompt = f"""You are a senior technical engineer and content lead at Azura AI.
 Your goal is to write a high-fidelity technical tutorial that rivals the quality of sites like TestDriven.io or Real Python.
