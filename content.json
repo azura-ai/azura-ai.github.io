@@ -22,6 +22,13 @@
             "image": null
         },
         {
+            "id": "how-to-automate-invoice-processing-with-ai-in-2026",
+            "title": "How to Automate Invoice Processing with AI in 2026",
+            "subtitle": "This tutorial demonstrates how to build a production-grade, agentic invoice processing pipeline using Pydantic AI and LangGraph for structured data extraction and human-in-the-loop validation.",
+            "description": "Automated invoice processing has transitioned from rigid, template-based Optical Character Recognition (OCR) to flexible, LLM-driven Intelligent Document Proces",
+            "image": null
+        },
+        {
             "id": "how-to-automate-invoice-processing-with-ai-ocr-plus-llms",
             "title": "How to Automate Invoice Processing with AI (OCR + LLMs)",
             "subtitle": "Stop paying for manual data entry. Learn how to architect a modern Intelligent Document Processing (IDP) pipeline that reaches 99%+ accuracy.",
@@ -179,8 +186,8 @@
         }
     ],
     "stats": {
-        "total_words": 11086,
-        "avg_words": 852,
+        "total_words": 12525,
+        "avg_words": 894,
         "velocity": "1 post/week"
     },
     "calendar": null,
