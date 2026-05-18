@@ -15,6 +15,13 @@
             "image": null
         },
         {
+            "id": "ai-powered-document-automation-for-european-healthcare",
+            "title": "AI-Powered Document Automation for European Healthcare",
+            "subtitle": "Building a GDPR-compliant, agentic extraction pipeline using Pydantic AI and LangGraph for high-precision medical data processing.",
+            "description": "European healthcare providers manage a vast volume of unstructured data, ranging from handwritten prescriptions and laboratory reports to complex discharge summ",
+            "image": null
+        },
+        {
             "id": "fastapi-+-pydantic-ai-the-ultimate-high-performance-ai-backend",
             "title": "FastAPI + Pydantic AI: The Ultimate High-Performance AI Backend",
             "subtitle": "Build scalable, type-safe, and agentic AI architectures using the power of FastAPI, Pydantic AI, and Gemini.",
@@ -186,8 +193,8 @@
         }
     ],
     "stats": {
-        "total_words": 12525,
-        "avg_words": 894,
+        "total_words": 13967,
+        "avg_words": 931,
         "velocity": "1 post/week"
     },
     "calendar": null,
