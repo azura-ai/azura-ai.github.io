@@ -50,6 +50,13 @@
             "image": null
         },
         {
+            "id": "how-to-build-an-ai-chatbot-for-appointment-booking",
+            "title": "How to Build an AI Chatbot for Appointment Booking",
+            "subtitle": "This tutorial demonstrates how to architect a stateful, agentic chatbot for automated scheduling using LangGraph, Pydantic, and Python.",
+            "description": "Automating appointment booking requires more than a simple natural language interface. It demands a system capable of managing state, validating complex tempora",
+            "image": null
+        },
+        {
             "id": "how-to-calculate-roi-for-ai-automation-projects",
             "title": "How to Calculate ROI for AI Automation Projects (With Formula)",
             "subtitle": "Don\u2019t guess. Measure. Learn the exact framework we use to justify AI spend for Fortune 500 clients.",
@@ -193,8 +200,8 @@
         }
     ],
     "stats": {
-        "total_words": 13967,
-        "avg_words": 931,
+        "total_words": 15376,
+        "avg_words": 961,
         "velocity": "1 post/week"
     },
     "calendar": null,
