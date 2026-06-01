@@ -22,6 +22,13 @@
             "image": null
         },
         {
+            "id": "automating-insurance-card-verification-with-ocr-and-ai",
+            "title": "Automating Insurance Card Verification with OCR and AI",
+            "subtitle": "This tutorial demonstrates how to build a production-grade insurance card extraction pipeline using Pydantic AI and LangGraph for high-precision data validation and structured output.",
+            "description": "The manual verification of insurance cards is a significant bottleneck in healthcare administration, often leading to data entry errors, delayed claims processi",
+            "image": null
+        },
+        {
             "id": "fastapi-+-pydantic-ai-the-ultimate-high-performance-ai-backend",
             "title": "FastAPI + Pydantic AI: The Ultimate High-Performance AI Backend",
             "subtitle": "Build scalable, type-safe, and agentic AI architectures using the power of FastAPI, Pydantic AI, and Gemini.",
@@ -200,8 +207,8 @@
         }
     ],
     "stats": {
-        "total_words": 15376,
-        "avg_words": 961,
+        "total_words": 16891,
+        "avg_words": 993,
         "velocity": "1 post/week"
     },
     "calendar": null,
