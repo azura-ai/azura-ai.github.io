@@ -15,6 +15,13 @@
             "image": null
         },
         {
+            "id": "ai-fraud-detection-for-payment-processing-a-technical-guide",
+            "title": "AI Fraud Detection for Payment Processing: A Technical Guide",
+            "subtitle": "This guide demonstrates how to build a multi-agent fraud detection system using LangGraph and Pydantic AI to automate complex risk assessment in payment processing.",
+            "description": "Traditional fraud detection systems in the fintech sector primarily rely on static, rule-based engines. While effective for catching known patterns, these syste",
+            "image": null
+        },
+        {
             "id": "ai-powered-document-automation-for-european-healthcare",
             "title": "AI-Powered Document Automation for European Healthcare",
             "subtitle": "Building a GDPR-compliant, agentic extraction pipeline using Pydantic AI and LangGraph for high-precision medical data processing.",
@@ -207,8 +214,8 @@
         }
     ],
     "stats": {
-        "total_words": 16891,
-        "avg_words": 993,
+        "total_words": 18465,
+        "avg_words": 1025,
         "velocity": "1 post/week"
     },
     "calendar": null,
