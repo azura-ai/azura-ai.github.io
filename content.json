@@ -57,6 +57,13 @@
             "image": null
         },
         {
+            "id": "how-to-automate-kyc-identity-verification-with-ai",
+            "title": "How to Automate KYC Identity Verification with AI",
+            "subtitle": "This guide demonstrates how to build a production-grade KYC pipeline using LangGraph and Pydantic AI to automate document verification and data extraction.",
+            "description": "Know Your Customer (KYC) processes are a fundamental requirement for financial institutions, fintech startups, and any service provider operating under Anti-Mon",
+            "image": null
+        },
+        {
             "id": "how-to-build-an-ai-agent-with-langgraph-step-by-step-python-tutorial",
             "title": "How to Build an AI Agent with LangGraph: Step-by-Step Python Tutorial",
             "subtitle": "Move beyond simple prompts. Learn how to build a stateful, cyclic AI agent that can reason, verify, and correct its own work.",
@@ -214,8 +221,8 @@
         }
     ],
     "stats": {
-        "total_words": 18465,
-        "avg_words": 1025,
+        "total_words": 20144,
+        "avg_words": 1060,
         "velocity": "1 post/week"
     },
     "calendar": null,
