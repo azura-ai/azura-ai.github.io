@@ -132,6 +132,13 @@
             "subtitle": "Master the logic-driven orchestration of Pydantic AI and Gemini to build type-safe, vibe-aligned agentic workflows.",
             "description": "In the landscape of 2026, the definition of a \"senior developer\" has shifted. We no longer spend our days wrestling with syntax or manual memory management; we ",
             "image": null
+        },
+        {
+            "id": "what-is-intelligent-document-processing-a-complete-guide",
+            "title": "What is Intelligent Document Processing? A Complete Guide",
+            "subtitle": "Intelligent Document Processing (IDP) leverages Large Language Models and agentic workflows to transform unstructured documents into validated, machine-readable data structures.",
+            "description": "Enterprise data is predominantly unstructured. Estimates suggest that over 80% of corporate information is trapped in PDFs, scanned images, emails, and handwrit",
+            "image": null
         }
     ],
     "cases": [
@@ -221,8 +228,8 @@
         }
     ],
     "stats": {
-        "total_words": 20144,
-        "avg_words": 1060,
+        "total_words": 21780,
+        "avg_words": 1089,
         "velocity": "1 post/week"
     },
     "calendar": null,

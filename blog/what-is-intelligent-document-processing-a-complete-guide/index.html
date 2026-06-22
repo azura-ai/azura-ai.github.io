@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Intelligent Document Processing? A Complete Guide</title>
+    <!-- SEO & Social Sharing -->
+    <meta name="description" content="Intelligent Document Processing (IDP) leverages Large Language Models and agentic workflows to transform unstructured documents into validated, machine-readable data structures.">
+    <meta property="og:title" content="What is Intelligent Document Processing? A Complete Guide">
+    <meta property="og:description" content="Intelligent Document Processing (IDP) leverages Large Language Models and agentic workflows to transform unstructured documents into validated, machine-readable data structures.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://azura-ai.github.io/blog/what-is-intelligent-document-processing-a-complete-guide/">
+    <meta property="og:image" content="https://azura-ai.github.io/assets/images/og-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What is Intelligent Document Processing? A Complete Guide">
+    <meta name="twitter:description" content="Intelligent Document Processing (IDP) leverages Large Language Models and agentic workflows to transform unstructured documents into validated, machine-readable data structures.">
+    <meta name="twitter:image" content="https://azura-ai.github.io/assets/images/og-image.png">
+
+    <link rel="canonical" href="https://azura-ai.github.io/blog/what-is-intelligent-document-processing-a-complete-guide/">
+    <link rel="stylesheet" href="../../style.css?v=2.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    
+    <!-- JSON-LD Structured Data Slot -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What is Intelligent Document Processing? A Complete Guide", "description": "Enterprise data is predominantly unstructured. Estimates suggest that over 80% of corporate information is trapped in PDFs, scanned images, emails, and handwrit", "author": {"@type": "Organization", "name": "Azura AI"}, "publisher": {"@type": "Organization", "name": "Azura AI"}, "datePublished": "2026-06-22"}</script>
+</head>
+<body class="sub-page">
+    <header id="header-container">
+        <!-- Header will be injected here during build -->
+        <nav class="glass">
+    <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">AZURA<span>AI</span></a></div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html#hero">Home</a></li>
+        <li><a href="../../index.html#services">Services</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../index.html#cases">Demos</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button nav-cta" onclick="window.location.href='index.html#contact'">Get in Touch</button>
+</nav>
+
+    </header>
+
+    <main id="main-content">
+        <!-- Main body content slot -->
+        <main class="sub-page-main">
+    <section class="post-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <a href="../../blog.html" class="back-link"><i class="fas fa-chevron-left"></i> All Insights</a>
+            <h1 id="post-title">What is Intelligent Document Processing? A Complete Guide</h1>
+            <div class="post-meta">
+                <span id="post-date">March 19, 2026</span>
+                <span class="meta-separator">•</span>
+                <span class="post-tag">AI Strategy</span>
+                <span class="meta-separator">•</span>
+                <span id="read-time">8 min read</span>
+                <span class="meta-separator">•</span>
+                <span class="post-author"><i class="fas fa-user-pen"></i> Azura AI Team</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="post-container">
+        <div id="md-content" class="post-content glass-card">
+            <blockquote>
+<p>Intelligent Document Processing (IDP) leverages Large Language Models and agentic workflows to transform unstructured documents into validated, machine-readable data structures.</p>
+</blockquote>
+<h2>Introduction</h2>
+<p>Enterprise data is predominantly unstructured. Estimates suggest that over 80% of corporate information is trapped in PDFs, scanned images, emails, and handwritten notes. Traditional Optical Character Recognition (OCR) systems, while capable of converting images to text, fail to understand the semantic context or the underlying structure of the data they extract. This gap results in high manual verification costs and brittle automation pipelines that break when a document layout changes.</p>
+<p>Intelligent Document Processing (IDP) is the technical solution to this problem. Unlike legacy OCR, which relies on rigid templates and regular expressions, modern IDP utilizes Vision Language Models (VLMs) and agentic frameworks to interpret documents as a human would, but at machine scale. By combining Pydantic for data validation and LangGraph for stateful orchestration, developers can build resilient systems that handle complex extraction tasks with high precision.</p>
+<p>This guide explores the architectural components of an IDP system and provides a technical implementation using Pydantic AI and LangGraph.</p>
+<h2>Objectives</h2>
+<p>By the end of this tutorial, you will:</p>
+<ol>
+<li>Understand the architectural shift from template-based OCR to LLM-driven IDP.</li>
+<li>Implement a structured data extraction agent using Pydantic AI.</li>
+<li>Build a stateful document processing workflow with LangGraph to handle validation and retries.</li>
+<li>Evaluate the performance trade-offs between traditional and agentic IDP approaches.</li>
+</ol>
+<h2>Prerequisites</h2>
+<p>To follow this tutorial, you require the following tools and environment:</p>
+<ul>
+<li><strong>Python 3.12+</strong>: The latest stable version of Python is recommended for better type hinting and performance. <a href="https://www.python.org/downloads/">Python Downloads</a></li>
+<li><strong>Pydantic AI</strong>: A library for building production-grade AI agents with strict schema enforcement. <a href="https://ai.pydantic.dev/">Pydantic AI Documentation</a></li>
+<li><strong>LangGraph</strong>: A library for building stateful, multi-agent applications. <a href="https://langchain-ai.github.io/langgraph/">LangGraph Documentation</a></li>
+<li><strong>OpenAI or Google Gemini API Key</strong>: Access to a Vision-capable LLM (e.g., <code>gpt-4o</code> or <code>gemini-1.5-pro</code>).</li>
+<li><strong>Docker</strong>: For containerizing the final application. <a href="https://docs.docker.com/get-docker/">Docker Documentation</a></li>
+</ul>
+<h2>The Evolution of Document Processing</h2>
+<p>To understand IDP, we must categorize the evolution of document handling into three distinct phases.</p>
+<h3>Phase 1: Traditional OCR</h3>
+<p>Traditional OCR (e.g., Tesseract, early ABBYY) focuses on character recognition. It maps pixels to glyphs. The output is a &quot;bag of words&quot; or a string of text with basic coordinate data. Developers must write complex post-processing logic—often thousands of lines of Regex—to find specific fields like &quot;Invoice Total&quot; or &quot;Patient Name.&quot; If the document layout shifts by 10 pixels, the extraction often fails.</p>
+<h3>Phase 2: Template-Based Extraction</h3>
+<p>Systems like Amazon Textract or Azure Form Recognizer introduced layout awareness. They can identify tables and forms. However, they still struggle with &quot;unseen&quot; layouts. If a company receives invoices from 500 different vendors, creating and maintaining 500 templates is operationally unsustainable.</p>
+<h3>Phase 3: Agentic IDP</h3>
+<p>Agentic IDP uses LLMs as the reasoning engine. Instead of looking for a coordinate, the system &quot;reads&quot; the document. It understands that &quot;Amount Due,&quot; &quot;Total,&quot; and &quot;Balance&quot; might refer to the same data point depending on the context. By using Pydantic AI, we can force the LLM to return data that conforms exactly to a predefined Python class, ensuring type safety and immediate integration with downstream databases.</p>
+<h2>Technical Architecture of an IDP System</h2>
+<p>A production-grade IDP system consists of four primary layers:</p>
+<ol>
+<li><strong>Ingestion Layer</strong>: Handles document normalization (converting PDF, TIFF, and JPEG into a standard format) and image pre-processing (deskewing, denoising).</li>
+<li><strong>Extraction Layer</strong>: The VLM processes the visual and textual data. We use Pydantic AI here to define the &quot;contract&quot; of the output.</li>
+<li><strong>Validation Layer</strong>: Logic that checks the extracted data against business rules (e.g., &quot;Does the sum of line items equal the total?&quot;).</li>
+<li><strong>Orchestration Layer</strong>: Managed by LangGraph, this layer handles the flow of data, including human-in-the-loop (HITL) triggers if confidence scores are low.</li>
+</ol>
+<h2>Implementation: Building a Structured IDP Agent</h2>
+<p>In this section, we will implement an agent designed to extract structured data from medical laboratory reports. This requires high precision and strict adherence to a schema.</p>
+<h3>Step 1: Environment Setup</h3>
+<p>Initialize your project and install the necessary dependencies.</p>
+<pre><code class="language-bash">$ mkdir azura-idp-tutorial
+$ cd azura-idp-tutorial
+$ python -m venv venv
+$ source venv/bin/activate
+$ pip install pydantic-ai langgraph langchain-openai python-dotenv
+</code></pre>
+<h3>Step 2: Defining the Schema</h3>
+<p>We use Pydantic to define the structure of the data we want to extract. This acts as the &quot;source of truth&quot; for the LLM.</p>
+<pre><code class="language-python">from typing import List, Optional
+from pydantic import BaseModel, Field
+
+class LabResult(BaseModel):
+    test_name: str = Field(description=&quot;The name of the medical test (e.g., Hemoglobin).&quot;)
+    value: float = Field(description=&quot;The numerical value of the result.&quot;)
+    unit: str = Field(description=&quot;The unit of measurement (e.g., g/dL).&quot;)
+    reference_range: str = Field(description=&quot;The normal range for this test.&quot;)
+    is_abnormal: bool = Field(description=&quot;True if the value is outside the reference range.&quot;)
+
+class MedicalReport(BaseModel):
+    patient_name: str
+    date_of_service: str
+    provider_name: str
+    results: List[LabResult]
+    summary: Optional[str] = Field(description=&quot;A brief clinical summary of the findings.&quot;)
+</code></pre>
+<h3>Step 3: Implementing the Pydantic AI Agent</h3>
+<p>Pydantic AI allows us to wrap the LLM in an <code>Agent</code> class that enforces the schema defined above. We use the <code>result_type</code> parameter to ensure the output is an instance of <code>MedicalReport</code>.</p>
+<pre><code class="language-python">import os
+from dotenv import load_dotenv
+from pydantic_ai import Agent
+from pydantic_ai.models.openai import OpenAIModel
+
+load_dotenv()
+
+# Initialize the model
+model = OpenAIModel('gpt-4o')
+
+# Define the IDP Agent
+idp_agent = Agent(
+    model,
+    result_type=MedicalReport,
+    system_prompt=(
+        &quot;You are a specialized medical document processor. &quot;
+        &quot;Extract all relevant data from the provided document image or text. &quot;
+        &quot;Ensure all numerical values are correctly parsed and abnormal flags are set.&quot;
+    ),
+)
+
+async def extract_document_data(content: str):
+    # In a real scenario, 'content' could be a base64 encoded image or raw text
+    result = await idp_agent.run(content)
+    return result.data
+</code></pre>
+<h3>Step 4: Orchestrating with LangGraph</h3>
+<p>Simple extraction is rarely enough. In enterprise environments, we need a workflow that validates the data and retries the extraction if the schema is violated or if business logic fails. LangGraph provides a <code>StateGraph</code> to manage this.</p>
+<p>We use a <code>StateGraph</code> over a simple loop because it allows for persistent state, fine-grained control over node transitions, and the ability to add human-in-the-loop checkpoints.</p>
+<pre><code class="language-python">from typing import TypedDict, Annotated
+from langgraph.graph import StateGraph, END
+
+class AgentState(TypedDict):
+    raw_content: str
+    extracted_data: Optional[MedicalReport]
+    errors: List[str]
+    retry_count: int
+
+def extraction_node(state: AgentState):
+    &quot;&quot;&quot;Node to handle the initial extraction.&quot;&quot;&quot;
+    try:
+        # Synchronous wrapper for the async agent call
+        import asyncio
+        data = asyncio.run(idp_agent.run(state['raw_content']))
+        return {&quot;extracted_data&quot;: data.data, &quot;errors&quot;: []}
+    except Exception as e:
+        return {&quot;errors&quot;: [str(e)], &quot;retry_count&quot;: state['retry_count'] + 1}
+
+def validation_node(state: AgentState):
+    &quot;&quot;&quot;Node to validate business logic (e.g., checking if patient name is valid).&quot;&quot;&quot;
+    data = state['extracted_data']
+    errors = []
+    
+    if not data.patient_name or len(data.patient_name) &lt; 2:
+        errors.append(&quot;Invalid patient name detected.&quot;)
+    
+    if not data.results:
+        errors.append(&quot;No lab results found in the document.&quot;)
+        
+    return {&quot;errors&quot;: errors}
+
+def should_continue(state: AgentState):
+    &quot;&quot;&quot;Conditional logic to determine the next step.&quot;&quot;&quot;
+    if not state['errors']:
+        return &quot;end&quot;
+    if state['retry_count'] &gt; 3:
+        return &quot;human_intervention&quot;
+    return &quot;retry&quot;
+
+# Build the graph
+workflow = StateGraph(AgentState)
+
+workflow.add_node(&quot;extract&quot;, extraction_node)
+workflow.add_node(&quot;validate&quot;, validation_node)
+
+workflow.set_entry_point(&quot;extract&quot;)
+
+workflow.add_edge(&quot;extract&quot;, &quot;validate&quot;)
+workflow.add_conditional_edges(
+    &quot;validate&quot;,
+    should_continue,
+    {
+        &quot;end&quot;: END,
+        &quot;retry&quot;: &quot;extract&quot;,
+        &quot;human_intervention&quot;: END # In production, route to a manual review queue
+    }
+)
+
+app = workflow.compile()
+</code></pre>
+<h2>Comparison: Traditional vs. Agentic IDP</h2>
+<p>The following table compares the technical and operational characteristics of traditional OCR-based systems versus Agentic IDP systems powered by LLMs and frameworks like Pydantic AI.</p>
+<p>| Feature | Traditional OCR (Template-based) | Agentic IDP (LLM-based) |
+| : | : | : |
+| <strong>Extraction Logic</strong> | Coordinate-based / Regex | Semantic understanding |
+| <strong>Layout Sensitivity</strong> | High (breaks on minor changes) | Low (layout agnostic) |
+| <strong>Data Validation</strong> | Manual / Hardcoded rules | Schema-driven (Pydantic) |
+| <strong>Development Time</strong> | Weeks (per document type) | Hours (prompt + schema) |
+| <strong>Computational Cost</strong> | Low (CPU intensive) | High (Token-based pricing) |
+| <strong>Accuracy (Unseen Docs)</strong> | Poor (&lt; 60%) | High (&gt; 90% with proper prompting) |
+| <strong>Human-in-the-loop</strong> | Required for most fields | Required only for low-confidence |</p>
+<h2>Advanced Considerations in IDP</h2>
+<h3>Handling Multi-page Documents</h3>
+<p>When processing documents exceeding 50 pages, context window limits become a constraint. The recommended architectural pattern is to:</p>
+<ol>
+<li><strong>Segment</strong>: Split the PDF into individual pages or logical sections.</li>
+<li><strong>Map</strong>: Run the extraction agent in parallel across all segments.</li>
+<li><strong>Reduce</strong>: Use a secondary &quot;Aggregator Agent&quot; to combine the structured data, resolve duplicates, and ensure cross-page consistency (e.g., a table spanning three pages).</li>
+</ol>
+<h3>Vision vs. Text-only Extraction</h3>
+<p>While many LLMs accept raw text (via OCR pre-processing), Vision Language Models (VLMs) like GPT-4o or Gemini 1.5 Pro perform significantly better on complex layouts. VLMs preserve the spatial relationship between elements, which is critical for understanding nested tables or multi-column forms where the reading order might be ambiguous in a text-only stream.</p>
+<h3>Security and Compliance</h3>
+<p>For industries like Healthcare and Fintech, data residency is paramount. While API-based models offer high performance, local deployments of models like Llama 3 (via vLLM) or specialized IDP models (like Donut or Nougat) may be required to meet GDPR or HIPAA requirements. Implementing a Pydantic AI layer allows for easy switching between cloud APIs and local inference servers without changing the core business logic.</p>
+<h2>Conclusion</h2>
+<p>Intelligent Document Processing represents a fundamental shift from simple character recognition to deep semantic understanding. By utilizing Pydantic AI for structured output and LangGraph for stateful workflow management, developers can build IDP pipelines that are not only more accurate than traditional methods but also significantly more resilient to changes in document formatting. The combination of strict schema enforcement and autonomous retry logic minimizes the need for manual intervention and accelerates the integration of unstructured data into enterprise systems.</p>
+<p>Azura AI helps enterprises design and deploy these agentic IDP systems at scale, ensuring high-precision data extraction while maintaining strict GDPR compliance.</p>
+
+        </div>
+
+        <!-- Social Share + CTA -->
+        <div class="post-footer">
+            <div class="share-row">
+                <span>Share this insight:</span>
+                <a id="share-twitter" href="https://twitter.com/intent/tweet?text=What%20is%20Intelligent%20Document%20Processing%3F%20A%20Complete%20Guide&url=https%3A//azura-ai.github.io/blog/what-is-intelligent-document-processing-a-complete-guide/" target="_blank" class="share-btn"><i class="fab fa-x-twitter"></i> X Twitter</a>
+                <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//azura-ai.github.io/blog/what-is-intelligent-document-processing-a-complete-guide/" target="_blank" class="share-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <button id="share-copy" class="share-btn"><i class="fas fa-copy"></i> Copy Link</button>
+            </div>
+            <div class="post-cta">
+                <h3>Ready to implement this in your business?</h3>
+                <p>Our team specializes in turning these insights into production-grade AI systems.</p>
+                <a href="../../index.html#contact" class="cta-button">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+    </main>
+
+    <footer id="footer-container">
+        <!-- Footer will be injected here during build -->
+            <div class="footer-content">
+        <div class="footer-brand">
+            <div class="logo">AZURA<span>AI</span></div>
+            <p>Architecting the future of enterprise intelligence.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Solutions</h4>
+            <ul>
+                <li><a href="../../index.html#services">Document Intelligence</a></li>
+                <li><a href="../../index.html#services">Retail Workflow Analytics</a></li>
+                <li><a href="../../index.html#services">Autonomous Agents</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                <a href="https://github.com/azura-ai" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="../../facebook.html" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="../../instagram.html" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="../../linkedin.html" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="../../threads.html" title="Threads"><i class="fab fa-threads"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Azura AI. All rights reserved.</p>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-closed">
+        <div class="chatbot-header">
+            <div class="bot-info">
+                <div class="bot-status-dot"></div>
+                <span>Azura AI Assistant</span>
+            </div>
+            <button id="close-chat"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot-message">Welcome. How can I assist with your document workflow automation today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type a message...">
+            <button id="send-msg"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button id="chatbot-trigger"><i class="fas fa-comment-dots"></i></button>
+
+    </footer>
+
+    <script src="../../script.js" defer></script>
+    
+</body>
+</html>
