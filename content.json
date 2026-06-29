@@ -92,6 +92,13 @@
             "image": null
         },
         {
+            "id": "ocr-vs-ai-document-processing-whats-the-difference",
+            "title": "OCR vs AI Document Processing: What's the Difference?",
+            "subtitle": "A technical evaluation of traditional optical character recognition versus modern intelligent document processing using multimodal models and agentic frameworks.",
+            "description": "For decades, Optical Character Recognition (OCR) has been the standard for converting images of text into machine-readable formats. However, as enterprise data ",
+            "image": null
+        },
+        {
             "id": "state-machines-for-humans-building-cyclic-agents-with-langgraph",
             "title": "State Machines for Humans: Building Cyclic Agents with LangGraph",
             "subtitle": "Master cyclic agentic orchestration by blending Pydantic AI\u2019s schema-first rigor with LangGraph\u2019s computational fluidity.",
@@ -228,8 +235,8 @@
         }
     ],
     "stats": {
-        "total_words": 21780,
-        "avg_words": 1089,
+        "total_words": 23319,
+        "avg_words": 1110,
         "velocity": "1 post/week"
     },
     "calendar": null,
