@@ -43,6 +43,13 @@
             "image": null
         },
         {
+            "id": "gdpr-compliant-ai-how-to-process-documents-in-europe",
+            "title": "GDPR-Compliant AI: How to Process Documents in Europe",
+            "subtitle": "This technical guide outlines the architecture and implementation of a document processing pipeline that adheres to EU data residency and sovereignty requirements using Pydantic AI and LangGraph.",
+            "description": "Enterprise document processing in the European Union requires strict adherence to the General Data Protection Regulation (GDPR). For technical leads and data of",
+            "image": null
+        },
+        {
             "id": "how-to-automate-invoice-processing-with-ai-in-2026",
             "title": "How to Automate Invoice Processing with AI in 2026",
             "subtitle": "This tutorial demonstrates how to build a production-grade, agentic invoice processing pipeline using Pydantic AI and LangGraph for structured data extraction and human-in-the-loop validation.",
@@ -235,8 +242,8 @@
         }
     ],
     "stats": {
-        "total_words": 23319,
-        "avg_words": 1110,
+        "total_words": 24927,
+        "avg_words": 1133,
         "velocity": "1 post/week"
     },
     "calendar": null,
