@@ -36,6 +36,13 @@
             "image": null
         },
         {
+            "id": "building-ai-agents-with-python-langgraph-vs-pydantic-ai",
+            "title": "Building AI Agents with Python: LangGraph vs Pydantic AI",
+            "subtitle": "This guide provides a technical comparison and implementation walkthrough of LangGraph and Pydantic AI for developing production-grade agentic workflows.",
+            "description": "The transition from simple Large Language Model (LLM) prompts to complex agentic workflows represents a significant shift in AI engineering. While basic Retriev",
+            "image": null
+        },
+        {
             "id": "fastapi-+-pydantic-ai-the-ultimate-high-performance-ai-backend",
             "title": "FastAPI + Pydantic AI: The Ultimate High-Performance AI Backend",
             "subtitle": "Build scalable, type-safe, and agentic AI architectures using the power of FastAPI, Pydantic AI, and Gemini.",
@@ -242,8 +249,8 @@
         }
     ],
     "stats": {
-        "total_words": 24927,
-        "avg_words": 1133,
+        "total_words": 26521,
+        "avg_words": 1153,
         "velocity": "1 post/week"
     },
     "calendar": null,

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building AI Agents with Python: LangGraph vs Pydantic AI</title>
+    <!-- SEO & Social Sharing -->
+    <meta name="description" content="This guide provides a technical comparison and implementation walkthrough of LangGraph and Pydantic AI for developing production-grade agentic workflows.">
+    <meta property="og:title" content="Building AI Agents with Python: LangGraph vs Pydantic AI">
+    <meta property="og:description" content="This guide provides a technical comparison and implementation walkthrough of LangGraph and Pydantic AI for developing production-grade agentic workflows.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://azura-ai.github.io/blog/building-ai-agents-with-python-langgraph-vs-pydantic-ai/">
+    <meta property="og:image" content="https://azura-ai.github.io/assets/images/og-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Building AI Agents with Python: LangGraph vs Pydantic AI">
+    <meta name="twitter:description" content="This guide provides a technical comparison and implementation walkthrough of LangGraph and Pydantic AI for developing production-grade agentic workflows.">
+    <meta name="twitter:image" content="https://azura-ai.github.io/assets/images/og-image.png">
+
+    <link rel="canonical" href="https://azura-ai.github.io/blog/building-ai-agents-with-python-langgraph-vs-pydantic-ai/">
+    <link rel="stylesheet" href="../../style.css?v=2.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    
+    <!-- JSON-LD Structured Data Slot -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Building AI Agents with Python: LangGraph vs Pydantic AI", "description": "The transition from simple Large Language Model (LLM) prompts to complex agentic workflows represents a significant shift in AI engineering. While basic Retriev", "author": {"@type": "Organization", "name": "Azura AI"}, "publisher": {"@type": "Organization", "name": "Azura AI"}, "datePublished": "2026-07-13"}</script>
+</head>
+<body class="sub-page">
+    <header id="header-container">
+        <!-- Header will be injected here during build -->
+        <nav class="glass">
+    <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">AZURA<span>AI</span></a></div>
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="../../index.html#hero">Home</a></li>
+        <li><a href="../../index.html#services">Services</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../index.html#cases">Demos</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="cta-button nav-cta" onclick="window.location.href='index.html#contact'">Get in Touch</button>
+</nav>
+
+    </header>
+
+    <main id="main-content">
+        <!-- Main body content slot -->
+        <main class="sub-page-main">
+    <section class="post-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <a href="../../blog.html" class="back-link"><i class="fas fa-chevron-left"></i> All Insights</a>
+            <h1 id="post-title">Building AI Agents with Python: LangGraph vs Pydantic AI</h1>
+            <div class="post-meta">
+                <span id="post-date">March 19, 2026</span>
+                <span class="meta-separator">•</span>
+                <span class="post-tag">AI Strategy</span>
+                <span class="meta-separator">•</span>
+                <span id="read-time">7 min read</span>
+                <span class="meta-separator">•</span>
+                <span class="post-author"><i class="fas fa-user-pen"></i> Azura AI Team</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="post-container">
+        <div id="md-content" class="post-content glass-card">
+            <blockquote>
+<p>This guide provides a technical comparison and implementation walkthrough of LangGraph and Pydantic AI for developing production-grade agentic workflows.</p>
+</blockquote>
+<h2>Introduction</h2>
+<p>The transition from simple Large Language Model (LLM) prompts to complex agentic workflows represents a significant shift in AI engineering. While basic Retrieval-Augmented Generation (RAG) systems follow a linear path, autonomous agents require cycles, state management, and robust error handling. Developers are currently faced with two primary architectural choices for building these systems in Python: LangGraph and Pydantic AI.</p>
+<p>LangGraph, an extension of the LangChain ecosystem, treats agentic workflows as cyclic graphs. It is designed for complex, stateful multi-agent systems where the flow of execution must be fine-grained and persistent. Conversely, Pydantic AI is a newer, model-agnostic framework that prioritizes type safety, structured data extraction, and developer experience by leveraging Pydantic's validation capabilities.</p>
+<p>This tutorial explores the architectural differences between these frameworks and provides implementation examples for both to help you determine which is better suited for your specific enterprise use case.</p>
+<h2>Objectives</h2>
+<p>By the end of this tutorial, you will:</p>
+<ol>
+<li>Understand the fundamental architectural differences between graph-based and type-safe agent frameworks.</li>
+<li>Implement a stateful, cyclic agent using LangGraph.</li>
+<li>Implement a type-safe, tool-calling agent using Pydantic AI.</li>
+<li>Evaluate framework trade-offs regarding state management, observability, and type safety.</li>
+</ol>
+<h2>Prerequisites</h2>
+<p>To follow this tutorial, you will need:</p>
+<ul>
+<li>Python 3.12 or higher.</li>
+<li>An OpenAI API key or Anthropic API key.</li>
+<li>Basic familiarity with asynchronous Python (<code>asyncio</code>).</li>
+</ul>
+<p>Install the required dependencies:</p>
+<pre><code class="language-bash">$ pip install langgraph langchain-openai pydantic-ai logfire
+</code></pre>
+<h2>Architectural Comparison</h2>
+<p>Before diving into code, it is essential to understand the philosophical differences between the two libraries.</p>
+<p>| Feature | LangGraph | Pydantic AI |
+| : | : | : |
+| <strong>Core Paradigm</strong> | Cyclic State Machines (Graphs) | Type-safe Functional Agents |
+| <strong>State Management</strong> | Built-in persistence with Checkpointers | External/Manual state management |
+| <strong>Type Safety</strong> | Relies on Python TypedDict | Native Pydantic model validation |
+| <strong>Control Flow</strong> | Explicit nodes and edges | LLM-driven tool calling and loops |
+| <strong>Ecosystem</strong> | Deep integration with LangChain | Model-agnostic, works with any LLM |
+| <strong>Human-in-the-loop</strong> | Native &quot;breakpoint&quot; support | Manual implementation required |</p>
+<h2>Implementation: LangGraph</h2>
+<p>LangGraph is built on the concept of a <code>StateGraph</code>. Every node in the graph represents a function that transforms the current state, and edges define the transition logic. This is particularly useful for &quot;Human-in-the-loop&quot; workflows where the agent must pause for approval or correction.</p>
+<h3>Defining the State</h3>
+<p>In LangGraph, the state is the &quot;source of truth.&quot; We define it using a <code>TypedDict</code>.</p>
+<pre><code class="language-python">import operator
+from typing import Annotated, TypedDict, Union
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
+from langgraph.graph import StateGraph, END
+
+class AgentState(TypedDict):
+    # The 'messages' key will store the conversation history.
+    # Annotated with operator.add to ensure new messages are appended rather than overwritten.
+    messages: Annotated[list[BaseMessage], operator.add]
+    research_complete: bool
+</code></pre>
+<h3>Implementing Nodes and Logic</h3>
+<p>Nodes are standard Python functions. In this example, we will build a simple researcher that decides whether it has enough information to answer a query.</p>
+<pre><code class="language-python">llm = ChatOpenAI(model=&quot;gpt-4o&quot;, streaming=True)
+
+def call_model(state: AgentState):
+    messages = state['messages']
+    response = llm.invoke(messages)
+    return {&quot;messages&quot;: [response]}
+
+def router(state: AgentState):
+    last_message = state['messages'][-1]
+    if &quot;FINAL ANSWER&quot; in last_message.content:
+        return END
+    return &quot;agent&quot;
+
+# Initialize the Graph
+workflow = StateGraph(AgentState)
+
+# Add Nodes
+workflow.add_node(&quot;agent&quot;, call_model)
+
+# Set Entry Point
+workflow.set_entry_point(&quot;agent&quot;)
+
+# Add Conditional Edges
+workflow.add_conditional_edges(
+    &quot;agent&quot;,
+    router,
+    {
+        &quot;agent&quot;: &quot;agent&quot;,
+        END: END
+    }
+)
+
+# Compile the Graph
+app = workflow.compile()
+</code></pre>
+<h3>Why LangGraph?</h3>
+<p>The choice of a graph-based approach is driven by the need for <strong>cycles</strong>. Standard LangChain &quot;Chains&quot; are Directed Acyclic Graphs (DAGs). In real-world scenarios, an agent often needs to go back to a previous step—for example, if a tool returns an error or if the LLM determines its initial plan was flawed. LangGraph handles this by allowing edges to point back to previous nodes, maintaining the state throughout the cycle.</p>
+<h2>Implementation: Pydantic AI</h2>
+<p>Pydantic AI, developed by the team behind the Pydantic validation library, focuses on making agents &quot;just Python.&quot; It emphasizes type safety and structured output, making it ideal for Intelligent Document Processing (IDP) and high-precision extraction tasks.</p>
+<h3>Defining Structured Output</h3>
+<p>One of Pydantic AI's strengths is the <code>result_type</code> parameter, which ensures the agent returns data matching a specific Pydantic model.</p>
+<pre><code class="language-python">from pydantic import BaseModel, Field
+from pydantic_ai import Agent, RunContext
+from pydantic_ai.models.openai import OpenAIModel
+
+# Define the structured output schema
+class FinancialExtraction(BaseModel):
+    company_name: str = Field(description=&quot;The name of the entity&quot;)
+    revenue: float = Field(description=&quot;The annual revenue in USD&quot;)
+    currency: str = Field(default=&quot;USD&quot;)
+    confidence_score: float = Field(ge=0, le=1)
+
+# Initialize the model and agent
+model = OpenAIModel('gpt-4o')
+agent = Agent(
+    model,
+    result_type=FinancialExtraction,
+    system_prompt=&quot;Extract financial data from the provided text accurately.&quot;,
+)
+</code></pre>
+<h3>Dependency Injection and Tools</h3>
+<p>Pydantic AI introduces a clean way to handle external dependencies (like database connections or API clients) using a <code>RunContext</code>.</p>
+<pre><code class="language-python">class DatabaseConn:
+    def get_market_cap(self, ticker: str) -&gt; float:
+        # Mock database call
+        return 150000000.0
+
+@agent.tool
+async def lookup_market_cap(ctx: RunContext[DatabaseConn], ticker: str) -&gt; str:
+    market_cap = ctx.deps.get_market_cap(ticker)
+    return f&quot;The market cap for {ticker} is {market_cap}&quot;
+
+async def run_pydantic_agent():
+    deps = DatabaseConn()
+    result = await agent.run(
+        &quot;What is the revenue and market cap for TechCorp? Text: TechCorp reported 50M revenue.&quot;,
+        deps=deps
+    )
+    
+    # The result.data is an instance of FinancialExtraction
+    print(f&quot;Company: {result.data.company_name}&quot;)
+    print(f&quot;Revenue: {result.data.revenue}&quot;)
+    print(f&quot;Confidence: {result.data.confidence_score}&quot;)
+
+# To run:
+# import asyncio
+# asyncio.run(run_pydantic_agent())
+</code></pre>
+<h3>Why Pydantic AI?</h3>
+<p>Pydantic AI excels in environments where <strong>data integrity</strong> is paramount. By using Pydantic models for both input validation and output structuring, developers can catch errors at the boundary of the LLM call rather than deep within the application logic. The dependency injection system also makes unit testing agents significantly easier compared to framework-heavy alternatives.</p>
+<h2>Deep Dive: State Management and Persistence</h2>
+<p>A critical requirement for enterprise agents is the ability to resume a conversation or a multi-step process after a failure or a human intervention.</p>
+<h3>LangGraph Persistence</h3>
+<p>LangGraph provides a <code>Checkpointer</code> interface. When you compile a graph with a checkpointer (e.g., using SQLite or Postgres), the framework automatically saves the state after every node execution. This allows for &quot;Time Travel&quot;—the ability to view and even rewind the state to a previous checkpoint.</p>
+<h3>Pydantic AI State</h3>
+<p>Pydantic AI is largely stateless by design. While it handles conversation history within a single <code>run</code> or <code>run_sync</code> call, persisting that state across different sessions requires the developer to manually save the message history and reload it. This makes Pydantic AI more lightweight but requires more &quot;glue code&quot; for long-running, multi-session agents.</p>
+<h2>Choosing the Right Tool</h2>
+<h3>Use LangGraph when:</h3>
+<ul>
+<li><strong>Complex Control Flow:</strong> Your agent requires multiple loops, conditional branches, and &quot;go-to&quot; logic.</li>
+<li><strong>Human-in-the-loop:</strong> You need to pause the agent, wait for human approval, and resume from the exact same state.</li>
+<li><strong>Multi-Agent Orchestration:</strong> You are building a &quot;supervisor&quot; agent that delegates tasks to multiple specialized sub-agents.</li>
+<li><strong>Long-running Tasks:</strong> You need built-in persistence to handle infrastructure failures during 10-minute agent runs.</li>
+</ul>
+<h3>Use Pydantic AI when:</h3>
+<ul>
+<li><strong>Structured Data Extraction:</strong> Your primary goal is to turn unstructured text into validated JSON/Pydantic objects.</li>
+<li><strong>Type Safety:</strong> You want the benefits of static type checking and IDE autocompletion throughout your agent logic.</li>
+<li><strong>Simplicity:</strong> You prefer a functional approach over a graph-based abstraction.</li>
+<li><strong>FastAPI Integration:</strong> You are building a microservice and want a framework that feels native to the modern Python web ecosystem.</li>
+</ul>
+<h2>Performance and Scalability Considerations</h2>
+<p>When deploying these systems at scale, the overhead of the framework becomes a factor.</p>
+<p>| Metric | LangGraph | Pydantic AI |
+| : | : | : |
+| <strong>Cold Start</strong> | Moderate (Graph compilation) | Fast (Class instantiation) |
+| <strong>Memory Overhead</strong> | Higher (State object + History) | Lower (Minimal wrapper) |
+| <strong>Latency</strong> | Minimal (Framework adds &lt;10ms) | Minimal (Framework adds &lt;5ms) |
+| <strong>Observability</strong> | Deep (LangSmith integration) | Standard (Logfire/OpenTelemetry) |</p>
+<p>LangGraph's integration with LangSmith provides an out-of-the-box solution for debugging complex traces. Pydantic AI integrates natively with Logfire, providing a highly readable, structured logging experience that is specifically tuned for Pydantic models.</p>
+<h2>Advanced Implementation: Multi-Agent Collaboration</h2>
+<p>In many enterprise scenarios, a single agent is insufficient. Let's look at how LangGraph handles a &quot;Researcher&quot; and &quot;Writer&quot; multi-agent setup.</p>
+<pre><code class="language-python">from langchain_core.messages import HumanMessage
+from langgraph.prebuilt import create_react_agent
+
+# Define specialized tools
+def search_tool(query: str):
+    return &quot;Research data about AI agents...&quot;
+
+def writing_tool(content: str):
+    return &quot;Formatted report content.&quot;
+
+# Create specialized agents
+researcher = create_react_agent(llm, tools=[search_tool])
+writer = create_react_agent(llm, tools=[writing_tool])
+
+# In LangGraph, you would connect these agents as nodes in a parent graph
+def researcher_node(state: AgentState):
+    result = researcher.invoke(state)
+    return {&quot;messages&quot;: [AIMessage(content=result[&quot;messages&quot;][-1].content, name=&quot;Researcher&quot;)]}
+
+def writer_node(state: AgentState):
+    result = writer.invoke(state)
+    return {&quot;messages&quot;: [AIMessage(content=result[&quot;messages&quot;][-1].content, name=&quot;Writer&quot;)]}
+
+# The parent graph manages the handoff logic
+builder = StateGraph(AgentState)
+builder.add_node(&quot;researcher&quot;, researcher_node)
+builder.add_node(&quot;writer&quot;, writer_node)
+builder.add_edge(&quot;researcher&quot;, &quot;writer&quot;)
+builder.set_entry_point(&quot;researcher&quot;)
+multi_agent_app = builder.compile()
+</code></pre>
+<p>This modularity allows teams to develop and test individual agents independently before integrating them into a larger workflow.</p>
+<h2>Conclusion</h2>
+<p>Both LangGraph and Pydantic AI are powerful tools, but they serve different architectural needs. LangGraph is a robust choice for complex, stateful, and cyclic workflows where the path to a solution is not linear. Pydantic AI is the superior choice for high-precision, type-safe applications where structured data and developer velocity are the priorities.</p>
+<p>For enterprises, the choice often comes down to the complexity of the business logic. If you are automating a multi-step logistics process with human checkpoints, LangGraph's state</p>
+
+        </div>
+
+        <!-- Social Share + CTA -->
+        <div class="post-footer">
+            <div class="share-row">
+                <span>Share this insight:</span>
+                <a id="share-twitter" href="https://twitter.com/intent/tweet?text=Building%20AI%20Agents%20with%20Python%3A%20LangGraph%20vs%20Pydantic%20AI&url=https%3A//azura-ai.github.io/blog/building-ai-agents-with-python-langgraph-vs-pydantic-ai/" target="_blank" class="share-btn"><i class="fab fa-x-twitter"></i> X Twitter</a>
+                <a id="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//azura-ai.github.io/blog/building-ai-agents-with-python-langgraph-vs-pydantic-ai/" target="_blank" class="share-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <button id="share-copy" class="share-btn"><i class="fas fa-copy"></i> Copy Link</button>
+            </div>
+            <div class="post-cta">
+                <h3>Ready to implement this in your business?</h3>
+                <p>Our team specializes in turning these insights into production-grade AI systems.</p>
+                <a href="../../index.html#contact" class="cta-button">Book a Discovery Call</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+    </main>
+
+    <footer id="footer-container">
+        <!-- Footer will be injected here during build -->
+            <div class="footer-content">
+        <div class="footer-brand">
+            <div class="logo">AZURA<span>AI</span></div>
+            <p>Architecting the future of enterprise intelligence.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Solutions</h4>
+            <ul>
+                <li><a href="../../index.html#services">Document Intelligence</a></li>
+                <li><a href="../../index.html#services">Retail Workflow Analytics</a></li>
+                <li><a href="../../index.html#services">Autonomous Agents</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+                <a href="https://github.com/azura-ai" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="../../facebook.html" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="../../instagram.html" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="../../linkedin.html" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="../../threads.html" title="Threads"><i class="fab fa-threads"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Azura AI. All rights reserved.</p>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-closed">
+        <div class="chatbot-header">
+            <div class="bot-info">
+                <div class="bot-status-dot"></div>
+                <span>Azura AI Assistant</span>
+            </div>
+            <button id="close-chat"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot-message">Welcome. How can I assist with your document workflow automation today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type a message...">
+            <button id="send-msg"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <button id="chatbot-trigger"><i class="fas fa-comment-dots"></i></button>
+
+    </footer>
+
+    <script src="../../script.js" defer></script>
+    
+</body>
+</html>
