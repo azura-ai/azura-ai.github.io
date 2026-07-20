@@ -57,6 +57,13 @@
             "image": null
         },
         {
+            "id": "how-ai-is-transforming-medical-billing-and-coding",
+            "title": "How AI is Transforming Medical Billing and Coding",
+            "subtitle": "This tutorial demonstrates how to build an agentic pipeline for automated medical coding using Pydantic AI and LangGraph to reduce revenue leakage and improve billing accuracy.",
+            "description": "The healthcare revenue cycle management (RCM) industry is currently facing a significant bottleneck: the manual translation of clinical documentation into stand",
+            "image": null
+        },
+        {
             "id": "how-to-automate-invoice-processing-with-ai-in-2026",
             "title": "How to Automate Invoice Processing with AI in 2026",
             "subtitle": "This tutorial demonstrates how to build a production-grade, agentic invoice processing pipeline using Pydantic AI and LangGraph for structured data extraction and human-in-the-loop validation.",
@@ -249,8 +256,8 @@
         }
     ],
     "stats": {
-        "total_words": 26521,
-        "avg_words": 1153,
+        "total_words": 28187,
+        "avg_words": 1174,
         "velocity": "1 post/week"
     },
     "calendar": null,
