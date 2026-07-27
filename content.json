@@ -155,6 +155,13 @@
             "image": null
         },
         {
+            "id": "the-true-cost-of-manual-document-processing-in-2026",
+            "title": "The True Cost of Manual Document Processing in 2026",
+            "subtitle": "This guide analyzes the economic and operational impact of manual document workflows and demonstrates how to implement an agentic extraction pipeline using Pydantic AI and LangGraph.",
+            "description": "As we approach 2026, the gap between enterprises utilizing autonomous document processing and those relying on manual entry is widening into a structural defici",
+            "image": null
+        },
+        {
             "id": "the-vibe-coder's-guide-to-pydantic-ai-intent-first-agent-design",
             "title": "The Vibe Coder's Guide to Pydantic AI: Intent-First Agent Design",
             "subtitle": "Master the logic-driven orchestration of Pydantic AI and Gemini to build type-safe, vibe-aligned agentic workflows.",
@@ -256,8 +263,8 @@
         }
     ],
     "stats": {
-        "total_words": 28187,
-        "avg_words": 1174,
+        "total_words": 29706,
+        "avg_words": 1188,
         "velocity": "1 post/week"
     },
     "calendar": null,
