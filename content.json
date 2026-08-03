@@ -8,6 +8,13 @@
             "image": null
         },
         {
+            "id": "5-signs-your-business-needs-ai-workflow-automation",
+            "title": "5 Signs Your Business Needs AI Workflow Automation",
+            "subtitle": "This guide identifies technical indicators of operational inefficiency and demonstrates how to implement agentic AI solutions using Pydantic AI and LangGraph to automate complex business processes.",
+            "description": "In the current enterprise landscape, the bottleneck for growth is rarely a lack of data, but rather the inability to process that data at scale with high precis",
+            "image": null
+        },
+        {
             "id": "ai-fraud-detection-for-fintech-how-ml-catches-what-rules-miss",
             "title": "AI Fraud Detection for Fintech: How ML Catches What Rules Miss",
             "subtitle": "The shift from \"Reactive Rules\" to \"Predictive Intelligence.\" Learn how high-growth fintechs are reducing fraud losses by 90% in 2026.",
@@ -263,8 +270,8 @@
         }
     ],
     "stats": {
-        "total_words": 29706,
-        "avg_words": 1188,
+        "total_words": 31219,
+        "avg_words": 1200,
         "velocity": "1 post/week"
     },
     "calendar": null,
