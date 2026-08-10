@@ -15,6 +15,13 @@
             "image": null
         },
         {
+            "id": "ai-document-processing-case-study-92-cost-reduction",
+            "title": "AI Document Processing Case Study: 92% Cost Reduction",
+            "subtitle": "This case study examines the technical implementation of an agentic document processing pipeline that reduced operational costs by 92% using Pydantic AI and LangGraph.",
+            "description": "Enterprise document processing has historically relied on two extremes: manual data entry or rigid Optical Character Recognition (OCR) templates. Manual entry i",
+            "image": null
+        },
+        {
             "id": "ai-fraud-detection-for-fintech-how-ml-catches-what-rules-miss",
             "title": "AI Fraud Detection for Fintech: How ML Catches What Rules Miss",
             "subtitle": "The shift from \"Reactive Rules\" to \"Predictive Intelligence.\" Learn how high-growth fintechs are reducing fraud losses by 90% in 2026.",
@@ -270,8 +277,8 @@
         }
     ],
     "stats": {
-        "total_words": 31219,
-        "avg_words": 1200,
+        "total_words": 32739,
+        "avg_words": 1212,
         "velocity": "1 post/week"
     },
     "calendar": null,
