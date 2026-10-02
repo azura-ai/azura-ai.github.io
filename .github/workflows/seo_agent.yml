@@ -2,7 +2,7 @@ name: SEO Content Agent
 
 on:
   schedule:
-    - cron: '0 9 * * 1'  # Every Monday at 9am UTC (1 post per week)
+    #- cron: '0 9 * * 1'  # Every Monday at 9am UTC (1 post per week)
   workflow_dispatch:      # Manual trigger for on-demand drafting
 
 jobs:
